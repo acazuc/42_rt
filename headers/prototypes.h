@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/11 14:15:09 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/12 16:00:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_vector	*vector_create(void);
 double		distance_3d(t_vector *v1, t_vector *v2);
 t_point		*point_create(void);
 t_object	*create_sphere(void);
-double		collide(t_vector *vector, t_object *object);
-double		collide_sphere(t_vector *vector, t_object *object);
+double		collide(t_env *env, t_vector *vector, t_object *object);
+double		collide_sphere(t_env *env, t_vector *vector, t_object *object);
 
 #endif

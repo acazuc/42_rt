@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/11 15:55:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/12 15:15:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	draw(t_env *env)
 
 	coord = point_create();
 	fov = point_create();
-	fov->x = env->fov / 2. / 180. * M_PI;
+	fov->x = DTR(env->fov / 2.);
 	fov->y = fov->x / env->window->width * env->window->height;
 	coord->y = 0;
 	while (coord->y < env->window->height)

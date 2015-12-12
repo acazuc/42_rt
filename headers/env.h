@@ -6,7 +6,7 @@
 /*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:27:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/11 13:00:37 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/12 14:11:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct		s_env
 {
 	t_window		*window;
 	t_object_list	*objects;
+	t_vector		*position;
 	int				fov;
 }					t_env;
 

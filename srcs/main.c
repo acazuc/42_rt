@@ -6,11 +6,42 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/11 16:14:08 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/12 16:09:12 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
+
+void	add_objects(t_env *env)
+{
+	t_object	*object;
+	double		dim;
+	double		x;
+	double		y;
+
+	dim = 100;
+	y = -dim / 2;
+	while (y <= dim / 2)
+	{
+		x = -dim / 2;
+		while (x <= dim / 2)
+		{
+			object = create_sphere();
+			int red = 0xFF0000 * ((x + dim / 2.) / dim);
+			red = red - red % 0x010000;
+			int blue = 0x0000FF * ((y + dim / 2.) / dim);
+			blue = blue % 0x000100;
+			object->color = red + blue;
+			object->dimensions[0] = 1;
+			object->position->z = dim * 2;
+			object->position->x = x;
+			object->position->y = y;
+			object_add(env, object);
+			x++;
+		}
+		y++;
+	}
+}
 
 int		main(void)
 {
@@ -21,17 +52,11 @@ int		main(void)
 	env_init(env);
 	window_init(env);
 	env->fov = 66;
-	t_object *sphere;
-	sphere = create_sphere();
-	sphere->color = 0xFF0000;
-	sphere->dimensions[0] = 1;
-	sphere->position->z = 10;
-	object_add(env, sphere);
+	add_objects(env);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);
 	mlx_key_hook(env->window->mlx_window, &key_listener, env);
 	mlx_loop(env->window->mlx);
-	error_quit("Bullshit");
 }
