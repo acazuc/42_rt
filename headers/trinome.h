@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.h                                         :+:      :+:    :+:   */
+/*   trinome.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:18:33 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 10:17:02 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/13 13:26:37 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/13 13:27:27 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INCLUDES_H
-# define FT_INCLUDES_H
+#ifndef FT_TRINOME_H
+# define FT_TRINOME_H
 
-# include <mlx.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include <stdio.h>
+typedef struct		s_trinome
+{
+	double			a;
+	double			b;
+	double			c;
+	double			d;
+}					t_trinome;
 
 #endif

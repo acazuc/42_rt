@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 10:13:03 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/13 16:49:48 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int					trace(t_env *env, t_ray *ray)
 {
+	t_vector		*vector;
 	t_object_list	*list;
 	t_object		*nearest_object;
 	double			nearest_distance;
@@ -24,8 +25,9 @@ int					trace(t_env *env, t_ray *ray)
 	list = env->objects;
 	while (list)
 	{
-		if ((distance = collide(ray, list->object)) != -1
-				&& (nearest_distance == -1 || distance < nearest_distance))
+		if ((vector = collide(ray, list->object))
+				&& (nearest_distance == -1
+					|| (distance = vector_size(vector)) < nearest_distance))
 		{
 			nearest_distance = distance;
 			nearest_object = list->object;

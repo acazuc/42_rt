@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 10:00:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/13 16:25:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	add_objects(t_env *env)
 
 int		main(void)
 {
+	t_object	*object;
+	t_light		*light;
 	t_env		*env;
 
 	if (!(env = malloc(sizeof(*env))))
@@ -52,13 +54,17 @@ int		main(void)
 	env_init(env);
 	window_init(env);
 	env->fov = 66;
-	//add_objects(env);
-	t_object *object;
 	object = create_sphere();
 	object->color = 0xFF0000;
 	object->dimensions[0] = 1;
-	object->position->z = 10;
+	object->position->y = 1;
+	object->position->z = 20;
 	object_add(env, object);
+	light = light_create();
+	light->position->z = 10;
+	light->position->x = 10;
+	light->position->y = 2;
+	light->luminosity = .5;
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");

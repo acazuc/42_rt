@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.h                                         :+:      :+:    :+:   */
+/*   vector_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:18:33 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 10:17:02 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/13 16:31:12 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/13 16:33:14 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INCLUDES_H
-# define FT_INCLUDES_H
+#include "../headers/rtv1.h"
 
-# include <mlx.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include <stdio.h>
+double	vector_size(t_vector *vector)
+{
+	double	dx;
+	double	dy;
+	double	dz;
 
-#endif
+	dx = vector->x * vector->x;
+	dy = vector->y * vector->y;
+	dz = vector->z * vector->z;
+	return (sqrt(dx + dy + dz));
+}

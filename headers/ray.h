@@ -6,12 +6,14 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 09:42:33 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 09:48:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/13 15:57:19 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_RAY_H
 # define FT_RAY_H
+
+# include "vector.h"
 
 typedef struct		s_ray
 {

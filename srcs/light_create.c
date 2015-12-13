@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.h                                         :+:      :+:    :+:   */
+/*   light_create.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:18:33 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 10:17:02 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/13 15:40:01 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/13 16:09:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INCLUDES_H
-# define FT_INCLUDES_H
+#include "../headers/rtv1.h"
 
-# include <mlx.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include <stdio.h>
+t_light		*light_create(void)
+{
+	t_light		*light;
 
-#endif
+	if (!(light = malloc(sizeof(*light))))
+		error_quit("Failed to malloc new light");
+	light->position = vector_create();
+	light->luminosity = 0;
+	return (light);
+}

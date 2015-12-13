@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   object_add.c                                       :+:      :+:    :+:   */
+/*   vector_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:55:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 16:05:29 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/13 10:16:24 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/13 13:08:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-void	object_add(t_env *env, t_object *object)
+void	vector_rotate(t_vector *vector, t_vector *rotation)
 {
-	t_object_list	*list;
-	t_object_list	*new_item;
+	vector_rotate_x(vector, DTR(rotation->x));
+	vector_rotate_y(vector, DTR(rotation->y));
+	vector_rotate_x(vector, DTR(rotation->z));
+}
 
-	if (!(new_item = malloc(sizeof(*new_item))))
-		error_quit("Failed to malloc new object list item");
-	new_item->object = object;
-	new_item->next = NULL;
-	if (!(env->objects))
-		env->objects = new_item;
-	else
-	{
-		list = env->objects;
-		while (list->next)
-			list = list->next;
-		list->next = new_item;
-	}
+void	vector_unrotate(t_vector *vector, t_vector *rotation)
+{
+	vector_rotate_z(vector, DTR(-rotation->z));
+	vector_rotate_y(vector, DTR(-rotation->y));
+	vector_rotate_x(vector, DTR(-rotation->x));
 }

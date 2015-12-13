@@ -6,50 +6,65 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 10:12:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/13 16:53:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-static double	collide_cylinder_result(t_ray *ray, double a, double b
-		, double d)
+static int			collide_cylinder_result_inside(t_ray *ray
+		, t_object *cylinder, double t)
 {
-	double	t1;
-	double	t2;
-	double	t;
+	double		y;
+
+	y = ray->direction->y * t + ray->origin->y;
+	if (y < cylinder->position->y - (cylinder->dimensions[1] / 2.)
+			|| y > cylinder->position->y + (cylinder->dimensions[1] / 2.))
+		return (0);
+	return (1);
+}
+
+static t_vector		*collide_cylinder_result(t_ray *ray, t_trinome *trinome
+		, t_object *cylinder)
+{
+	t_vector	*vector;
+	double		t1;
+	double		t2;
+	double		t;
 
 	t1 = 0;
 	t2 = 0;
 	t = 0;
-	if (d < 0)
-		return (-1);
-	else if (d == 0)
-		t = -b / (2. * a);
-	else if (d > 0)
+	if (trinome->d < 0)
+		return (NULL);
+	else if (trinome->d == 0)
+		t = -trinome->b / (2. * trinome->a);
+	else if (trinome->d > 0)
 	{
-		t1 = (-b + sqrt(d)) / (2. * a);
-		t2 = (-b - sqrt(d)) / (2. * a);
+		t1 = (-trinome->b + sqrt(trinome->d)) / (2. * trinome->a);
+		t2 = (-trinome->b - sqrt(trinome->d)) / (2. * trinome->a);
 		t = MIN(t1, t2);
 	}
-	return (sqrt(pow(ray->direction->x * t, 2)
-				+ pow(ray->direction->y * t, 2)
-				+ pow(ray->direction->z * t, 2)));
+	if (!(collide_cylinder_result_inside(ray, cylinder, t)))
+		return (NULL);
+	vector = vector_create();
+	vector->x = ray->direction->x * t;
+	vector->y = ray->direction->y * t;
+	vector->z = ray->direction->z * t;
+	return (vector);
 }
 
-double			collide_cylinder(t_ray *ray, t_object *cylinder)
+t_vector			*collide_cylinder(t_ray *ray, t_object *cylinder)
 {
-	double	a;
-	double	b;
-	double	c;
-	double	d;
+	t_trinome	trinome;
 
-	a = pow(ray->direction->x, 2) + pow(ray->direction->z, 2);
-	b = 2. * (ray->direction->x * (ray->origin->x - cylinder->position->x)
+	trinome.a = pow(ray->direction->x, 2) + pow(ray->direction->z, 2);
+	trinome.b = 2.
+		* (ray->direction->x * (ray->origin->x - cylinder->position->x)
 			+ ray->direction->z * (ray->origin->z - cylinder->position->z));
-	c = (pow(ray->origin->x - cylinder->position->x, 2)
+	trinome.c = (pow(ray->origin->x - cylinder->position->x, 2)
 			+ pow(ray->origin->z - cylinder->position->z, 2))
 		- pow(cylinder->dimensions[0], 2);
-	d = b * b - 4. * a * c;
-	return (collide_cylinder_result(ray, a, b, d));
+	trinome.d = trinome.b * trinome.b - 4. * trinome.a * trinome.c;
+	return (collide_cylinder_result(ray, &trinome, cylinder));
 }

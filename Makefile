@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/13 09:59:50 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/13 17:05:07 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,12 @@ HEADERS = $(HDIR)console.h \
 		  $(HDIR)object_type.h \
 		  $(HDIR)vector.h \
 		  $(HDIR)functions.h \
-		  $(HDIR)ray.h
+		  $(HDIR)ray.h \
+		  $(HDIR)light.h \
+		  $(HDIR)point.h \
+		  $(HDIR)trinome.h \
+		  $(HDIR)light_list.h \
+		  $(HDIR)colors.h
 
 DIR = srcs/
 
@@ -54,13 +59,19 @@ SRCS = $(DIR)main.c \
 	   $(DIR)collide.c \
 	   $(DIR)collide_sphere.c \
 	   $(DIR)collide_cylinder.c \
-	   $(DIR)ray_create.c
+	   $(DIR)ray_create.c \
+	   $(DIR)vector_rotate.c \
+	   $(DIR)vector_rotation.c \
+	   $(DIR)light_create.c \
+	   $(DIR)light_add.c \
+	   $(DIR)vector_size.c \
+	   $(DIR)color_create.c
 
 OBJS = $(SRCS:.c=.o)
 
-LIBRARY = -lm -L libft/ -lft -L minilibx/ -lmlx -framework OpenGL -framework AppKit
+LIBRARY = -lm -lmlx -L libft/ -lft -framework OpenGL -framework AppKit
 
-all: libft $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo "\033[1;32m"
@@ -115,25 +126,25 @@ $(NAME): $(OBJS)
 	@echo "                               EMAKEFILEM                                              "
 	@echo "                                 AKEFILE                                               "
 	@echo "                                   MAK                                                 "
+	@Make -C libft
 	@$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBRARY)
 
 %.o: %.c
 	@echo " - Compiling $<"
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
-.PHONY: clean fclean re libft norme
+.PHONY: clean fclean re norme
 
 norme:
 	@norminette $(SRCS) $(HEADERS)
 
-libft:
-	@make -C libft/
-
 clean:
+	@Make clean -C libft
 	@echo " - Clearing objects files"
 	@rm -f $(OBJS)
 
 fclean: clean
+	@Make fclean -C libft
 	@echo " - Clearing executable file"
 	@rm -f $(NAME)
 
