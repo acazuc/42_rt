@@ -1,6 +1,5 @@
 *.o
 git.sh
 libft/*
-minilibx/*
 *.swp
 rtv1

@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/12 14:00:53 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/13 09:59:50 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ HEADERS = $(HDIR)console.h \
 		  $(HDIR)object_list.h \
 		  $(HDIR)object_type.h \
 		  $(HDIR)vector.h \
-		  $(HDIR)functions.h
+		  $(HDIR)functions.h \
+		  $(HDIR)ray.h
 
 DIR = srcs/
 
@@ -49,8 +50,11 @@ SRCS = $(DIR)main.c \
 	   $(DIR)key_listener.c \
 	   $(DIR)point_create.c \
 	   $(DIR)create_sphere.c \
+	   $(DIR)create_cylinder.c \
 	   $(DIR)collide.c \
-	   $(DIR)collide_sphere.c
+	   $(DIR)collide_sphere.c \
+	   $(DIR)collide_cylinder.c \
+	   $(DIR)ray_create.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/12 16:09:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/13 10:00:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
-
+/*
 void	add_objects(t_env *env)
 {
 	t_object	*object;
@@ -19,7 +19,7 @@ void	add_objects(t_env *env)
 	double		x;
 	double		y;
 
-	dim = 100;
+	dim = 0;
 	y = -dim / 2;
 	while (y <= dim / 2)
 	{
@@ -41,7 +41,7 @@ void	add_objects(t_env *env)
 		}
 		y++;
 	}
-}
+}*/
 
 int		main(void)
 {
@@ -52,7 +52,13 @@ int		main(void)
 	env_init(env);
 	window_init(env);
 	env->fov = 66;
-	add_objects(env);
+	//add_objects(env);
+	t_object *object;
+	object = create_sphere();
+	object->color = 0xFF0000;
+	object->dimensions[0] = 1;
+	object->position->z = 10;
+	object_add(env, object);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");

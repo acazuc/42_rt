@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collide.c                                          :+:      :+:    :+:   */
+/*   ray_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 12:52:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 09:52:01 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/13 09:45:27 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/13 09:59:00 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-double		collide(t_ray *ray, t_object *object)
+t_ray	*ray_create(void)
 {
-	if (object->type == SPHERE)
-		return (collide_sphere(ray, object));
-	if (object->type == CYLINDER)
-		return (collide_cylinder(ray, object));
-	return (-1);
+	t_ray	*ray;
+
+	if (!(ray = malloc(sizeof(*ray))))
+		error_quit("Failed to malloc ray");
+	ray->direction = vector_create();
+	ray->origin = vector_create();
+	return (ray);
 }

@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collide.c                                          :+:      :+:    :+:   */
+/*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 12:52:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 09:52:01 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/13 09:42:33 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/13 09:48:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#ifndef FT_RAY_H
+# define FT_RAY_H
 
-double		collide(t_ray *ray, t_object *object)
+typedef struct		s_ray
 {
-	if (object->type == SPHERE)
-		return (collide_sphere(ray, object));
-	if (object->type == CYLINDER)
-		return (collide_cylinder(ray, object));
-	return (-1);
-}
+	t_vector		*direction;
+	t_vector		*origin;
+}					t_ray;
+
+#endif
