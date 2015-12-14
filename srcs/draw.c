@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:54:48 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 14:56:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,26 @@ static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 	ray->origin->z = env->position->z;
 }
 
-void			draw(t_env *env)
+static int		get_color(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 {
 	t_collision	*collision;
+	int			color;
+
+	set_ray(env, ray, coord, fov);
+	collision = trace(env, ray);
+	if (collision->object)
+		color = color_factor(collision->object->color
+				, light_level(env, collision->vector));
+	else
+		color = BLACK;
+	return (color);
+}
+
+void			draw(t_env *env)
+{
 	t_point		*coord;
 	t_point		*fov;
 	t_ray		*ray;
-	int			color;
 
 	coord = point_create();
 	fov = point_create();
@@ -49,17 +62,8 @@ void			draw(t_env *env)
 	{
 		coord->x = 0;
 		while (coord->x < env->window->width)
-		{
-			set_ray(env, ray, coord, fov);
-			collision = trace(env, ray);
-			if (collision->object)
-				color = color_factor(collision->object->color
-						, light_level(env, collision->vector));
-			else
-				color = BLACK;
-			pixel_put(env, coord->x, coord->y, color);
-			coord->x++;
-		}
+			pixel_put(env, coord->x++, coord->y
+					, get_color(env, ray, coord, fov));
 		coord->y++;
 	}
 	free(ray);

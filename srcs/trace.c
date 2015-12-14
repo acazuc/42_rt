@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:47:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:50:50 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ t_collision			*trace(t_env *env, t_ray *ray)
 	double			distance;
 
 	nearest_distance = -1;
+	distance = -1;
 	list = env->objects;
 	collision = collision_create();
 	while (list)
 	{
 		if ((vector = collide(ray, list->object))
 				&& (nearest_distance == -1
-					|| (distance = vector_size(vector)) < nearest_distance))
+					| (distance = vector_size(vector)) < nearest_distance))
 		{
 			collision->vector = vector;
 			collision->object = list->object;

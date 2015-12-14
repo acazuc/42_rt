@@ -6,11 +6,26 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 16:49:57 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:56:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
+
+static double		get_t(t_trinome *trinome)
+{
+	double		t1;
+	double		t2;
+
+	t1 = (-trinome->b + sqrt(trinome->d)) / (2. * trinome->a);
+	t2 = (-trinome->b - sqrt(trinome->d)) / (2. * trinome->a);
+	if (t1 < 0)
+		return (t2);
+	else if (t2 < 0)
+		return (t1);
+	else
+		return (MIN(t1, t2));
+}
 
 static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 {
@@ -28,9 +43,8 @@ static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 		t = -trinome->b / (2. * trinome->a);
 	else if (trinome->d > 0)
 	{
-		t1 = (-trinome->b + sqrt(trinome->d)) / (2. * trinome->a);
-		t2 = (-trinome->b - sqrt(trinome->d)) / (2. * trinome->a);
-		t = MIN(t1, t2);
+		if ((t = get_t(trinome)) < 0)
+			return (NULL);
 	}
 	vector = vector_create();
 	vector->x = ray->direction->x * t;

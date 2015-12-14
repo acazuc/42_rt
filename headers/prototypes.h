@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:54:27 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:59:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			vector_normalize(t_vector *vector);
 unsigned char	color_get_red(int color);
 unsigned char	color_get_green(int color);
 unsigned char	color_get_blue(int color);
-t_collision		*collision_create();
+t_collision		*collision_create(void);
 int				color_factor(int color, double factor);
 double			light_level(t_env *env, t_vector *vector);
 

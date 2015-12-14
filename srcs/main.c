@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 12:20:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 14:59:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	add_objects(t_env *env)
 	double		x;
 	double		y;
 
-	dim = 0;
+	dim = 10;
 	y = -dim / 2;
 	while (y <= dim / 2)
 	{
@@ -53,20 +53,35 @@ int		main(void)
 		error_quit("Failed to malloc env");
 	env_init(env);
 	window_init(env);
-	env->fov = 66;
+	env->fov = 45;
+	//add_objects(env);
 	object = create_sphere();
-	object->color = 0xFF0000;
+	object->color = RED;
 	object->dimensions[0] = 1;
 	object->position->y = 0;
 	object->position->z = 5;
+	object->position->x = 0;
 	object_add(env, object);
-	light = light_create();
+	/*object = create_sphere();
+	object->color = GREEN;
+	object->dimensions[0] = 1;
+	object->position->y = 0;
+	object->position->z = 5;
+	object->position->x = .1;
+	object_add(env, object);
+	*/light = light_create();
 	light->position->z = 4;
 	light->position->x = 1;
 	light->position->y = 1;
 	light->luminosity = 1;
 	light_add(env, light);
-	draw(env);
+	/*light = light_create();
+	light->position->z = 4;
+	light->position->x = -1;
+	light->position->y = -1;
+	light->luminosity = 1;
+	light_add(env, light);
+	*/draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);

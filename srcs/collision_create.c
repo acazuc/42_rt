@@ -6,13 +6,13 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 11:20:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:32:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:54:15 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-t_collision		*collision_create()
+t_collision		*collision_create(void)
 {
 	t_collision		*collision;
 
