@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:05:44 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/12 14:09:50 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:05:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # define DTR(x) (x / 180. * M_PI)
 # define RTD(x) (x * M_PI / 180.)
 # define MIN(x, y) (x < y ? x : y)
-# define MAX(x, y) (x > y ? x : Y)
+# define MAX(x, y) (x > y ? x : y)
 
 #endif

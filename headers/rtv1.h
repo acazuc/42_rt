@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 17:04:53 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 11:43:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_RTV1_H
 
 # include "functions.h"
+# include "collision.h"
 # include "colors.h"
 # include "point.h"
 # include "includes.h"

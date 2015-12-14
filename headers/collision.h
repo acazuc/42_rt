@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   collision.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:34:06 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/14 11:18:54 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/14 11:30:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+#ifndef FT_COLLISION_H
+# define FT_COLLISION_H
 
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFF6600
+# include "object.h"
+# include "vector.h"
+
+typedef struct	s_collision
+{
+	t_object	*object;
+	t_vector	*vector;
+}				t_collision;
 
 #endif

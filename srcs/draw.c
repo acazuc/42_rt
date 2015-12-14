@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 15:23:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 11:54:48 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 
 void			draw(t_env *env)
 {
+	t_collision	*collision;
 	t_point		*coord;
 	t_point		*fov;
 	t_ray		*ray;
+	int			color;
 
 	coord = point_create();
 	fov = point_create();
@@ -49,7 +51,13 @@ void			draw(t_env *env)
 		while (coord->x < env->window->width)
 		{
 			set_ray(env, ray, coord, fov);
-			pixel_put(env, coord->x, coord->y, trace(env, ray));
+			collision = trace(env, ray);
+			if (collision->object)
+				color = color_factor(collision->object->color
+						, light_level(env, collision->vector));
+			else
+				color = BLACK;
+			pixel_put(env, coord->x, coord->y, color);
 			coord->x++;
 		}
 		coord->y++;

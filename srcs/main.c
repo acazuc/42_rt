@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 16:25:45 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:17:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,15 @@ int		main(void)
 	object = create_sphere();
 	object->color = 0xFF0000;
 	object->dimensions[0] = 1;
-	object->position->y = 1;
-	object->position->z = 20;
+	object->position->y = 0;
+	object->position->z = 5;
 	object_add(env, object);
 	light = light_create();
-	light->position->z = 10;
-	light->position->x = 10;
-	light->position->y = 2;
-	light->luminosity = .5;
+	light->position->z = 4;
+	light->position->x = 1;
+	light->position->y = 1;
+	light->luminosity = 1;
+	light_add(env, light);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");

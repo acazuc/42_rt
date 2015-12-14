@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   ray_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:34:06 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/14 11:06:32 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/14 11:32:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+#include "../headers/rtv1.h"
 
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFF6600
-
-#endif
+void	ray_free(t_ray *ray)
+{
+	if (ray)
+	{
+		free(ray->origin);
+		free(ray->direction);
+		free(ray);
+	}
+}

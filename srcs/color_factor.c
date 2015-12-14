@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   color_factor.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:34:06 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/14 11:37:19 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/14 12:16:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+#include "../headers/rtv1.h"
 
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFF6600
+int		color_factor(int color, double factor)
+{
+	int		new_color;
 
-#endif
+	if (factor <= 0)
+		return (0);
+	new_color = 0;
+	new_color += (int)((color_get_red(color) * factor)) << 16;
+	new_color += (int)((color_get_green(color) * factor)) << 8;
+	new_color += (int)(color_get_blue(color) * factor);
+	return (new_color);
+}

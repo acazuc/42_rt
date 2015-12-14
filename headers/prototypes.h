@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 08:14:20 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 11:54:27 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,42 @@
 # include "point.h"
 # include "light.h"
 
-void		draw_reset(t_env *env);
-void		pixel_put(t_env *env, int x, int y, unsigned int color);
-void		error_quit(char *error);
-void		draw(t_env *env);
-int			trace(t_env *env, t_ray *ray);
-void		display(t_env *env);
-int			expose_listener(void *param);
-void		env_init(t_env *env);
-void		window_init(t_env *env);
-int			key_listener(int key, void *param);
-t_object	*object_create(void);
-void		object_add(t_env *env, t_object *object);
-t_vector	*vector_create(void);
-double		distance_3d(t_vector *v1, t_vector *v2);
-t_ray		*ray_create(void);
-t_point		*point_create(void);
-t_object	*create_sphere(void);
-t_object	*create_cylinder(void);
-t_vector	*collide(t_ray *ray, t_object *object);
-t_vector	*collide_sphere(t_ray *ray, t_object *sphere);
-t_vector	*collide_cylinder(t_ray *ray, t_object *cylinder);
-void		vector_rotate(t_vector *vector, t_vector *rotation);
-void		vector_unrotate(t_vector *vector, t_vector *rotation);
-void		vector_rotate_x(t_vector *vector, double angle);
-void		vector_rotate_y(t_vector *vector, double angle);
-void		vector_rotate_z(t_vector *vector, double angle);
-t_light		*light_create(void);
-void		list_add(t_env *env, t_light *light);
-double		vector_size(t_vector *vector);
-void		vector_normalize(t_vector *vector);
+void			draw_reset(t_env *env);
+void			pixel_put(t_env *env, int x, int y, unsigned int color);
+void			error_quit(char *error);
+void			draw(t_env *env);
+t_collision		*trace(t_env *env, t_ray *ray);
+void			display(t_env *env);
+int				expose_listener(void *param);
+void			env_init(t_env *env);
+void			window_init(t_env *env);
+int				key_listener(int key, void *param);
+t_object		*object_create(void);
+void			object_add(t_env *env, t_object *object);
+t_vector		*vector_create(void);
+double			distance_3d(t_vector *v1, t_vector *v2);
+t_ray			*ray_create(void);
+void			ray_free(t_ray *ray);
+t_point			*point_create(void);
+t_object		*create_sphere(void);
+t_object		*create_cylinder(void);
+t_vector		*collide(t_ray *ray, t_object *object);
+t_vector		*collide_sphere(t_ray *ray, t_object *sphere);
+t_vector		*collide_cylinder(t_ray *ray, t_object *cylinder);
+void			vector_rotate(t_vector *vector, t_vector *rotation);
+void			vector_unrotate(t_vector *vector, t_vector *rotation);
+void			vector_rotate_x(t_vector *vector, double angle);
+void			vector_rotate_y(t_vector *vector, double angle);
+void			vector_rotate_z(t_vector *vector, double angle);
+t_light			*light_create(void);
+void			light_add(t_env *env, t_light *light);
+double			vector_size(t_vector *vector);
+void			vector_normalize(t_vector *vector);
+unsigned char	color_get_red(int color);
+unsigned char	color_get_green(int color);
+unsigned char	color_get_blue(int color);
+t_collision		*collision_create();
+int				color_factor(int color, double factor);
+double			light_level(t_env *env, t_vector *vector);
 
 #endif

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   collision_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:34:06 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/14 11:20:58 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/14 11:32:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+#include "../headers/rtv1.h"
 
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFF6600
+t_collision		*collision_create()
+{
+	t_collision		*collision;
 
-#endif
+	if (!(collision = malloc(sizeof(*collision))))
+		error_quit("Failed to malloc new collision");
+	collision->object = NULL;
+	collision->vector = NULL;
+	return (collision);
+}

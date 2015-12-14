@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   color_getters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:34:06 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/14 10:00:43 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/14 10:05:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+unsigned char	color_get_red(int color)
+{
+	unsigned char	red;
 
-# define BLACK 0x000000
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFF6600
+	red = (unsigned char)(color >> 16);
+	return (red);
+}
 
-#endif
+unsigned char	color_get_green(int color)
+{
+	unsigned char	green;
+
+	green = (unsigned char)(color >> 8);
+	return (green);
+}
+
+unsigned char	color_get_blue(int color)
+{
+	unsigned char	blue;
+
+	blue = (unsigned char)color;
+	return (blue);
+}
