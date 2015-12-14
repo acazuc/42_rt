@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 17:00:20 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/14 08:14:20 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void		vector_rotate_z(t_vector *vector, double angle);
 t_light		*light_create(void);
 void		list_add(t_env *env, t_light *light);
 double		vector_size(t_vector *vector);
+void		vector_normalize(t_vector *vector);
 
 #endif

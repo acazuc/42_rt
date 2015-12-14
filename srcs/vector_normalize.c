@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_quit.c                                       :+:      :+:    :+:   */
+/*   vector_normalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/29 19:32:12 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 08:15:23 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/14 07:43:51 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/14 08:14:16 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-void	error_quit(char *error_message)
+void	vector_normalize(t_vector *vector)
 {
-	ft_putstr_fd(CONSOLE_LIGHT_RED, 2);
-	ft_putstr_fd("An error happened: ", 2);
-	ft_putendl_fd(error_message, 2);
-	ft_putstr_fd(CONSOLE_DEFAULT, 2);
-	exit(-1);
+	double	length;
+
+	length = vector_size(vector);
+	if (length != 0)
+	{
+		vector->x = vector->x / length;
+		vector->y = vector->y / length;
+		vector->z = vector->z / length;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/13 17:05:07 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/14 08:10:56 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,8 @@ SRCS = $(DIR)main.c \
 	   $(DIR)light_create.c \
 	   $(DIR)light_add.c \
 	   $(DIR)vector_size.c \
-	   $(DIR)color_create.c
+	   $(DIR)color_create.c \
+	   $(DIR)vector_normalize.c
 
 OBJS = $(SRCS:.c=.o)
 
