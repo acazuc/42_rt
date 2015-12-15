@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:25:28 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 15:01:00 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 11:41:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	window_init(t_env *env)
 {
 	int		loul;
 
-	env->window->width = 1920;
-	env->window->height = 1080;
+	env->window->width = 400;
+	env->window->height = 400;
 	env->window->bpp = 8 * 3;
 	env->window->endian = 1;
 	loul = env->window->width * env->window->bpp / 8;

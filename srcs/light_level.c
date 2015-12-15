@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 09:13:30 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 09:48:32 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ double	light_level(t_env *env, t_collision *origin)
 		ray->direction->x = list->light->position->x - origin->vector->x;
 		ray->direction->y = list->light->position->y - origin->vector->y;
 		ray->direction->z = list->light->position->z - origin->vector->z;
-		collision = trace(env, ray, origin->object);
-		if (!(collision->object))
-			level += MAX(0, cos(vector_angle(normal, ray->direction))) * list->light->luminosity;
+		if (!((collision = trace(env, ray, origin->object))->object))
+			level += MAX(0, cos(vector_angle(normal, ray->direction)))
+				* list->light->luminosity;
 		list = list->next;
 	}
 	ray_free(ray);

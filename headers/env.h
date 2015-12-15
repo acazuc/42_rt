@@ -6,7 +6,7 @@
 /*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:27:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 16:02:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 11:35:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_env
 	t_light_list	*lights;
 	t_vector		*position;
 	int				fov;
+	double angle;
 }					t_env;
 
 #endif
