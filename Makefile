@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/14 11:44:52 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/15 07:21:57 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,9 @@ SRCS = $(DIR)main.c \
 	   $(DIR)light_level.c \
 	   $(DIR)ray_free.c \
 	   $(DIR)collision_create.c \
-	   $(DIR)color_factor.c
+	   $(DIR)color_factor.c \
+	   $(DIR)vector_equals.c \
+	   $(DIR)vector_multiply.c
 
 OBJS = $(SRCS:.c=.o)
 

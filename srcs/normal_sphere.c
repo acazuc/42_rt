@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collision.h                                        :+:      :+:    :+:   */
+/*   normal_sphere.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 11:18:54 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:29:31 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/15 07:08:56 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLLISION_H
-# define FT_COLLISION_H
+#include "../headers/rtv1.h"
 
-# include "object.h"
-# include "vector.h"
-
-typedef struct	s_collision
+t_vector	*normal_sphere(t_object *sphere, t_vector *point)
 {
-	t_object	*object;
 	t_vector	*vector;
-}				t_collision;
 
-#endif
+	vector = vector_create();
+	vector->x = point->x - sphere->position->x;
+	vector->y = point->y - sphere->position->y;
+	vector->z = point->z - sphere->position->z;
+	return (vector);
+}

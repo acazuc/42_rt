@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 14:56:42 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 07:28:56 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int		get_color(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 	collision = trace(env, ray);
 	if (collision->object)
 		color = color_factor(collision->object->color
-				, light_level(env, collision->vector));
+				, light_level(env, collision));
 	else
 		color = BLACK;
 	return (color);

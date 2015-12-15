@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 12:59:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 07:33:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "vector.h"
 # include "point.h"
 # include "light.h"
+# include "collision.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -56,6 +57,8 @@ unsigned char	color_get_green(int color);
 unsigned char	color_get_blue(int color);
 t_collision		*collision_create(void);
 int				color_factor(int color, double factor);
-double			light_level(t_env *env, t_vector *vector);
+double			light_level(t_env *env, t_collision *origin);
+int				vector_equals(t_vector *v1, t_vector *v2);
+t_vector		*vector_multiply(t_vector *vector, double factor);
 
 #endif
