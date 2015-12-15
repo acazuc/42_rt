@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:34:22 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 09:13:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ double	light_level(t_env *env, t_collision *origin)
 {
 	t_light_list	*list;
 	t_collision		*collision;
+	t_vector		*normal;
 	t_ray			*ray;
 	double			level;
 
@@ -25,14 +26,15 @@ double	light_level(t_env *env, t_collision *origin)
 	ray->origin->y = origin->vector->y;
 	ray->origin->z = origin->vector->z;
 	list = env->lights;
+	normal = normal_sphere(origin->object, origin->vector);
 	while (list)
 	{
 		ray->direction->x = list->light->position->x - origin->vector->x;
 		ray->direction->y = list->light->position->y - origin->vector->y;
 		ray->direction->z = list->light->position->z - origin->vector->z;
-		collision = trace(env, ray);
-			level += MAX(0, list->light->luminosity
-					* (2. - vector_size(ray->direction)) / 2.);
+		collision = trace(env, ray, origin->object);
+		if (!(collision->object))
+			level += MAX(0, cos(vector_angle(normal, ray->direction))) * list->light->luminosity;
 		list = list->next;
 	}
 	ray_free(ray);

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 14:59:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 09:29:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,26 +62,20 @@ int		main(void)
 	object->position->z = 5;
 	object->position->x = 0;
 	object_add(env, object);
-	/*object = create_sphere();
+	object = create_sphere();
 	object->color = GREEN;
-	object->dimensions[0] = 1;
+	object->dimensions[0] = .5;
 	object->position->y = 0;
-	object->position->z = 5;
-	object->position->x = .1;
+	object->position->z = 4;
+	object->position->x = 1;
 	object_add(env, object);
-	*/light = light_create();
-	light->position->z = 4;
-	light->position->x = 1;
-	light->position->y = 1;
+	light = light_create();
+	light->position->z = 5;
+	light->position->x = 50000;
+	light->position->y = 0;
 	light->luminosity = 1;
 	light_add(env, light);
-	/*light = light_create();
-	light->position->z = 4;
-	light->position->x = -1;
-	light->position->y = -1;
-	light->luminosity = 1;
-	light_add(env, light);
-	*/draw(env);
+	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);

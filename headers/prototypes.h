@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:33:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 09:30:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
 void			error_quit(char *error);
 void			draw(t_env *env);
-t_collision		*trace(t_env *env, t_ray *ray);
+t_collision		*trace(t_env *env, t_ray *ray, t_object *avoid);
 void			display(t_env *env);
 int				expose_listener(void *param);
 void			env_init(t_env *env);
@@ -60,5 +60,7 @@ int				color_factor(int color, double factor);
 double			light_level(t_env *env, t_collision *origin);
 int				vector_equals(t_vector *v1, t_vector *v2);
 t_vector		*vector_multiply(t_vector *vector, double factor);
+double			vector_angle(t_vector *v1, t_vector *v2);
+t_vector		*normal_sphere(t_object *sphere, t_vector *point);
 
 #endif

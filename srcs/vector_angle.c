@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_sphere.c                                    :+:      :+:    :+:   */
+/*   vector_angle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:58:51 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/15 07:43:25 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/15 07:52:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-t_vector	*normal_sphere(t_object *sphere, t_vector *point)
+double	vector_angle(t_vector *v1, t_vector *v2)
 {
-	t_vector	*vector;
+	double	product;
+	double	angle;
 
-	vector = vector_create();
-	vector->x = point->x - sphere->position->x;
-	vector->y = point->y - sphere->position->y;
-	vector->z = point->z - sphere->position->z;
-	return (vector);
+	product = v1->x * v2->x + v1->y * v2->y + v1->z * v2->z;
+	angle = acos(product / (vector_size(v1) * vector_size(v2)));
+	return (angle);
 }
