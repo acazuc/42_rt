@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_factor.c                                     :+:      :+:    :+:   */
+/*   color_mask.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 11:37:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 09:27:59 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/16 09:21:35 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/16 09:33:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-int		color_factor(int color, double factor)
+int		color_mask(int color, t_color_mask *mask)
 {
+	int		red;
+	int		green;
+	int		blue;
 	int		new_color;
 
-	if (factor <= 0)
+	if (color <= 0)
 		return (0);
 	new_color = 0;
-	if (((int)color_get_red(color) * factor) > 255)
+	red = color_get_red(color);
+	green = color_get_green(color);
+	blue = color_get_blue(color);
+	if (red * mask->red > 255)
 		new_color += 0xFF0000;
 	else
-		new_color += (int)((color_get_red(color) * factor)) << 16;
-	if (((int)color_get_green(color) * factor) > 255)
+		new_color += (int)(red * mask->red) << 16;
+	if (green * mask->green > 255)
 		new_color += 0x00FF00;
 	else
-		new_color += (int)((color_get_green(color) * factor)) << 8;
-	if (((int)color_get_blue(color) * factor) > 255)
+		new_color += (int)(green * mask->green) << 8;
+	if (blue * mask->blue > 255)
 		new_color += 0x0000FF;
 	else
-		new_color += (int)((color_get_blue(color) * factor));
+		new_color += (blue * mask->blue);
 	return (new_color);
 }

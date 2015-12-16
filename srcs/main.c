@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 08:30:53 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/16 11:25:56 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	add_objects(t_env *env)
 		}
 		y++;
 	}
-}*/
-
+}
+*/
 int		main(void)
 {
 	t_object	*object;
@@ -53,32 +53,43 @@ int		main(void)
 		error_quit("Failed to malloc env");
 	env_init(env);
 	window_init(env);
-	env->fov = 45;
+	env->fov = 66;
 	//add_objects(env);
 	object = create_sphere();
-	object->color = BLUE;
+	object->color = WHITE;
 	object->dimensions[0] = 1;
 	object->position->y = 0;
-	object->position->z = 5;
+	object->position->z = 4;
 	object->position->x = 0;
 	object_add(env, object);
 	object = create_cylinder();
 	object->color = 0x606060;
 	object->dimensions[0] = .2;
 	object->position->y = 0;
-	object->position->z = 3;
-	object->position->x = .5;
-	//object->rotation->z = 90;
+	object->position->z = 2.5;
+	object->position->x = .8;
 	object->rotation->z = 0;
 	object_add(env, object);
 	light = light_create();
 	light->position->z = 0;
 	light->position->x = 2;
-	light->position->y = 1;
-	light->luminosity = .75;
+	light->position->y = -2;
+	light->luminosity = 1.25;
+	light->mask->red = 0;
+	light->mask->green = 0;
 	light_add(env, light);
 	light = light_create();
-	light->luminosity = .0;
+	light->position->x = -2;
+	light->position->y = -2;
+	light->luminosity = 1.25;
+	light->mask->red = 0;
+	light->mask->blue = 0;
+	light_add(env, light);
+	light = light_create();
+	light->position->y = 2;
+	light->luminosity = 1.25;
+	light->mask->green = 0;
+	light->mask->blue = 0;
 	light_add(env, light);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);

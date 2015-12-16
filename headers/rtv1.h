@@ -6,13 +6,14 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:43:38 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/16 09:58:03 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_RTV1_H
 # define FT_RTV1_H
 
+# include "color_mask.h"
 # include "functions.h"
 # include "collision.h"
 # include "colors.h"

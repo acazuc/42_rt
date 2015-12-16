@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 08:30:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/16 10:17:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static double		get_t(t_trinome *trinome)
 	return (MIN(t1, t2));
 }
 
-static t_vector		*collide_cylinder_result(t_ray *ray, t_trinome *trinome, t_object *cylinder)
+static t_vector		*collide_cylinder_result(t_ray *ray, t_trinome *trinome
+		, t_object *cylinder)
 {
 	t_vector	*vector;
 	double		t1;

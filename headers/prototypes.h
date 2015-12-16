@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 07:27:45 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/16 09:58:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "object.h"
 # include "vector.h"
 # include "point.h"
+# include "trinome.h"
 # include "light.h"
 # include "collision.h"
 
@@ -59,12 +60,15 @@ unsigned char	color_get_green(int color);
 unsigned char	color_get_blue(int color);
 t_collision		*collision_create(void);
 int				color_factor(int color, double factor);
-double			light_level(t_env *env, t_collision *origin);
+t_color_mask	*light_level(t_env *env, t_collision *origin);
 int				vector_equals(t_vector *v1, t_vector *v2);
 t_vector		*vector_multiply(t_vector *vector, double factor);
 double			vector_angle(t_vector *v1, t_vector *v2);
 t_vector		*normal(t_object *object, t_vector *point);
 t_vector		*normal_sphere(t_object *sphere, t_vector *point);
 t_vector		*normal_cylinder(t_object *cylinder, t_vector *point);
+t_color_mask	*color_mask_create();
+int				color_mask(int color, t_color_mask *mask);
+t_trinome		*trinome_create(void);
 
 #endif

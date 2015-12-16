@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_cylinder.c                                  :+:      :+:    :+:   */
+/*   color_mask.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 10:17:10 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/16 09:08:47 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/16 09:09:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#ifndef FT_COLOR_MASK_H
+# define FT_COLOR_MASK_H
 
-t_vector	*normal_cylinder(t_object *cylinder, t_vector *point)
+typedef struct		s_color_mask
 {
-	t_vector	*vector;
+	double			red;
+	double			green;
+	double			blue;
+}					t_color_mask;
 
-	vector = vector_create();
-	vector->x = point->x - cylinder->position->x;
-	vector->z = point->z - cylinder->position->z;
-	return (vector);
-}
+#endif

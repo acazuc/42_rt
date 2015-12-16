@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/15 14:41:03 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/16 09:55:36 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ HEADERS = $(HDIR)console.h \
 		  $(HDIR)point.h \
 		  $(HDIR)trinome.h \
 		  $(HDIR)light_list.h \
-		  $(HDIR)colors.h
+		  $(HDIR)colors.h \
+		  $(HDIR)color_mask.h
 
 DIR = srcs/
 
@@ -79,7 +80,10 @@ SRCS = $(DIR)main.c \
 	   $(DIR)vector_angle.c \
 	   $(DIR)normal.c \
 	   $(DIR)normal_sphere.c \
-	   $(DIR)normal_cylinder.c
+	   $(DIR)normal_cylinder.c \
+	   $(DIR)color_mask_create.c \
+	   $(DIR)color_mask.c \
+	   $(DIR)trinome_create.c
 
 OBJS = $(SRCS:.c=.o)
 
