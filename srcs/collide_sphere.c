@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:33:50 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/15 15:05:16 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 	else if (trinome->d == 0)
 		t = -trinome->b / (2. * trinome->a);
 	else if (trinome->d > 0)
-	{
 		if ((t = get_t(trinome)) < 0)
 			return (NULL);
-	}
 	vector = vector_create();
 	vector->x = ray->direction->x * t;
 	vector->y = ray->direction->y * t;

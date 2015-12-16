@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_sphere.c                                    :+:      :+:    :+:   */
+/*   create_cone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 13:06:37 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/11 12:40:52 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/15 14:42:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-t_vector	*normal_sphere(t_object *sphere, t_vector *point)
+t_object	*create_cone(void)
 {
-	t_vector	*vector;
+	t_object	*cone;
 
-	vector = vector_create();
-	vector->x = point->x - sphere->position->x;
-	vector->y = point->y - sphere->position->y;
-	vector->z = point->z - sphere->position->z;
-	return (vector);
+	cone = object_create();
+	cone->type = CONE;
+	return (cone);
 }

@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/15 08:03:15 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/15 14:41:03 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,11 @@ SRCS = $(DIR)main.c \
 	   $(DIR)point_create.c \
 	   $(DIR)create_sphere.c \
 	   $(DIR)create_cylinder.c \
+	   $(DIR)create_cone.c \
 	   $(DIR)collide.c \
 	   $(DIR)collide_sphere.c \
 	   $(DIR)collide_cylinder.c \
+	   $(DIR)collide_cone.c \
 	   $(DIR)ray_create.c \
 	   $(DIR)vector_rotate.c \
 	   $(DIR)vector_rotation.c \
@@ -75,7 +77,9 @@ SRCS = $(DIR)main.c \
 	   $(DIR)vector_equals.c \
 	   $(DIR)vector_multiply.c \
 	   $(DIR)vector_angle.c \
-	   $(DIR)normal_sphere.c
+	   $(DIR)normal.c \
+	   $(DIR)normal_sphere.c \
+	   $(DIR)normal_cylinder.c
 
 OBJS = $(SRCS:.c=.o)
 

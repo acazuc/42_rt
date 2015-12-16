@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 11:43:09 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/16 08:30:53 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,6 @@ void	add_objects(t_env *env)
 	}
 }*/
 
-int		loop_hook(void *param)
-{
-	t_env *env;
-
-	env = (t_env*)param;
-	env->angle += 0.05;
-	env->objects->next->object->position->z = 5 + 1.5 * sin(env->angle);
-	env->objects->next->object->position->x = 1.5 * cos(env->angle);
-	draw(env);
-	display(env);
-	return (0);
-}
-
 int		main(void)
 {
 	t_object	*object;
@@ -66,7 +53,6 @@ int		main(void)
 		error_quit("Failed to malloc env");
 	env_init(env);
 	window_init(env);
-	env->angle = 0;
 	env->fov = 45;
 	//add_objects(env);
 	object = create_sphere();
@@ -76,28 +62,29 @@ int		main(void)
 	object->position->z = 5;
 	object->position->x = 0;
 	object_add(env, object);
-	object = create_sphere();
+	object = create_cylinder();
 	object->color = 0x606060;
 	object->dimensions[0] = .2;
 	object->position->y = 0;
-	object->position->z = 4;
-	object->position->x = 1;
+	object->position->z = 3;
+	object->position->x = .5;
+	//object->rotation->z = 90;
+	object->rotation->z = 0;
 	object_add(env, object);
 	light = light_create();
 	light->position->z = 0;
 	light->position->x = 2;
-	light->position->y = 0;
-	light->luminosity = .5;
+	light->position->y = 1;
+	light->luminosity = .75;
 	light_add(env, light);
 	light = light_create();
-	light->luminosity = .5;
+	light->luminosity = .0;
 	light_add(env, light);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);
 	mlx_key_hook(env->window->mlx_window, &key_listener, env);
-	mlx_loop_hook(env->window->mlx, &loop_hook, env);
 	mlx_loop(env->window->mlx);
 	return (0);
 }
