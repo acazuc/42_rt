@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 10:17:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/17 11:42:23 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ t_vector			*collide_cylinder(t_ray *ray, t_object *cylinder)
 	pos->x = ray->origin->x - cylinder->position->x;
 	pos->y = ray->origin->y - cylinder->position->y;
 	pos->z = ray->origin->z - cylinder->position->z;
-	vector_rotate(pos, cylinder->rotation);
 	trinome.a = pow(ray->direction->x, 2) + pow(ray->direction->z, 2);
 	trinome.b = 2.
 		* (ray->direction->x * pos->x + ray->direction->z * pos->z);

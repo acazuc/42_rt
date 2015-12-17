@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal.c                                           :+:      :+:    :+:   */
+/*   collide_plane.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 13:05:13 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 10:09:04 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/17 09:16:37 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/17 09:25:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-t_vector	*normal(t_object *object, t_vector *point)
+t_vector		*collide_plane(t_ray *ray, t_object *plane)
 {
-	if (object->type == SPHERE)
-		return (normal_sphere(object, point));
-	if (object->type == CYLINDER)
-		return (normal_cylinder(object, point));
-	return (NULL);
+	t_trinome	trinome;
+
+	trinome
 }

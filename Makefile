@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/16 09:55:36 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/17 10:30:33 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,10 @@ SRCS = $(DIR)main.c \
 	   $(DIR)normal_cylinder.c \
 	   $(DIR)color_mask_create.c \
 	   $(DIR)color_mask.c \
-	   $(DIR)trinome_create.c
+	   $(DIR)trinome_create.c \
+	   $(DIR)get_ray_color.c \
+	   $(DIR)get_reflection_ray.c \
+	   $(DIR)color_add.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 11:25:56 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/17 11:50:50 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,17 @@ int		main(void)
 	object->position->y = 0;
 	object->position->z = 4;
 	object->position->x = 0;
+	object->reflection = .5;
 	object_add(env, object);
 	object = create_cylinder();
-	object->color = 0x606060;
-	object->dimensions[0] = .2;
+	object->color = GREEN;
+	object->dimensions[0] = .3;
 	object->position->y = 0;
-	object->position->z = 2.5;
+	object->position->z = 2.7;
 	object->position->x = .8;
 	object->rotation->z = 0;
 	object_add(env, object);
-	light = light_create();
+	/*light = light_create();
 	light->position->z = 0;
 	light->position->x = 2;
 	light->position->y = -2;
@@ -90,6 +91,15 @@ int		main(void)
 	light->luminosity = 1.25;
 	light->mask->green = 0;
 	light->mask->blue = 0;
+	light_add(env, light);*/
+	light = light_create();
+	light->position->z = 2.5;
+	light->luminosity = 1;
+	light_add(env, light);
+	light = light_create();
+	light->position->z = 4;
+	light->position->x = 2;
+	light->luminosity = 1;
 	light_add(env, light);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
