@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 11:19:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/17 17:16:19 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,23 @@ static void		add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
 				* light->luminosity * light->mask->blue;
 }
 
+static int		is_behind(t_vector *c_vector, t_vector *r_vector)
+{
+	if (r_vector->x > 0 && c_vector->x > r_vector->x)
+		return (0);
+	if (r_vector->x < 0 && c_vector->x < r_vector->x)
+		return (0);
+	if (r_vector->y > 0 && c_vector->y > r_vector->y)
+		return (0);
+	if (r_vector->y < 0 && c_vector->y < r_vector->y)
+		return (0);
+	if (r_vector->z > 0 && c_vector->z > r_vector->z)
+		return (0);
+	if (r_vector->z < 0 && c_vector->z < r_vector->z)
+		return (0);
+	return (1);
+}
+
 static void		loop(t_env *env, t_ray *ray, t_collision *origin
 		, t_color_mask *mask)
 {
@@ -37,11 +54,10 @@ static void		loop(t_env *env, t_ray *ray, t_collision *origin
 	{
 		ray->direction->x = list->light->position->x - origin->vector->x;
 		ray->direction->y = list->light->position->y - origin->vector->y;
-		ray->direction->z = list->light->position->z - origin->vector->z;
-		if (!((collision = trace(env, ray, origin->object))->object))
+		ray->direction->z =  list->light->position->z - origin->vector->z;
+		if (!((collision = trace(env, ray, origin->object))->object) || !is_behind(collision->vector, ray->direction))
 			add_mask(mask, normal_v, ray, list->light);
-		else
-			free(collision);
+		free(collision);
 		list = list->next;
 	}
 	free(normal_v);

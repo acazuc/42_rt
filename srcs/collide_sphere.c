@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 11:41:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/17 17:14:58 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static double		get_t(t_trinome *trinome)
 		return (t2);
 	else if (t2 < 0)
 		return (t1);
-	else
-		return (MIN(t1, t2));
+	return (MIN(t1, t2));
 }
 
 static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
@@ -42,12 +41,12 @@ static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 	else if (trinome->d == 0)
 		t = -trinome->b / (2. * trinome->a);
 	else if (trinome->d > 0)
-		if ((t = get_t(trinome)) < 0)
+		if ((t = get_t(trinome)) <= 0)
 			return (NULL);
 	vector = vector_create();
-	vector->x = ray->direction->x * t;
-	vector->y = ray->direction->y * t;
-	vector->z = ray->direction->z * t;
+	vector->x = ray->origin->x + ray->direction->x * t;
+	vector->y = ray->origin->y + ray->direction->y * t;
+	vector->z = ray->origin->z + ray->direction->z * t;
 	return (vector);
 }
 
