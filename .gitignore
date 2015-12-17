@@ -1,5 +1,4 @@
 *.o
-git.sh
 libft/*
 *.swp
 rtv1
