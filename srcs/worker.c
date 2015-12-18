@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 11:15:35 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:40:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			*worker_run(void *data)
 	t_point		*coord;
 	t_point		*fov;
 	t_ray		*ray;
-	int		i;
+	int			i;
 
 	worker = (t_worker*)data;
 	coord = point_create();
@@ -47,15 +47,14 @@ void			*worker_run(void *data)
 	ray->origin->x = worker->env->position->x;
 	ray->origin->y = worker->env->position->y;
 	ray->origin->z = worker->env->position->z;
-	i = worker->start;
-	while (i < worker->end)
+	i = worker->start - 1;
+	while (++i < worker->end)
 	{
 		coord->x = i % worker->env->window->width;
 		coord->y = i / worker->env->window->width;
 		set_ray(worker->env, ray, coord, fov);
 		pixel_put(worker->env, coord->x, coord->y
 			, get_ray_color(worker->env, ray, NULL, 0));
-		i++;
 	}
 	return (NULL);
 }
