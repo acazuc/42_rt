@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 10:35:37 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 08:27:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ t_vector		*normal_cylinder(t_object *cylinder, t_vector *point);
 t_color_mask	*color_mask_create();
 int				color_mask(int color, t_color_mask *mask);
 t_trinome		*trinome_create(void);
-int				get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur);
+int				get_ray_color(t_env *env, t_ray *ray, t_object *avoid
+		, int recur);
 t_ray			*get_reflection_ray(t_ray *ray, t_collision *collision);
 int				color_add(int c1, int c2);
 

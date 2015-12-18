@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:22:41 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 17:12:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 08:47:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,6 @@ void	env_init(t_env *env)
 	env->objects = NULL;
 	env->lights = NULL;
 	env->position = vector_create();
+	env->rotation = vector_create();
+	env->fov = 66;
 }
