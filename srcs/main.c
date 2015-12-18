@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 08:53:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 11:15:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,19 +63,14 @@ int		main(void)
 	object->position->y = -10002;
 	object->dimensions[0] = 10000;
 	object_add(env, object);
-	int i = -30;
-	while (i <= 30)
-	{
-		object = create_sphere();
-		object->color = WHITE;
-		object->dimensions[0] = 3;
-		object->position->y = 0;
-		object->position->z = 20;
-		object->position->x = i;
-		object->reflection = (i + 30.) / 60.;
-		object_add(env, object);
-		i+= 6;
-	}
+	object = create_sphere();
+	object->color = WHITE;
+	object->dimensions[0] = 3;
+	object->position->y = 0;
+	object->position->z = 20;
+	object->position->x = 0;
+	object->reflection = 0;
+	object_add(env, object);
 	/*object = create_sphere();
 	object->color = GREEN;
 	object->dimensions[0] = 1;
@@ -84,7 +79,7 @@ int		main(void)
 	object->position->x = -1;
 	object->rotation->z = 0;
 	object_add(env, object);*/
-	light = light_create();
+	/*light = light_create();
 	light->position->x = -10;
 	light->position->y = 1;
 	light->luminosity = 1;
@@ -104,12 +99,12 @@ int		main(void)
 	light->luminosity = 1;
 	light->mask->green = 0;
 	light->mask->red = 0;
-	light_add(env, light);
-	/*light = light_create();
+	light_add(env, light);*/
+	light = light_create();
 	light->position->z = 10;
 	light->position->x = 0;
 	light->luminosity = 1;
-	light_add(env, light);*/
+	light_add(env, light);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");

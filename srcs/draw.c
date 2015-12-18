@@ -6,57 +6,31 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 09:25:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 11:16:27 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
 
-static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
-{
-	double		angle_x;
-	double		angle_y;
-	double		angle_z;
-
-	angle_y = (double)(coord->x - env->window->width / 2.)
-		/ (double)(env->window->width / 2.) * fov->x
-		+ DTR(env->rotation->y);
-	angle_x = (double)(coord->y - env->window->height / 2.)
-		/ (double)(env->window->height / 2.) * fov->y * -1.
-		+ DTR(env->rotation->x);
-	angle_z = 0;
-	ray->direction->x = sin(angle_y) * cos(angle_z);
-	ray->direction->y = sin(angle_x) * cos(angle_z);
-	ray->direction->z = cos(angle_x) * cos(angle_y);
-	ray->origin->x = env->position->x;
-	ray->origin->y = env->position->y;
-	ray->origin->z = env->position->z;
-}
-
-static int		get_color(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
-{
-	set_ray(env, ray, coord, fov);
-	return (get_ray_color(env, ray, NULL, 0));
-}
-
 void			draw(t_env *env)
 {
-	t_point		*coord;
-	t_point		*fov;
-	t_ray		*ray;
+	pthread_t 	threads[8];
+	t_worker	workers[8];
+	int			i;
 
-	coord = point_create();
-	fov = point_create();
-	fov->x = DTR(env->fov / 2.);
-	fov->y = fov->x / env->window->width * env->window->height;
-	ray = ray_create();
-	coord->y = 0;
-	while (coord->y < env->window->height)
+	i = 0;
+	while (i < 8)
 	{
-		coord->x = 0;
-		while (coord->x < env->window->width)
-			pixel_put(env, coord->x++, coord->y
-					, get_color(env, ray, coord, fov));
-		coord->y++;
+		workers[i].env = env;
+		workers[i].start = env->window->width * env->window->height / 8. * i;
+		workers[i].end = env->window->width * env->window->height / 8. * (i + 1);
+		pthread_create(&(threads[i]), NULL, worker_run, &(workers[i]));
+		i++;
+	}
+	i = 0;
+	while (i < 8)
+	{
+		pthread_join(threads[i], NULL);
+		i++;
 	}
 }

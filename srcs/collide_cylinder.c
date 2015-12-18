@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 11:42:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 10:14:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ static t_vector		*collide_cylinder_result(t_ray *ray, t_trinome *trinome
 		if ((t = get_t(trinome)) < 0)
 			return (NULL);
 	vector = vector_create();
-	vector->x = ray->direction->x * t;
-	vector->y = ray->direction->y * t;
-	vector->z = ray->direction->z * t;
+	vector->x = ray->origin->x + ray->direction->x * t;
+	vector->y = ray->origin->y + ray->direction->y * t;
+	vector->z = ray->origin->z + ray->direction->z * t;
 	return (vector);
 }
 

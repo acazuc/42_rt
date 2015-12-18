@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 09:58:03 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 10:57:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "light.h"
 # include "console.h"
 # include "window.h"
+# include "worker.h"
 # include "env.h"
 # include "trinome.h"
 # include "../libft/libft.h"

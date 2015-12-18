@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   includes.h                                         :+:      :+:    :+:   */
+/*   worker.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:18:33 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 11:01:37 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/18 10:56:19 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/18 10:57:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INCLUDES_H
-# define FT_INCLUDES_H
+#ifndef FT_WORKER_H
+# define FT_WORKER_H
 
-# include <mlx.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <math.h>
-# include <stdio.h>
-# include <pthread.h>
+# include "env.h"
+
+typedef struct	s_worker
+{
+	t_env		*env;
+	int			start;
+	int			end;
+}				t_worker;
 
 #endif

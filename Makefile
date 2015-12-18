@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/17 10:30:33 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/18 10:55:13 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ HEADERS = $(HDIR)console.h \
 		  $(HDIR)trinome.h \
 		  $(HDIR)light_list.h \
 		  $(HDIR)colors.h \
-		  $(HDIR)color_mask.h
+		  $(HDIR)color_mask.h \
+		  $(HDIR)collision.h
 
 DIR = srcs/
 
@@ -86,11 +87,12 @@ SRCS = $(DIR)main.c \
 	   $(DIR)trinome_create.c \
 	   $(DIR)get_ray_color.c \
 	   $(DIR)get_reflection_ray.c \
-	   $(DIR)color_add.c
+	   $(DIR)color_add.c \
+	   $(DIR)worker.c
 
 OBJS = $(SRCS:.c=.o)
 
-LIBRARY = -lm -lmlx -L libft/ -lft -framework OpenGL -framework AppKit
+LIBRARY = -lmlx -L libft/ -lft -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
