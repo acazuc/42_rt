@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 16:38:46 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 17:36:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,28 @@ static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 	ray->direction->z = cos(angle_x) * cos(angle_y);
 }
 
+static void		worker_loop(t_worker *worker, t_point *coord, t_ray *ray
+		, t_point *fov)
+{
+	int			i;
+
+	i = worker->start - 1;
+	while (++i < worker->end)
+	{
+		coord->x = i % worker->env->window->width;
+		coord->y = i / worker->env->window->width;
+		set_ray(worker->env, ray, coord, fov);
+		pixel_put(worker->env, coord->x, coord->y
+			, get_ray_color(worker->env, ray, NULL, 0));
+	}
+}
+
 void			*worker_run(void *data)
 {
 	t_worker	*worker;
 	t_point		*coord;
 	t_point		*fov;
 	t_ray		*ray;
-	int			i;
 
 	worker = (t_worker*)data;
 	coord = point_create();
@@ -47,15 +62,7 @@ void			*worker_run(void *data)
 	ray->origin->x = worker->env->position->x;
 	ray->origin->y = worker->env->position->y;
 	ray->origin->z = worker->env->position->z;
-	i = worker->start - 1;
-	while (++i < worker->end)
-	{
-		coord->x = i % worker->env->window->width;
-		coord->y = i / worker->env->window->width;
-		set_ray(worker->env, ray, coord, fov);
-		pixel_put(worker->env, coord->x, coord->y
-			, get_ray_color(worker->env, ray, NULL, 0));
-	}
+	worker_loop(worker, coord, ray, fov);
 	free(fov);
 	free(coord);
 	ray_free(ray);
