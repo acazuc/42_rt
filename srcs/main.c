@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 14:37:43 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 17:24:00 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,56 +53,86 @@ int		main(void)
 		error_quit("Failed to malloc env");
 	env_init(env);
 	window_init(env);
+	env->ambient_light = 0;
 	env->fov = 60;
-	env->rotation->x = -25;
+	env->rotation->x = -50;
 	env->rotation->y = 0;
-	env->position->y = 50;
+	env->position->y = 100;
 	env->position->z = -75;
 	//add_objects(env);
 	object = create_sphere();
 	object->color = 0xFFFFFF;
-	object->position->y = -10002;
-	object->dimensions[0] = 10000;
+	object->position->y = -1000002;
+	object->dimensions[0] = 1000000;
 	object_add(env, object);
 	int i = -60;
 	while (i <= 60)
 	{
 		object = create_sphere();
 		object->color = WHITE;
-		object->dimensions[0] = 4;
+		object->dimensions[0] = 5;
 		object->position->y = 3;
 		object->position->z = 20;
 		object->position->x = i;
-		object->reflection = .9;
+		object->reflection = 0;
 		object_add(env, object);
 		i+= 12;
 	}
 	light = light_create();
 	light->position->x = -5;
 	light->position->y = .5;
-	light->luminosity = 2;
+	light->luminosity = 1;
 	light->mask->blue = 0;
 	light->mask->green = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 0;
 	light->position->y = .5;
-	light->luminosity = 2;
+	light->luminosity = 1;
 	light->mask->red = 0;
 	light->mask->blue = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 5;
 	light->position->y = 1;
-	light->luminosity = 2;
+	light->luminosity = 1;
 	light->mask->green = 0;
 	light->mask->red = 0;
 	light_add(env, light);
+	/*env->max_recur = 10;
+	object = create_sphere();
+	object->position->z = 50001;
+	object->dimensions[0] = 50000;
+	object->reflection = .9;
+	object_add(env, object);
+	object = create_sphere();
+	object->position->x = 50001;
+	object->dimensions[0] = 50000;
+	object->reflection = .9;
+	object_add(env, object);
+	object = create_sphere();
+	object->position->z = -50001;
+	object->dimensions[0] = 50000;
+	object->reflection = .9;
+	object_add(env, object);
+	object = create_sphere();
+	object->position->x = -50001;
+	object->dimensions[0] = 50000;
+	object->reflection = .9;
+	object_add(env, object);
+	object = create_sphere();
+	object->color = 0xFF0000;
+	object->position->x = .5;
+	object->position->z = .5;
+	object->position->y = -.5;
+	object->dimensions[0] = .25;
+	object_add(env, object);
 	light = light_create();
-	light->position->z = 0;
-	light->position->y = 1000000;
-	light->luminosity = 0;
-	light_add(env, light);
+	light->position->x = .5;
+	light->position->z = .5;
+	light->position->y = .95;
+	light->luminosity = .5;
+	light_add(env, light);*/
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");

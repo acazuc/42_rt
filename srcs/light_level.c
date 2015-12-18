@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 14:27:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 16:42:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ static void		loop(t_env *env, t_ray *ray, t_collision *origin
 		if (!((collision = trace(env, ray, origin->object))->object)
 				|| is_behind(collision->vector, ray->direction, ray->origin))
 			add_mask(mask, normal_v, ray, list->light);
+		free(collision->vector);
 		free(collision);
 		list = list->next;
 	}

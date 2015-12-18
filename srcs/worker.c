@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 14:40:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 16:38:46 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ void			*worker_run(void *data)
 		pixel_put(worker->env, coord->x, coord->y
 			, get_ray_color(worker->env, ray, NULL, 0));
 	}
+	free(fov);
+	free(coord);
+	ray_free(ray);
 	return (NULL);
 }

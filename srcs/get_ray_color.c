@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 14:41:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 17:24:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 		if (collision->object)
 		{
 			mask = light_level(env, collision);
-			color = color_mask(collision->object->color, mask);
+			color = color_factor(color_mask(collision->object->color, mask)
+					, 1 - env->ambient_light);
+			color += color_factor(0xFFFFFF, env->ambient_light);
 			free(mask);
 			if (collision->object->reflection > 0)
 			{
@@ -43,9 +45,11 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 				reflection_color = get_ray_color(env, new_ray, collision->object
 						, recur + 1);
 				color = get_reflect_color(color, reflection_color, collision);
-				free(new_ray);
+				ray_free(new_ray);
 			}
 		}
+	if (collision)
+		free(collision->vector);
 	free(collision);
 	return (color);
 }

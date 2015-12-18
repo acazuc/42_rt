@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 13:15:34 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 16:41:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 					&& (nearest_distance == -1
 						| (distance = get_dst(ray, vector)) < nearest_distance))
 			{
+				free(collision->vector);
 				collision->vector = vector;
 				collision->object = list->object;
 				nearest_distance = distance;
