@@ -6,7 +6,7 @@
 /*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:27:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 08:43:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:28:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct		s_env
 	t_vector		*position;
 	t_vector		*rotation;
 	int				max_recur;
-	int				fov;
+	double			fov;
 }					t_env;
 
 #endif

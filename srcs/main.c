@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 11:15:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 14:37:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	add_objects(t_env *env)
 		}
 		y++;
 	}
-}
-*/
+}*/
+
 int		main(void)
 {
 	t_object	*object;
@@ -53,57 +53,55 @@ int		main(void)
 		error_quit("Failed to malloc env");
 	env_init(env);
 	window_init(env);
-	env->fov = 66;
-	env->rotation->x = -20;
-	env->position->y = 20;
-	env->position->z = -40;
+	env->fov = 60;
+	env->rotation->x = -25;
+	env->rotation->y = 0;
+	env->position->y = 50;
+	env->position->z = -75;
 	//add_objects(env);
 	object = create_sphere();
 	object->color = 0xFFFFFF;
 	object->position->y = -10002;
 	object->dimensions[0] = 10000;
 	object_add(env, object);
-	object = create_sphere();
-	object->color = WHITE;
-	object->dimensions[0] = 3;
-	object->position->y = 0;
-	object->position->z = 20;
-	object->position->x = 0;
-	object->reflection = 0;
-	object_add(env, object);
-	/*object = create_sphere();
-	object->color = GREEN;
-	object->dimensions[0] = 1;
-	object->position->y = 0;
-	object->position->z = 10;
-	object->position->x = -1;
-	object->rotation->z = 0;
-	object_add(env, object);*/
-	/*light = light_create();
-	light->position->x = -10;
-	light->position->y = 1;
-	light->luminosity = 1;
+	int i = -60;
+	while (i <= 60)
+	{
+		object = create_sphere();
+		object->color = WHITE;
+		object->dimensions[0] = 4;
+		object->position->y = 3;
+		object->position->z = 20;
+		object->position->x = i;
+		object->reflection = .9;
+		object_add(env, object);
+		i+= 12;
+	}
+	light = light_create();
+	light->position->x = -5;
+	light->position->y = .5;
+	light->luminosity = 2;
 	light->mask->blue = 0;
 	light->mask->green = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 0;
-	light->position->y = 1;
-	light->luminosity = 1;
+	light->position->y = .5;
+	light->luminosity = 2;
 	light->mask->red = 0;
 	light->mask->blue = 0;
 	light_add(env, light);
 	light = light_create();
-	light->position->x = 10;
+	light->position->x = 5;
 	light->position->y = 1;
-	light->luminosity = 1;
+	light->luminosity = 2;
 	light->mask->green = 0;
 	light->mask->red = 0;
-	light_add(env, light);*/
+	light_add(env, light);
 	light = light_create();
-	light->position->z = 10;
-	light->position->x = 0;
-	light->luminosity = 1;
+	light->position->z = 0;
+	light->position->y = 1000000;
+	light->luminosity = 0;
 	light_add(env, light);
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);

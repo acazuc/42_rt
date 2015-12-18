@@ -6,11 +6,23 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/17 17:14:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 13:15:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
+
+static double		get_dst(t_ray *ray, t_vector *vector)
+{
+	double			dx;
+	double			dy;
+	double			dz;
+
+	dx = vector->x - ray->origin->x;
+	dy = vector->y - ray->origin->y;
+	dz = vector->z - ray->origin->z;
+	return (sqrt(dx * dx + dy * dy + dz * dz));
+}
 
 t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 {
@@ -29,7 +41,7 @@ t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 		if (!avoid || avoid != list->object)
 			if ((vector = collide(ray, list->object))
 					&& (nearest_distance == -1
-						| (distance = vector_size(vector)) < nearest_distance))
+						| (distance = get_dst(ray, vector)) < nearest_distance))
 			{
 				collision->vector = vector;
 				collision->object = list->object;

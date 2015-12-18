@@ -6,11 +6,13 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 08:54:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/18 13:44:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rtv1.h"
+
+int	maximum = 0;
 
 static int	get_reflect_color(int color, int reflection_color
 		, t_collision *collision)
@@ -29,23 +31,23 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 	int				reflection_color;
 	int				color;
 
+	color = BLACK;
 	collision = trace(env, ray, avoid);
-	if (collision->object)
-	{
-		mask = light_level(env, collision);
-		color = color_mask(collision->object->color, mask);
-		free(mask);
-		if (collision->object->reflection > 0)
+	if (recur <= env->max_recur)
+		if (collision->object)
 		{
-			new_ray = get_reflection_ray(ray, collision);
-			reflection_color = get_ray_color(env, new_ray, collision->object
-					, recur + 1);
-			color = get_reflect_color(color, reflection_color, collision);
-			free(new_ray);
+			mask = light_level(env, collision);
+			color = color_mask(collision->object->color, mask);
+			free(mask);
+			if (collision->object->reflection > 0)
+			{
+				new_ray = get_reflection_ray(ray, collision);
+				reflection_color = get_ray_color(env, new_ray, collision->object
+						, recur + 1);
+				color = get_reflect_color(color, reflection_color, collision);
+				free(new_ray);
+			}
 		}
-	}
-	else
-		color = BLACK;
 	free(collision);
 	return (color);
 }
