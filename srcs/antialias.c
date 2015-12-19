@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/19 08:43:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 09:34:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 11:45:37 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void		antialias_pixel(char *antialiased, char *original, int x, int y, t_
 	int		total_blue;
 	int		number;
 
-	total_red = original[(y * window->width + x) * window->bpp / 8 + 2];
-	total_green = original[(y * window->width + x) * window->bpp / 8 + 1];
-	total_blue = original[(y * window->width + x) * window->bpp / 8];
-	number = 1;
+	total_red = 0;
+	total_green = 0;
+	total_blue = 0;
+	number = 0;
 	if (x > 0)
 	{
 		total_red += original[(y * window->width + x - 1) * window->bpp / 8 + 2];
@@ -51,6 +51,10 @@ static void		antialias_pixel(char *antialiased, char *original, int x, int y, t_
 		total_blue += original[((y + 1) * window->width + x) * window->bpp / 8];
 		number++;
 	}
+	total_red += original[(y * window->width + x) * window->bpp / 8 + 2] * number;
+	total_green += original[(y * window->width + x) * window->bpp / 8 + 1] * number;
+	total_blue += original[(y * window->width + x) * window->bpp / 8] * number;
+	number *= 2;
 	antialiased[(y * window->width + x) * window->bpp / 8 + 2] = total_red / number;
 	antialiased[(y * window->width + x) * window->bpp / 8 + 1] = total_green / number;
 	antialiased[(y * window->width + x) * window->bpp / 8] = total_blue / number;

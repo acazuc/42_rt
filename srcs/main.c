@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 10:08:30 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 11:44:35 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,28 +75,27 @@ int		main(void)
 		object->position->z = 20;
 		object->position->x = i;
 		object->reflection = 1;
-		object->transparency = 1;
 		object_add(env, object);
 		i+= 10;
 	}
 	light = light_create();
 	light->position->x = -5;
 	light->position->y = .5;
-	light->luminosity = 1;
+	light->luminosity = 3;
 	light->mask->blue = 0;
 	light->mask->green = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 0;
 	light->position->y = .5;
-	light->luminosity = 1;
+	light->luminosity = 3;
 	light->mask->red = 0;
 	light->mask->blue = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 5;
 	light->position->y = 1;
-	light->luminosity = 1;
+	light->luminosity = 3;
 	light->mask->green = 0;
 	light->mask->red = 0;
 	light_add(env, light);
@@ -135,7 +134,7 @@ int		main(void)
 	light->luminosity = .5;
 	light_add(env, light);*/
 	draw(env);
-	//antialias(env->window);
+	antialias(env->window);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);
