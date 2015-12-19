@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 16:42:42 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 10:29:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 static void		add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
 		, t_light *light)

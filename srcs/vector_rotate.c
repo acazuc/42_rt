@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 10:16:24 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 07:31:42 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:39:32 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 void	vector_rotate(t_vector *vector, t_vector *rotation)
 {

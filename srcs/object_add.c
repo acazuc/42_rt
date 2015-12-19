@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 08:55:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 09:30:03 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:38:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 void	object_add(t_env *env, t_object *object)
 {

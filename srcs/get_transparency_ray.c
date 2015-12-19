@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_create.c                                     :+:      :+:    :+:   */
+/*   get_transparency_ray.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 15:40:01 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:37:34 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/19 09:51:53 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/19 09:56:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/rt.h"
 
-t_light		*light_create(void)
+t_ray	*get_transparency_ray(t_ray *ray, t_collision *collision)
 {
-	t_light		*light;
+	t_ray	*new_ray;
 
-	if (!(light = malloc(sizeof(*light))))
-		error_quit("Failed to malloc new light");
-	light->position = vector_create();
-	light->luminosity = 0;
-	light->mask = color_mask_create();
-	light->mask->red = 1;
-	light->mask->green = 1;
-	light->mask->blue = 1;
-	return (light);
+	new_ray = ray_create();
+	new_ray->direction->x = ray->direction->x;
+	new_ray->direction->y = ray->direction->y;
+	new_ray->direction->z = ray->direction->z;
+	new_ray->origin->x = collision->vector->x;
+	new_ray->origin->y = collision->vector->y;
+	new_ray->origin->z = collision->vector->z;
+	return (new_ray);
 }

@@ -6,14 +6,14 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 17:36:13 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 09:37:25 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
-{
+  {
 	double		angle_x;
 	double		angle_y;
 	double		angle_z;

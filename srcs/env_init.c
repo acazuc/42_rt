@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:22:41 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 15:01:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:36:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 void	env_init(t_env *env)
 {

@@ -6,11 +6,20 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 17:40:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 09:58:26 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
+
+static int	get_transparency_color(int color, int transparency_color
+		, t_collision *collision)
+{
+	return (color_add(color_factor(color
+						, (1 - collision->object->transparency))
+				, color_factor(transparency_color
+					, collision->object->transparency)));
+}
 
 static int	get_reflect_color(int color, int reflection_color
 		, t_collision *collision)
@@ -26,6 +35,7 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 	t_color_mask	*mask;
 	t_collision		*collision;
 	t_ray			*new_ray;
+	int				transparency_color;
 	int				reflection_color;
 	int				color;
 
@@ -42,6 +52,14 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 			reflection_color = get_ray_color(env, new_ray, collision->object
 					, recur + 1);
 			color = get_reflect_color(color, reflection_color, collision);
+			ray_free(new_ray);
+		}
+		if (collision->object->transparency > 0)
+		{
+			new_ray = get_transparency_ray(ray, collision);
+			transparency_color = get_ray_color(env, new_ray, collision->object
+					, recur);
+			color = get_transparency_color(color, transparency_color, collision);
 			ray_free(new_ray);
 		}
 	}

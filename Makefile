@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/18 14:52:03 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/19 09:58:04 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,9 @@ SRCS = $(DIR)main.c \
 	   $(DIR)get_ray_color.c \
 	   $(DIR)get_reflection_ray.c \
 	   $(DIR)color_add.c \
-	   $(DIR)worker.c
+	   $(DIR)worker.c \
+	   $(DIR)antialias.c \
+	   $(DIR)get_transparency_ray.c
 
 OBJS = $(SRCS:.c=.o)
 

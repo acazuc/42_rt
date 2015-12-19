@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 09:11:05 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 10:17:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 10:38:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 t_color_mask	*color_mask_create(void)
 {

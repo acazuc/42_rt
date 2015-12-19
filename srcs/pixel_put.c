@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 13:16:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/10 14:11:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 09:05:11 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 void	pixel_put(t_env *env, int x, int y, unsigned int color)
 {

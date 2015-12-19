@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 11:20:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 10:10:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:33:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 t_collision		*collision_create(void)
 {

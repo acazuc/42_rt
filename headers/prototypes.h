@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 16:34:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 09:57:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void			vector_normalize(t_vector *vector);
 unsigned char	color_get_red(int color);
 unsigned char	color_get_green(int color);
 unsigned char	color_get_blue(int color);
+int				color_create(unsigned char red, unsigned char green
+		, unsigned char blue);
 t_collision		*collision_create(void);
 int				color_factor(int color, double factor);
 t_color_mask	*light_level(t_env *env, t_collision *origin);
@@ -75,5 +77,7 @@ int				get_ray_color(t_env *env, t_ray *ray, t_object *avoid
 t_ray			*get_reflection_ray(t_ray *ray, t_collision *collision);
 int				color_add(int c1, int c2);
 void			*worker_run(void *data);
+void			antialias(t_window *window);
+t_ray			*get_transparency_ray(t_ray *ray, t_collision *collision);
 
 #endif

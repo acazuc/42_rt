@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 10:17:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:37:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 t_vector	*normal_cylinder(t_object *cylinder, t_vector *point)
 {

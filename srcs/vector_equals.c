@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 07:18:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:19:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:39:17 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/prototypes.h"
+#include "../headers/rt.h"
 
 int		vector_equals(t_vector *v1, t_vector *v2)
 {

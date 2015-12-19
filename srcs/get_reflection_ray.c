@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:00:51 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 16:33:14 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 09:56:46 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 t_ray	*get_reflection_ray(t_ray *ray, t_collision *collision)
 {

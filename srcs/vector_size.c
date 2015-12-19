@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 16:31:12 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 12:50:54 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:39:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 double	vector_size(t_vector *vector)
 {

@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 17:24:00 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 10:08:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 /*
 void	add_objects(t_env *env)
 {
@@ -65,7 +65,7 @@ int		main(void)
 	object->position->y = -1000002;
 	object->dimensions[0] = 1000000;
 	object_add(env, object);
-	int i = -60;
+	double i = -60;
 	while (i <= 60)
 	{
 		object = create_sphere();
@@ -74,9 +74,10 @@ int		main(void)
 		object->position->y = 3;
 		object->position->z = 20;
 		object->position->x = i;
-		object->reflection = 0;
+		object->reflection = 1;
+		object->transparency = 1;
 		object_add(env, object);
-		i+= 12;
+		i+= 10;
 	}
 	light = light_create();
 	light->position->x = -5;
@@ -134,6 +135,7 @@ int		main(void)
 	light->luminosity = .5;
 	light_add(env, light);*/
 	draw(env);
+	//antialias(env->window);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);

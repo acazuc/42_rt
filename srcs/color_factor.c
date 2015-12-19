@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 11:37:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 09:27:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:34:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 int		color_factor(int color, double factor)
 {

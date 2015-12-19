@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 16:03:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/13 16:09:46 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 08:37:29 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rtv1.h"
+#include "../headers/rt.h"
 
 void	light_add(t_env *env, t_light *light)
 {
