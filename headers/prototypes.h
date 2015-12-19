@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 09:57:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 17:09:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int				get_ray_color(t_env *env, t_ray *ray, t_object *avoid
 t_ray			*get_reflection_ray(t_ray *ray, t_collision *collision);
 int				color_add(int c1, int c2);
 void			*worker_run(void *data);
-void			antialias(t_window *window);
 t_ray			*get_transparency_ray(t_ray *ray, t_collision *collision);
 
 #endif

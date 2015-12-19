@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 11:05:20 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/19 17:13:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 			new_ray = get_transparency_ray(ray, collision);
 			transparency_color = get_ray_color(env, new_ray, collision->object
 					, recur);
-			color = get_transparency_color(color, transparency_color, collision);
+			color = get_transparency_color(color, transparency_color
+					, collision);
 			ray_free(new_ray);
 		}
 	}
