@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 10:54:02 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/20 15:17:46 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
 	mask->blue += MAX(0, cos(vector_angle(normal_v, ray->direction)))
 				* light->luminosity * light->mask->blue;
 }
-
+/*
 static void		add_mask_smooth(t_color_mask *mask, t_vector *normal_v
 		, t_ray *ray, t_light_collision *data)
 {
@@ -47,7 +47,7 @@ static void		add_mask_smooth(t_color_mask *mask, t_vector *normal_v
 				data->light->luminosity * data->light->mask->blue *
 				MAX(0, 1 - 5 *
 						(1 - sin(vector_angle(ray->direction, normal_object))));
-}
+}*/
 
 static int		is_behind(t_vector *c_vector, t_vector *r_vector
 		, t_vector *o_vector)
@@ -70,7 +70,7 @@ static int		is_behind(t_vector *c_vector, t_vector *r_vector
 static void		loop(t_env *env, t_ray *ray, t_collision *origin
 		, t_color_mask *mask)
 {
-	t_light_collision	data;
+	//t_light_collision	data;
 	t_light_list		*list;
 	t_collision			*collision;
 	t_vector			*normal_v;
@@ -86,12 +86,12 @@ static void		loop(t_env *env, t_ray *ray, t_collision *origin
 		if (!((collision = trace(env, ray, origin->object))->object)
 				|| is_behind(collision->vector, ray->direction, ray->origin))
 			add_mask(mask, normal_v, ray, list->light);
-		else if (collision->object)
+		/*else if (collision->object && is_behind(collision->vector, ray->direction, ray->origin))
 		{
 			data.collision = collision;
 			data.light = list->light;
 			add_mask_smooth(mask, normal_v, ray, &data);
-		}
+		}*/
 		free(collision->vector);
 		free(collision);
 		list = list->next;

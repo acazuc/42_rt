@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 13:42:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/20 17:35:29 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 {
 	double		angle_x;
 	double		angle_y;
-	double		angle_z;
 
 	angle_y = (double)(coord->x - env->window->width / 2.)
 		/ (double)(env->window->width / 2.) * fov->x
@@ -24,9 +23,8 @@ static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 	angle_x = (double)(coord->y - env->window->height / 2.)
 		/ (double)(env->window->height / 2.) * fov->y * -1.
 		+ DTR(env->rotation->x);
-	angle_z = 0;
-	ray->direction->x = sin(angle_y) * cos(angle_z);
-	ray->direction->y = sin(angle_x) * cos(angle_z);
+	ray->direction->x = sin(angle_y);
+	ray->direction->y = sin(angle_x);
 	ray->direction->z = cos(angle_x) * cos(angle_y);
 }
 

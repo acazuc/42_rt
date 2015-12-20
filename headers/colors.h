@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/14 11:34:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/20 18:03:47 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # define RED 0xFF0000
 # define GREEN 0x00FF00
 # define BLUE 0x0000FF
-# define YELLOW 0xFF6600
+# define YELLOW 0xFFFF00
 
 #endif

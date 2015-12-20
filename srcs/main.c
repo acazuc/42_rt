@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 10:57:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/20 18:34:37 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ void	add_objects(t_env *env)
 	}
 }*/
 
+void	a(int **m, int a, int v1, int v2, int c)
+{
+	m[a] = malloc(sizeof(**m) * 3);
+	m[a][0] = v1;
+	m[a][1] = v2;
+	m[a][2] = c;
+}
+
 int		main(void)
 {
 	t_object	*object;
@@ -63,50 +71,376 @@ int		main(void)
 	window_init(env);
 	env->ambient_light = 0;
 	env->fov = 66;
-	env->rotation->x = -45;
+	env->rotation->x = -90;
 	env->rotation->y = 0;
-	env->position->y = 100;
-	env->position->z = -75;
+	env->position->x = -5;
+	env->position->y = 30;
+	env->position->z = -4;
 	//add_objects(env);
 	object = create_sphere();
-	object->color = WHITE;
+	object->color = 0xFFFFFF;
 	object->position->y = -1000002;
 	object->dimensions[0] = 1000000;
 	object_add(env, object);
-	double i = -0;
-	while (i <= 0)
+	/*double mdr = 50;
+	double z = -mdr;
+	while (z <= mdr)
+	{
+		double x = -mdr;
+		while (x <= mdr)
+		{
+			object = create_sphere();
+			object->color = WHITE;
+			object->dimensions[0] = 3;
+			object->position->y = 1;
+			object->position->z = z;
+			object->position->x = x;
+			object->reflection = 0;
+			object_add(env, object);
+			x += 10;
+		}
+		z += 10;
+	}*/
+	double haha = 177;
+	int **m;
+	m = malloc(sizeof(*m) * haha);
+	a(m, 0 , 5 , 0, BLACK);
+	a(m, 1 , 6 , 0, BLACK);
+	a(m, 2 , 7 , 0, BLACK);
+	a(m, 3 , 8 , 0, BLACK);
+	a(m, 4 , 9 , 0, BLACK);
+
+	a(m, 5 , 3 , 1, BLACK);
+	a(m, 6 , 4 , 1, BLACK);
+	a(m, 7 , 5 , 1, YELLOW);
+	a(m, 8 , 6 , 1, YELLOW);
+	a(m, 9 , 7 , 1, YELLOW);
+	a(m, 10, 8 , 1, YELLOW);
+	a(m, 11, 9 , 1, YELLOW);
+	a(m, 12, 10, 1, BLACK);
+	a(m, 13, 11, 1, BLACK);
+
+	a(m, 14, 2 , 2, BLACK);
+	a(m, 15, 3 , 2, YELLOW);
+	a(m, 16, 4 , 2, YELLOW);
+	a(m, 17, 5 , 2, YELLOW);
+	a(m, 18, 6 , 2, YELLOW);
+	a(m, 19, 7 , 2, YELLOW);
+	a(m, 20, 8 , 2, YELLOW);
+	a(m, 21, 9 , 2, YELLOW);
+	a(m, 22, 10, 2, YELLOW);
+	a(m, 23, 11, 2, YELLOW);
+	a(m, 24, 12, 2, BLACK);
+
+	a(m, 25, 1 , 3, BLACK);
+	a(m, 26, 2 , 3, YELLOW);
+	a(m, 27, 3 , 3, YELLOW);
+	a(m, 28, 4 , 3, BLACK);
+	a(m, 29, 5 , 3, BLACK);
+	a(m, 30, 6 , 3, YELLOW);
+	a(m, 31, 7 , 3, YELLOW);
+	a(m, 32, 8 , 3, YELLOW);
+	a(m, 33, 9 , 3, BLACK);
+	a(m, 34, 10, 3, BLACK);
+	a(m, 35, 11, 3, YELLOW);
+	a(m, 36, 12, 3, YELLOW);
+	a(m, 37, 13, 3, BLACK);
+
+	a(m, 38, 1 , 4, BLACK);
+	a(m, 39, 2 , 4, YELLOW);
+	a(m, 40, 3 , 4, BLACK);
+	a(m, 41, 4 , 4, YELLOW);
+	a(m, 42, 5 , 4, YELLOW);
+	a(m, 43, 6 , 4, YELLOW);
+	a(m, 44, 7 , 4, YELLOW);
+	a(m, 45, 8 , 4, YELLOW);
+	a(m, 46, 9 , 4, YELLOW);
+	a(m, 47, 10, 4, YELLOW);
+	a(m, 48, 11, 4, BLACK);
+	a(m, 49, 12, 4, YELLOW);
+	a(m, 50, 13, 4, BLACK);
+
+	a(m, 51, 0 , 5, BLACK);
+	a(m, 52, 1 , 5, YELLOW);
+	a(m, 53, 2 , 5, BLACK);
+	a(m, 54, 3 , 5, YELLOW);
+	a(m, 55, 4 , 5, BLACK);
+	a(m, 56, 5 , 5, BLACK);
+	a(m, 57, 6 , 5, YELLOW);
+	a(m, 58, 7 , 5, YELLOW);
+	a(m, 59, 8 , 5, YELLOW);
+	a(m, 60, 9 , 5, BLACK);
+	a(m, 61, 10, 5, BLACK);
+	a(m, 62, 11, 5, YELLOW);
+	a(m, 63, 12, 5, BLACK);
+	a(m, 64, 13, 5, YELLOW);
+	a(m, 65, 14, 5, BLACK);
+
+	a(m, 66, 0 , 6, BLACK);
+	a(m, 67, 1 , 6, YELLOW);
+	a(m, 68, 2 , 6, BLACK);
+	a(m, 69, 3 , 6, YELLOW);
+	a(m, 70, 4 , 6, BLACK);
+	a(m, 71, 5 , 6, BLACK);
+	a(m, 72, 6 , 6, YELLOW);
+	a(m, 73, 7 , 6, YELLOW);
+	a(m, 74, 8 , 6, YELLOW);
+	a(m, 75, 9 , 6, BLACK);
+	a(m, 76, 10, 6, BLACK);
+	a(m, 77, 11, 6, YELLOW);
+	a(m, 78, 12, 6, BLACK);
+	a(m, 79, 13, 6, YELLOW);
+	a(m, 80, 14, 6, BLACK);
+
+	a(m, 81, 0 , 7, BLACK);
+	a(m, 82, 1 , 7, YELLOW);
+	a(m, 83, 2 , 7, YELLOW);
+	a(m, 84, 3 , 7, YELLOW);
+	a(m, 85, 4 , 7, YELLOW);
+	a(m, 86, 5 , 7, YELLOW);
+	a(m, 87, 6 , 7, YELLOW);
+	a(m, 88, 7 , 7, YELLOW);
+	a(m, 89, 8 , 7, YELLOW);
+	a(m, 90, 9 , 7, YELLOW);
+	a(m, 91, 10, 7, YELLOW);
+	a(m, 92, 11, 7, YELLOW);
+	a(m, 93, 12, 7, YELLOW);
+	a(m, 94, 13, 7, YELLOW);
+	a(m, 95, 14, 7, BLACK);
+
+	a(m, 96 , 0 , 8, BLACK);
+	a(m, 97 , 1 , 8, YELLOW);
+	a(m, 98 , 2 , 8, YELLOW);
+	a(m, 99 , 3 , 8, YELLOW);
+	a(m, 100, 4 , 8, YELLOW);
+	a(m, 101, 5 , 8, YELLOW);
+	a(m, 102, 6 , 8, YELLOW);
+	a(m, 103, 7 , 8, YELLOW);
+	a(m, 104, 8 , 8, YELLOW);
+	a(m, 105, 9 , 8, YELLOW);
+	a(m, 106, 10, 8, YELLOW);
+	a(m, 107, 11, 8, YELLOW);
+	a(m, 108, 12, 8, YELLOW);
+	a(m, 109, 13, 8, YELLOW);
+	a(m, 110, 14, 8, BLACK);
+
+	a(m, 111, 0 , 9, BLACK);
+	a(m, 112, 1 , 9, YELLOW);
+	a(m, 113, 2 , 9, YELLOW);
+	a(m, 114, 3 , 9, YELLOW);
+	a(m, 115, 4 , 9, YELLOW);
+	a(m, 116, 5 , 9, BLACK);
+	a(m, 117, 6 , 9, YELLOW);
+	a(m, 118, 7 , 9, YELLOW);
+	a(m, 119, 8 , 9, YELLOW);
+	a(m, 120, 9 , 9, BLACK);
+	a(m, 121, 10, 9, YELLOW);
+	a(m, 122, 11, 9, YELLOW);
+	a(m, 123, 12, 9, YELLOW);
+	a(m, 124, 13, 9, YELLOW);
+	a(m, 125, 14, 9, BLACK);
+
+	a(m, 126, 1 , 10, BLACK);
+	a(m, 127, 2 , 10, YELLOW);
+	a(m, 128, 3 , 10, YELLOW);
+	a(m, 129, 4 , 10, YELLOW);
+	a(m, 130, 5 , 10, YELLOW);
+	a(m, 131, 6 , 10, BLACK);
+	a(m, 132, 7 , 10, BLACK);
+	a(m, 133, 8 , 10, BLACK);
+	a(m, 134, 9 , 10, YELLOW);
+	a(m, 135, 10, 10, YELLOW);
+	a(m, 136, 11, 10, YELLOW);
+	a(m, 137, 12, 10, YELLOW);
+	a(m, 138, 13, 10, BLACK);
+
+	a(m, 139, 1 , 11, BLACK);
+	a(m, 140, 2 , 11, YELLOW);
+	a(m, 141, 3 , 11, YELLOW);
+	a(m, 142, 4 , 11, YELLOW);
+	a(m, 143, 5 , 11, YELLOW);
+	a(m, 144, 6 , 11, YELLOW);
+	a(m, 145, 7 , 11, YELLOW);
+	a(m, 146, 8 , 11, YELLOW);
+	a(m, 147, 9 , 11, YELLOW);
+	a(m, 148, 10, 11, YELLOW);
+	a(m, 149, 11, 11, YELLOW);
+	a(m, 150, 12, 11, YELLOW);
+	a(m, 151, 13, 11, BLACK);
+
+	a(m, 152, 2 , 12, BLACK);
+	a(m, 153, 3 , 12, YELLOW);
+	a(m, 154, 4 , 12, YELLOW);
+	a(m, 155, 5 , 12, YELLOW);
+	a(m, 156, 6 , 12, YELLOW);
+	a(m, 157, 7 , 12, YELLOW);
+	a(m, 158, 8 , 12, YELLOW);
+	a(m, 159, 9 , 12, YELLOW);
+	a(m, 160, 10, 12, YELLOW);
+	a(m, 161, 11, 12, YELLOW);
+	a(m, 162, 12, 12, BLACK);
+
+	a(m, 163, 3 , 13, BLACK);
+	a(m, 164, 4 , 13, BLACK);
+	a(m, 165, 5 , 13, YELLOW);
+	a(m, 166, 6 , 13, YELLOW);
+	a(m, 167, 7 , 13, YELLOW);
+	a(m, 168, 8 , 13, YELLOW);
+	a(m, 169, 9 , 13, YELLOW);
+	a(m, 170, 10, 13, BLACK);
+	a(m, 171, 11, 13, BLACK);
+
+	a(m, 172, 5 , 14, BLACK);
+	a(m, 173, 6 , 14, BLACK);
+	a(m, 174, 7 , 14, BLACK);
+	a(m, 175, 8 , 14, BLACK);
+	a(m, 176, 9 , 14, BLACK);
+
+	int eumdeureuh = 0;
+	while (eumdeureuh < haha)
 	{
 		object = create_sphere();
-		object->color = WHITE;
-		object->dimensions[0] = 2;
-		object->position->y = -2;
-		object->position->z = 25;
-		object->position->x = i;
-		object->reflection = 0;
+		object->color = m[eumdeureuh][2];
+		object->dimensions[0] = 3;
+		object->position->y = 1;
+		object->position->x = -12.5 + m[eumdeureuh][0];
+		object->position->z = 3 - m[eumdeureuh][1];
 		object_add(env, object);
-		i+= 10;
+		eumdeureuh++;
 	}
 	light = light_create();
 	light->position->x = 0;
-	light->position->y = 1;
+	light->position->y = 100;
+	light->position->z = 0;
+	light->luminosity = 1;
+	light_add(env, light);
+
+
+	/*
+	 * START MDLOUL
+	 */
+	/*double haha = 60;
+	char **m;
+	m = malloc(sizeof(*m) * haha);
+	a(m, 0 , 0 , 0);
+	a(m, 1 , 0 , 1);
+	a(m, 2 , 0 , 2);
+	a(m, 3 , 0 , 3);
+	a(m, 4 , 0 , 4);
+	a(m, 5 , 1 , 1);
+	a(m, 6 , 2 , 2);
+	a(m, 7 , 3 , 1);
+	a(m, 8 , 4 , 0);
+	a(m, 9 , 4 , 1);
+	a(m, 10, 4 , 2);
+	a(m, 11, 4 , 3);
+	a(m, 12, 4 , 4);
+	a(m, 13, 6 , 0);
+	a(m, 14, 6 , 1);
+	a(m, 15, 6 , 2);
+	a(m, 16, 6 , 3);
+	a(m, 17, 6 , 4);
+	a(m, 18, 7 , 0);
+	a(m, 19, 7 , 4);
+	a(m, 20, 8 , 1);
+	a(m, 21, 8 , 2);
+	a(m, 22, 8 , 3);
+	a(m, 23, 10, 0);
+	a(m, 24, 10, 1);
+	a(m, 25, 10, 2);
+	a(m, 26, 10, 3);
+	a(m, 27, 10, 4);
+	a(m, 28, 11, 4);
+	a(m, 29, 12, 4);
+	a(m, 30, 14, 0);
+	a(m, 31, 14, 1);
+	a(m, 32, 14, 2);
+	a(m, 33, 14, 3);
+	a(m, 34, 14, 4);
+	a(m, 35, 15, 0);
+	a(m, 36, 15, 4);
+	a(m, 37, 16, 0);
+	a(m, 38, 16, 1);
+	a(m, 39, 16, 2);
+	a(m, 40, 16, 3);
+	a(m, 41, 16, 4);
+	a(m, 42, 18, 0);
+	a(m, 43, 18, 1);
+	a(m, 44, 18, 2);
+	a(m, 45, 18, 3);
+	a(m, 46, 18, 4);
+	a(m, 47, 19, 4);
+	a(m, 48, 20, 0);
+	a(m, 49, 20, 1);
+	a(m, 50, 20, 2);
+	a(m, 51, 20, 3);
+	a(m, 52, 20, 4);
+	a(m, 53, 22, 0);
+	a(m, 54, 22, 1);
+	a(m, 55, 22, 2);
+	a(m, 56, 22, 3);
+	a(m, 57, 22, 4);
+	a(m, 58, 23, 4);
+	a(m, 59, 24, 4);
+	int eumdeureuh = 0;
+	while (eumdeureuh < haha)
+	{
+		object = create_sphere();
+		object->color = WHITE;
+		object->dimensions[0] = .4;
+		object->position->y = -1.6;
+		object->position->x = -12.5 + m[eumdeureuh][0];
+		object->position->z = 3 - m[eumdeureuh][1];
+		object->reflection = 1;
+		object_add(env, object);
+		eumdeureuh++;
+	}
+	double loul = 20;
+	double xd = -loul;
+	while (xd <= loul)
+	{
+		double zd = -loul;
+		while (zd <= loul)
+		{
+			light = light_create();
+			light->position->x = xd;
+			light->position->y = -1;
+			light->position->z = zd;
+			light->mask->green = (xd + loul) / (loul * 2.);
+			light->mask->blue = (zd + loul) / (loul * 2.);
+			//light->mask->blue = (xd + zd + loul + loul) / (loul * 4.);
+			light->luminosity = 1;
+			light_add(env, light);
+			zd += 10;
+		}
+		xd += 10;
+	}*/
+	/*
+	 * END MDLOUL
+	 */
+
+
+	/*light = light_create();
+	light->position->x = -30;
+	light->position->y = 5;
 	light->luminosity = 5;
 	light->mask->blue = 0;
 	light->mask->green = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 0;
-	light->position->y = 1;
-	light->luminosity = 7.5;
+	light->position->y = 5;
+	light->luminosity = 5;
 	light->mask->red = 0;
 	light->mask->blue = 0;
 	light_add(env, light);
 	light = light_create();
-	light->position->x = 0;
-	light->position->y = 1;
-	light->luminosity = 10;
+	light->position->x = 30;
+	light->position->y = 5;
+	light->luminosity = 5;
 	light->mask->green = 0;
 	light->mask->red = 0;
-	light_add(env, light);
+	light_add(env, light);*/
 	/*env->max_recur = 10;
 	object = create_sphere();
 	object->position->z = 50001;
@@ -141,6 +475,8 @@ int		main(void)
 	light->position->y = .95;
 	light->luminosity = .5;
 	light_add(env, light);*/
+	ft_putstr(CONSOLE_GREEN);
+	ft_putendl("Started drawing");
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
