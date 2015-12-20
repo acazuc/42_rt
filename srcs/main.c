@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 18:34:37 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/20 18:40:14 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,9 @@ int		main(void)
 	env->fov = 66;
 	env->rotation->x = -90;
 	env->rotation->y = 0;
-	env->position->x = -5;
+	env->position->x = 0;
 	env->position->y = 30;
-	env->position->z = -4;
+	env->position->z = 0;
 	//add_objects(env);
 	object = create_sphere();
 	object->color = 0xFFFFFF;
@@ -303,14 +303,14 @@ int		main(void)
 		object->color = m[eumdeureuh][2];
 		object->dimensions[0] = 3;
 		object->position->y = 1;
-		object->position->x = -12.5 + m[eumdeureuh][0];
-		object->position->z = 3 - m[eumdeureuh][1];
+		object->position->x = -6.5 + m[eumdeureuh][0];
+		object->position->z = 7 - m[eumdeureuh][1];
 		object_add(env, object);
 		eumdeureuh++;
 	}
 	light = light_create();
 	light->position->x = 0;
-	light->position->y = 100;
+	light->position->y = 8;
 	light->position->z = 0;
 	light->luminosity = 1;
 	light_add(env, light);
