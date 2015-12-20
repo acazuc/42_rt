@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.h                                        :+:      :+:    :+:   */
+/*   light_collision.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 10:05:44 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 08:18:01 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/20 10:37:16 by acazuc            #+#    #+#             */
+/*   Updated: 2015/12/20 10:38:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FUNCTIONS_H
-# define FT_FUNCTIONS_H
+#ifndef FT_LIGHT_COLLISION_H
+# define FT_LIGHT_COLLISION_H
 
-# define ABS(x) ((x) < 0 ? -(x) : (x))
-# define DTR(x) ((x) / 180. * M_PI)
-# define RTD(x) ((x) * M_PI / 180.)
-# define MIN(x, y) ((x) < (y) ? (x) : (y))
-# define MAX(x, y) ((x) > (y) ? (x) : (y))
+# include "collision.h"
+# include "light.h"
+
+typedef struct		s_light_collision
+{
+	t_collision		*collision;
+	t_light			*light;
+}					t_light_collision;
 
 #endif

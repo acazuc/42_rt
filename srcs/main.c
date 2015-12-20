@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 17:14:14 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/20 10:57:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
  * OMG OMG OMG OMG OMG OMG OMG OMG OMG OMG GENIUSRIE
  * Suffit de check l'angle du rayon de lumiere par rapport a l'incidence
  * Si il est proche de 90 degres, on met un petit peu de lumiere, ca fera smooth
-
+ */
 
 
 
@@ -69,41 +69,41 @@ int		main(void)
 	env->position->z = -75;
 	//add_objects(env);
 	object = create_sphere();
-	object->color = 0xFFFFFF;
+	object->color = WHITE;
 	object->position->y = -1000002;
 	object->dimensions[0] = 1000000;
 	object_add(env, object);
-	double i = -60;
-	while (i <= 60)
+	double i = -0;
+	while (i <= 0)
 	{
 		object = create_sphere();
 		object->color = WHITE;
-		object->dimensions[0] = 5;
-		object->position->y = 3;
-		object->position->z = 20;
+		object->dimensions[0] = 2;
+		object->position->y = -2;
+		object->position->z = 25;
 		object->position->x = i;
 		object->reflection = 0;
 		object_add(env, object);
 		i+= 10;
 	}
 	light = light_create();
-	light->position->x = -5;
+	light->position->x = 0;
 	light->position->y = 1;
-	light->luminosity = 1;
+	light->luminosity = 5;
 	light->mask->blue = 0;
 	light->mask->green = 0;
 	light_add(env, light);
 	light = light_create();
 	light->position->x = 0;
 	light->position->y = 1;
-	light->luminosity = 1;
+	light->luminosity = 7.5;
 	light->mask->red = 0;
 	light->mask->blue = 0;
 	light_add(env, light);
 	light = light_create();
-	light->position->x = 5;
+	light->position->x = 0;
 	light->position->y = 1;
-	light->luminosity = 1;
+	light->luminosity = 10;
 	light->mask->green = 0;
 	light->mask->red = 0;
 	light_add(env, light);
