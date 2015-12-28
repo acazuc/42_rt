@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 15:21:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 static double		get_dst(t_ray *ray, t_vector *vector)
 {

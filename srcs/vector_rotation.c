@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 11:58:48 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:39:37 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 void	vector_rotate_x(t_vector *vector, double angle)
 {

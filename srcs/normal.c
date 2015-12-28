@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 13:05:13 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:37:52 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:45:04 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_vector	*normal(t_object *object, t_vector *point)
 {

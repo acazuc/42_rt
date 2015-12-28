@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 09:53:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:38:45 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:12 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_trinome	*trinome_create(void)
 {

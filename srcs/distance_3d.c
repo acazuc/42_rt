@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:24:31 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:35:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:43:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 double		distance_3d(t_vector *v1, t_vector *v2)
 {

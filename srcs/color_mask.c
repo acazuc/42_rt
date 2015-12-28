@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 09:21:35 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 11:01:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:42:53 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 int		color_mask(int color, t_color_mask *mask)
 {

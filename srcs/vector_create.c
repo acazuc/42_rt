@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 09:04:15 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:38:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_vector	*vector_create(void)
 {

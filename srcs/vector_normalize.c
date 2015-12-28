@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 07:43:51 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 13:56:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 void	vector_normalize(t_vector *vector)
 {

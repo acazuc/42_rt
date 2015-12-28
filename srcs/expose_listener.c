@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:14:21 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:36:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:44:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 int		expose_listener(void *param)
 {

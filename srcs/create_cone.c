@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 12:40:52 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:34:19 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:43:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_object	*create_cone(void)
 {

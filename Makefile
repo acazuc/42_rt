@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/19 17:09:10 by acazuc           ###   ########.fr        #
+#    Updated: 2015/12/28 11:31:16 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,88 +16,99 @@ CFLAGS = -Wall -Wextra -Werror -Ofast
 
 CC = gcc
 
-HDIR = headers/
+INCLUDES_PATH = includes/
 
-HEADERS = $(HDIR)console.h \
-		  $(HDIR)env.h \
-		  $(HDIR)prototypes.h \
-		  $(HDIR)rtv1.h \
-		  $(HDIR)window.h \
-		  $(HDIR)includes.h \
-		  $(HDIR)object.h \
-		  $(HDIR)object_list.h \
-		  $(HDIR)object_type.h \
-		  $(HDIR)vector.h \
-		  $(HDIR)functions.h \
-		  $(HDIR)ray.h \
-		  $(HDIR)light.h \
-		  $(HDIR)point.h \
-		  $(HDIR)trinome.h \
-		  $(HDIR)light_list.h \
-		  $(HDIR)colors.h \
-		  $(HDIR)color_mask.h \
-		  $(HDIR)collision.h
+INCLUDES_NAME = console.h \
+		  		env.h \
+				prototypes.h \
+				rtv1.h \
+				window.h \
+				includes.h \
+				object.h \
+				object_list.h \
+		 		object_type.h \
+		 		vector.h \
+		 		functions.h \
+		 		ray.h \
+		 		light.h \
+		 		point.h \
+		 		trinome.h \
+		 		light_list.h \
+		 		colors.h \
+		 		color_mask.h \
+		 		collision.h
 
-DIR = srcs/
+INCLUDES = $(addprefix $(INCLUDES_PATH), $(INCLUDES_NAME))
 
-SRCS = $(DIR)main.c \
-	   $(DIR)pixel_put.c \
-	   $(DIR)error_quit.c \
-	   $(DIR)draw_reset.c \
-	   $(DIR)draw.c \
-	   $(DIR)trace.c \
-	   $(DIR)env_init.c \
-	   $(DIR)window_init.c \
-	   $(DIR)expose_listener.c \
-	   $(DIR)display.c \
-	   $(DIR)object_create.c \
-	   $(DIR)object_add.c \
-	   $(DIR)vector_create.c \
-	   $(DIR)distance_3d.c \
-	   $(DIR)key_listener.c \
-	   $(DIR)point_create.c \
-	   $(DIR)create_sphere.c \
-	   $(DIR)create_cylinder.c \
-	   $(DIR)create_cone.c \
-	   $(DIR)collide.c \
-	   $(DIR)collide_sphere.c \
-	   $(DIR)collide_cylinder.c \
-	   $(DIR)collide_cone.c \
-	   $(DIR)ray_create.c \
-	   $(DIR)vector_rotate.c \
-	   $(DIR)vector_rotation.c \
-	   $(DIR)light_create.c \
-	   $(DIR)light_add.c \
-	   $(DIR)vector_size.c \
-	   $(DIR)color_create.c \
-	   $(DIR)vector_normalize.c \
-	   $(DIR)color_getters.c \
-	   $(DIR)light_level.c \
-	   $(DIR)ray_free.c \
-	   $(DIR)collision_create.c \
-	   $(DIR)color_factor.c \
-	   $(DIR)vector_equals.c \
-	   $(DIR)vector_multiply.c \
-	   $(DIR)vector_angle.c \
-	   $(DIR)normal.c \
-	   $(DIR)normal_sphere.c \
-	   $(DIR)normal_cylinder.c \
-	   $(DIR)color_mask_create.c \
-	   $(DIR)color_mask.c \
-	   $(DIR)trinome_create.c \
-	   $(DIR)get_ray_color.c \
-	   $(DIR)get_reflection_ray.c \
-	   $(DIR)color_add.c \
-	   $(DIR)worker.c \
-	   $(DIR)get_transparency_ray.c
+SRCS_PATH = srcs/
 
-OBJS = $(SRCS:.c=.o)
+SRCS_NAME = main.c \
+	  		pixel_put.c \
+	  		error_quit.c \
+	 		draw_reset.c \
+	 		draw.c \
+	  		trace.c \
+	  		env_init.c \
+	   		window_init.c \
+	  		expose_listener.c \
+	 		display.c \
+	  		object_create.c \
+	  		object_add.c \
+	  		vector_create.c \
+	  		distance_3d.c \
+	  		key_listener.c \
+	  		point_create.c \
+	 		create_sphere.c \
+	  		create_cylinder.c \
+	   		create_cone.c \
+	  		collide.c \
+	  		collide_sphere.c \
+	  		collide_cylinder.c \
+	  		collide_cone.c \
+	  		ray_create.c \
+	  		vector_rotate.c \
+	  		vector_rotation.c \
+	 		light_create.c \
+	 		light_add.c \
+	 		vector_size.c \
+	  		color_create.c \
+	  		vector_normalize.c \
+	 		color_getters.c \
+	 		light_level.c \
+	  		ray_free.c \
+	  		collision_create.c \
+	  		color_factor.c \
+	  		vector_equals.c \
+	  		vector_multiply.c \
+	   		vector_angle.c \
+	  		normal.c \
+	  		normal_sphere.c \
+	  		normal_cylinder.c \
+	  		color_mask_create.c \
+	   		color_mask.c \
+	  		trinome_create.c \
+	  		get_ray_color.c \
+	   		get_reflection_ray.c \
+	   		color_add.c \
+	   		worker.c \
+	  		get_transparency_ray.c
+
+SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
+
+OBJS_PATH = objs/
+
+OBJS_NAME = $(SRCS_NAME:.c=.o)
+
+OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 
 LIBRARY = -lmlx -L libft/ -lft -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@Make -C libft
+	@echo " - Making $(NAME)"
+	@$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBRARY) -I$(INCLUDES_PATH)
 	@echo "\033[1;32m"
 	@echo "                                      AKEFILEMA                         (c) Tchang     "
 	@echo "                                  KEFILEMAKEFILEMAK                                    "
@@ -150,12 +161,11 @@ $(NAME): $(OBJS)
 	@echo "                               EMAKEFILEM                                              "
 	@echo "                                 AKEFILE                                               "
 	@echo "                                   MAK                                                 "
-	@Make -C libft
-	@$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBRARY)
+	@echo "\033[1;0m"
 
-%.o: %.c
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 	@echo " - Compiling $<"
-	@$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $< -I$(INCLUDES_PATH)
 
 .PHONY: clean fclean re norme
 

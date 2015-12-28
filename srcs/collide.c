@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 12:52:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:33:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:41:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_vector	*collide(t_ray *ray, t_object *object)
 {

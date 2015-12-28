@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 15:40:01 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:37:34 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:44:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_light		*light_create(void)
 {

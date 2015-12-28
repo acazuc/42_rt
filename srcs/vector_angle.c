@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 07:43:25 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 15:29:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 double	vector_angle(t_vector *v1, t_vector *v2)
 {

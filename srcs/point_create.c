@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:17:14 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:38:24 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:45:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_point		*point_create(void)
 {

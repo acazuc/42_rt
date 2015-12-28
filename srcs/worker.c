@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 17:35:29 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:47:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 static void		set_ray(t_env *env, t_ray *ray, t_point *coord, t_point *fov)
 {

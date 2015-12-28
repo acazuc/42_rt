@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 07:20:07 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:39:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:46:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 t_vector	*vector_multiply(t_vector *vector, double factor)
 {

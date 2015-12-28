@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:17:37 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:33:48 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:42:35 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 int		color_add(int c1, int c2)
 {

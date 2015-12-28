@@ -6,19 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 18:40:14 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 16:27:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * OMG OMG OMG OMG OMG OMG OMG OMG OMG OMG GENIUSRIE
- * Suffit de check l'angle du rayon de lumiere par rapport a l'incidence
- * Si il est proche de 90 degres, on met un petit peu de lumiere, ca fera smooth
- */
-
-
-
-#include "../headers/rt.h"
+#include "rt.h"
 /*
 void	add_objects(t_env *env)
 {
@@ -71,11 +63,11 @@ int		main(void)
 	window_init(env);
 	env->ambient_light = 0;
 	env->fov = 66;
-	env->rotation->x = -90;
+	env->rotation->x = -45;
 	env->rotation->y = 0;
 	env->position->x = 0;
-	env->position->y = 30;
-	env->position->z = 0;
+	env->position->y = 200;
+	env->position->z = -200;
 	//add_objects(env);
 	object = create_sphere();
 	object->color = 0xFFFFFF;
@@ -101,7 +93,7 @@ int		main(void)
 		}
 		z += 10;
 	}*/
-	double haha = 177;
+	/*double haha = 177;
 	int **m;
 	m = malloc(sizeof(*m) * haha);
 	a(m, 0 , 5 , 0, BLACK);
@@ -314,7 +306,7 @@ int		main(void)
 	light->position->z = 0;
 	light->luminosity = 1;
 	light_add(env, light);
-
+*/
 
 	/*
 	 * START MDLOUL
@@ -419,8 +411,14 @@ int		main(void)
 	 * END MDLOUL
 	 */
 
-
-	/*light = light_create();
+	object = create_sphere();
+	object->color = WHITE;
+	object->position->y = 40;
+	object->position->z = 50;
+	object->dimensions[0] = 20;
+	object->reflection = 1;
+	object_add(env, object);
+	light = light_create();
 	light->position->x = -30;
 	light->position->y = 5;
 	light->luminosity = 5;
@@ -440,7 +438,7 @@ int		main(void)
 	light->luminosity = 5;
 	light->mask->green = 0;
 	light->mask->red = 0;
-	light_add(env, light);*/
+	light_add(env, light);
 	/*env->max_recur = 10;
 	object = create_sphere();
 	object->position->z = 50001;
@@ -474,8 +472,8 @@ int		main(void)
 	light->position->z = .5;
 	light->position->y = .95;
 	light->luminosity = .5;
-	light_add(env, light);*/
-	ft_putstr(CONSOLE_GREEN);
+	light_add(env, light);
+	*/ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);

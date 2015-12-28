@@ -6,11 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 13:24:08 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 08:36:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2015/12/27 14:43:47 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/rt.h"
+#include "rt.h"
 
 void	draw_reset(t_env *env)
 {
