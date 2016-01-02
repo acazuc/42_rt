@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/28 11:32:03 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:36:56 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RT_H
-# define FT_RT_H
+#ifndef RT_H
+# define RT_H
 
 # include "color_mask.h"
 # include "functions.h"

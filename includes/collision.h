@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 11:18:54 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/15 07:29:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:35:03 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLLISION_H
-# define FT_COLLISION_H
+#ifndef COLLISION_H
+# define COLLISION_H
 
 # include "object.h"
 # include "vector.h"

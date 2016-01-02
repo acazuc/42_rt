@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:25:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/11 13:48:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:35:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_CONSOLE_H
-# define FT_CONSOLE_H
+#ifndef CONSOLE_H
+# define CONSOLE_H
 
 # define CONSOLE_DEFAULT "\e[39m"
 # define CONSOLE_BLACK "\e[30m"

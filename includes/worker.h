@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:56:19 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 10:57:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:37:17 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_WORKER_H
-# define FT_WORKER_H
+#ifndef WORKER_H
+# define WORKER_H
 
 # include "env.h"
 

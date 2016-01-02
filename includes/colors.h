@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 18:03:47 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:35:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_COLORS_H
-# define FT_COLORS_H
+#ifndef COLORS_H
+# define COLORS_H
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF

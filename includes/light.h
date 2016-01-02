@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 15:37:50 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 09:30:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:35:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIGHT_H
-# define FT_LIGHT_H
+#ifndef LIGHT_H
+# define LIGHT_H
 
 # include "vector.h"
 # include "color_mask.h"

@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 13:26:37 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/16 09:57:45 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:37:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TRINOME_H
-# define FT_TRINOME_H
+#ifndef TRINOME_H
+# define TRINOME_H
 
 typedef struct		s_trinome
 {

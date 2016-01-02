@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 08:28:55 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/11 09:20:24 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:37:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_VECTOR_H
-# define FT_VECTOR_H
+#ifndef VECTOR_H
+# define VECTOR_H
 
 typedef struct		s_vector
 {

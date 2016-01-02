@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 10:37:16 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 10:38:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:36:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIGHT_COLLISION_H
-# define FT_LIGHT_COLLISION_H
+#ifndef LIGHT_COLLISION_H
+# define LIGHT_COLLISION_H
 
 # include "collision.h"
 # include "light.h"

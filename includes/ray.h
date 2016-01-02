@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/13 09:42:33 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/18 16:33:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:36:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RAY_H
-# define FT_RAY_H
+#ifndef RAY_H
+# define RAY_H
 
 # include "vector.h"
 

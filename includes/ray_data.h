@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/20 10:18:06 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 10:31:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:36:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RAY_DATA_H
-# define FT_RAY_DATA_H
+#ifndef RAY_DATA_H
+# define RAY_DATA_H
 
 # include "color_mask.h"
 # include "collision.h"

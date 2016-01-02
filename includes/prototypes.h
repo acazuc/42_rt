@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/19 17:09:21 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:36:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PROTOTYPES_H
-# define FT_PROTOTYPES_H
+#ifndef PROTOTYPES_H
+# define PROTOTYPES_H
 
 # include "env.h"
 # include "ray.h"

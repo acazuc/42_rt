@@ -6,12 +6,12 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 10:05:44 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/20 08:18:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/02 13:35:28 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FUNCTIONS_H
-# define FT_FUNCTIONS_H
+#ifndef FUNCTIONS_H
+# define FUNCTIONS_H
 
 # define ABS(x) ((x) < 0 ? -(x) : (x))
 # define DTR(x) ((x) / 180. * M_PI)

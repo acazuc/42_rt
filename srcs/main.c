@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/27 16:27:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/01 09:52:25 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,18 @@ int		main(void)
 	window_init(env);
 	env->ambient_light = 0;
 	env->fov = 66;
-	env->rotation->x = -45;
+	/*env->rotation->x = -45;
 	env->rotation->y = 0;
 	env->position->x = 0;
 	env->position->y = 200;
 	env->position->z = -200;
-	//add_objects(env);
-	object = create_sphere();
+	*///add_objects(env);
+	/*object = create_sphere();
 	object->color = 0xFFFFFF;
 	object->position->y = -1000002;
 	object->dimensions[0] = 1000000;
 	object_add(env, object);
-	/*double mdr = 50;
+	*//*double mdr = 50;
 	double z = -mdr;
 	while (z <= mdr)
 	{
@@ -411,7 +411,7 @@ int		main(void)
 	 * END MDLOUL
 	 */
 
-	object = create_sphere();
+	/*object = create_sphere();
 	object->color = WHITE;
 	object->position->y = 40;
 	object->position->z = 50;
@@ -438,7 +438,7 @@ int		main(void)
 	light->luminosity = 5;
 	light->mask->green = 0;
 	light->mask->red = 0;
-	light_add(env, light);
+	light_add(env, light);*/
 	/*env->max_recur = 10;
 	object = create_sphere();
 	object->position->z = 50001;
@@ -473,7 +473,24 @@ int		main(void)
 	light->position->y = .95;
 	light->luminosity = .5;
 	light_add(env, light);
-	*/ft_putstr(CONSOLE_GREEN);
+	*/
+	light = light_create();
+	light->position->x = -1;
+	light->luminosity = 1;
+	light_add(env, light);
+	object = create_sphere();
+	object->color = 0xFF0000;
+	object->position->x = -1;
+	object->dimensions[0] = 1;
+	object->position->z = 4;
+	object_add(env, object);
+	object = create_sphere();
+	object->color = 0x0000FF;
+	object->position->x = -1.1;
+	object->position->z = 2;
+	object->dimensions[0] = 0.25;
+	object_add(env, object);
+	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
