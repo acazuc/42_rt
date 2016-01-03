@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/01 09:52:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/03 09:17:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		main(void)
 	env_init(env);
 	window_init(env);
 	env->ambient_light = 0;
-	env->fov = 66;
+	env->fov = 90;
 	/*env->rotation->x = -45;
 	env->rotation->y = 0;
 	env->position->x = 0;
@@ -475,20 +475,16 @@ int		main(void)
 	light_add(env, light);
 	*/
 	light = light_create();
-	light->position->x = -1;
+	light->position->x = 0;
+	light->position->z = 0;
+	light->position->y = 0;
 	light->luminosity = 1;
 	light_add(env, light);
-	object = create_sphere();
-	object->color = 0xFF0000;
-	object->position->x = -1;
+	object = create_cylinder();
+	object->color = 0xFFFFFF;
+	object->position->z = 10;
+	object->rotation->z = 90;
 	object->dimensions[0] = 1;
-	object->position->z = 4;
-	object_add(env, object);
-	object = create_sphere();
-	object->color = 0x0000FF;
-	object->position->x = -1.1;
-	object->position->z = 2;
-	object->dimensions[0] = 0.25;
 	object_add(env, object);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");

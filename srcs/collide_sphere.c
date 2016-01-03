@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/27 14:42:21 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/03 08:48:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,21 @@ static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 t_vector			*collide_sphere(t_ray *ray, t_object *sphere)
 {
 	t_trinome	trinome;
+	t_vector	p;
 
+
+	p.x = ray->origin->x - sphere->position->x;
+	p.y = ray->origin->y - sphere->position->y;
+	p.z = ray->origin->z - sphere->position->z;
+	vector_rotate(&p, sphere->rotation);
 	trinome.a = pow(ray->direction->x, 2)
 		+ pow(ray->direction->y, 2)
 		+ pow(ray->direction->z, 2);
-	trinome.b = 2. * (ray->direction->x * (ray->origin->x - sphere->position->x)
-			+ ray->direction->y * (ray->origin->y - sphere->position->y)
-			+ ray->direction->z * (ray->origin->z - sphere->position->z));
-	trinome.c = (pow(ray->origin->x - sphere->position->x, 2)
-			+ pow(ray->origin->y - sphere->position->y, 2)
-			+ pow(ray->origin->z - sphere->position->z, 2))
-		- pow(sphere->dimensions[0], 2);
+	trinome.b = 2. * (ray->direction->x * p.x +
+			ray->direction->y * p.y +
+			ray->direction->z * p.z);
+	trinome.c = (pow(p.x, 2) + pow(p.y, 2) + pow(p.z, 2)) -
+		pow(sphere->dimensions[0], 2);
 	trinome.d = trinome.b * trinome.b - 4. * trinome.a * trinome.c;
 	return (collide_sphere_result(ray, &trinome));
 }
