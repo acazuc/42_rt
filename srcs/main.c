@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 09:17:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/03 16:50:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,9 @@ int		main(void)
 		}
 		z += 10;
 	}*/
+
+
+
 	/*double haha = 177;
 	int **m;
 	m = malloc(sizeof(*m) * haha);
@@ -307,73 +310,132 @@ int		main(void)
 	light->luminosity = 1;
 	light_add(env, light);
 */
-
+	
+	
+	/**
+	 * Such Wow
+	 */
+	/*env->position->y = 10;
+	env->position->z = -10;
+	env->rotation->x = -45;
+	object = create_sphere();
+	object->color = WHITE;
+	object->position->y = -10000.4;
+	object->dimensions[0] = -10000;
+	object_add(env, object);
+	double mdr = 5;
+	double x = -mdr;
+	while (x <= mdr)
+	{
+		double z = -mdr;
+		while (z <= mdr)
+		{
+			object = create_sphere();
+			object->color = WHITE;
+			object->position->y = 0;
+			object->position->x = x;
+			object->position->z = z;
+			object->dimensions[0] = .4;
+			object_add(env, object);
+			z++;
+		}
+		x++;
+	}
+	double mdrd = 10;
+	double xd = -mdrd;
+	while (xd <= mdrd)
+	{
+		double yd = -mdrd;
+		while (yd <= mdrd)
+		{
+			light = light_create();
+			light->luminosity = .075;
+			light->position->x = xd;
+			light->position->y = 2;
+			light->position->z = yd;
+			light->mask->red = (xd + mdrd) / (mdrd * 2.);
+			light->mask->blue = (xd + mdrd) / (mdrd * 2.);
+			light_add(env, light);
+			yd += 5;
+		}
+		xd += 5;
+	}*/
+	
 	/*
 	 * START MDLOUL
-	 */
-	/*double haha = 60;
-	char **m;
+	 *//*
+	env->position->y = 100;
+env->ambient_light = .5;
+	env->position->z = -100;
+	env->rotation->x = 45;
+	object = create_sphere();
+	object->position->y = -10002;
+	object->dimensions[0] = 10000;
+	object_add(env, object);
+	double haha = 60;
+	int **m;
+	int c = WHITE;
 	m = malloc(sizeof(*m) * haha);
-	a(m, 0 , 0 , 0);
-	a(m, 1 , 0 , 1);
-	a(m, 2 , 0 , 2);
-	a(m, 3 , 0 , 3);
-	a(m, 4 , 0 , 4);
-	a(m, 5 , 1 , 1);
-	a(m, 6 , 2 , 2);
-	a(m, 7 , 3 , 1);
-	a(m, 8 , 4 , 0);
-	a(m, 9 , 4 , 1);
-	a(m, 10, 4 , 2);
-	a(m, 11, 4 , 3);
-	a(m, 12, 4 , 4);
-	a(m, 13, 6 , 0);
-	a(m, 14, 6 , 1);
-	a(m, 15, 6 , 2);
-	a(m, 16, 6 , 3);
-	a(m, 17, 6 , 4);
-	a(m, 18, 7 , 0);
-	a(m, 19, 7 , 4);
-	a(m, 20, 8 , 1);
-	a(m, 21, 8 , 2);
-	a(m, 22, 8 , 3);
-	a(m, 23, 10, 0);
-	a(m, 24, 10, 1);
-	a(m, 25, 10, 2);
-	a(m, 26, 10, 3);
-	a(m, 27, 10, 4);
-	a(m, 28, 11, 4);
-	a(m, 29, 12, 4);
-	a(m, 30, 14, 0);
-	a(m, 31, 14, 1);
-	a(m, 32, 14, 2);
-	a(m, 33, 14, 3);
-	a(m, 34, 14, 4);
-	a(m, 35, 15, 0);
-	a(m, 36, 15, 4);
-	a(m, 37, 16, 0);
-	a(m, 38, 16, 1);
-	a(m, 39, 16, 2);
-	a(m, 40, 16, 3);
-	a(m, 41, 16, 4);
-	a(m, 42, 18, 0);
-	a(m, 43, 18, 1);
-	a(m, 44, 18, 2);
-	a(m, 45, 18, 3);
-	a(m, 46, 18, 4);
-	a(m, 47, 19, 4);
-	a(m, 48, 20, 0);
-	a(m, 49, 20, 1);
-	a(m, 50, 20, 2);
-	a(m, 51, 20, 3);
-	a(m, 52, 20, 4);
-	a(m, 53, 22, 0);
-	a(m, 54, 22, 1);
-	a(m, 55, 22, 2);
-	a(m, 56, 22, 3);
-	a(m, 57, 22, 4);
-	a(m, 58, 23, 4);
-	a(m, 59, 24, 4);
+	a(m, 0 , 0 , 0, c);
+	a(m, 1 , 0 , 1, c);
+	a(m, 2 , 0 , 2, c);
+	a(m, 3 , 0 , 3, c);
+	a(m, 4 , 0 , 4, c);
+	a(m, 5 , 1 , 1, c);
+	a(m, 6 , 2 , 2, c);
+	a(m, 7 , 3 , 1, c);
+	a(m, 8 , 4 , 0, c);
+	a(m, 9 , 4 , 1, c);
+	a(m, 10, 4 , 2, c);
+	a(m, 11, 4 , 3, c);
+	a(m, 12, 4 , 4, c);
+	a(m, 13, 6 , 0, c);
+	a(m, 14, 6 , 1, c);
+	a(m, 15, 6 , 2, c);
+	a(m, 16, 6 , 3, c);
+	a(m, 17, 6 , 4, c);
+	a(m, 18, 7 , 0, c);
+	a(m, 19, 7 , 4, c);
+	a(m, 20, 8 , 1, c);
+	a(m, 21, 8 , 2, c);
+	a(m, 22, 8 , 3, c);
+	a(m, 23, 10, 0, c);
+	a(m, 24, 10, 1, c);
+	a(m, 25, 10, 2, c);
+	a(m, 26, 10, 3, c);
+	a(m, 27, 10, 4, c);
+	a(m, 28, 11, 4, c);
+	a(m, 29, 12, 4, c);
+	a(m, 30, 14, 0, c);
+	a(m, 31, 14, 1, c);
+	a(m, 32, 14, 2, c);
+	a(m, 33, 14, 3, c);
+	a(m, 34, 14, 4, c);
+	a(m, 35, 15, 0, c);
+	a(m, 36, 15, 4, c);
+	a(m, 37, 16, 0, c);
+	a(m, 38, 16, 1, c);
+	a(m, 39, 16, 2, c);
+	a(m, 40, 16, 3, c);
+	a(m, 41, 16, 4, c);
+	a(m, 42, 18, 0, c);
+	a(m, 43, 18, 1, c);
+	a(m, 44, 18, 2, c);
+	a(m, 45, 18, 3, c);
+	a(m, 46, 18, 4, c);
+	a(m, 47, 19, 4, c);
+	a(m, 48, 20, 0, c);
+	a(m, 49, 20, 1, c);
+	a(m, 50, 20, 2, c);
+	a(m, 51, 20, 3, c);
+	a(m, 52, 20, 4, c);
+	a(m, 53, 22, 0, c);
+	a(m, 54, 22, 1, c);
+	a(m, 55, 22, 2, c);
+	a(m, 56, 22, 3, c);
+	a(m, 57, 22, 4, c);
+	a(m, 58, 23, 4, c);
+	a(m, 59, 24, 4, c);
 	int eumdeureuh = 0;
 	while (eumdeureuh < haha)
 	{
@@ -474,20 +536,25 @@ int		main(void)
 	light->luminosity = .5;
 	light_add(env, light);
 	*/
+
+	/**
+	 * ROTATIONS
+	 */
 	light = light_create();
-	light->position->x = 0;
+	light->position->x = 10;
 	light->position->z = 0;
 	light->position->y = 0;
 	light->luminosity = 1;
 	light_add(env, light);
 	object = create_cylinder();
 	object->color = 0xFFFFFF;
-	object->position->z = 10;
+	object->position->z = 20;
 	object->rotation->z = 90;
 	object->dimensions[0] = 1;
 	object_add(env, object);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
+	env->ambient_light = 0;
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
