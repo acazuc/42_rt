@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 16:50:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 11:23:15 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -541,16 +541,24 @@ env->ambient_light = .5;
 	 * ROTATIONS
 	 */
 	light = light_create();
-	light->position->x = 10;
-	light->position->z = 0;
+	light->position->x = 0;
+	light->position->z = 18;
 	light->position->y = 0;
 	light->luminosity = 1;
 	light_add(env, light);
 	object = create_cylinder();
 	object->color = 0xFFFFFF;
 	object->position->z = 20;
+	object->position->y = 2;
+	object->position->x = 100;
 	object->rotation->z = 90;
+	object->reflection = 1;
 	object->dimensions[0] = 1;
+	object_add(env, object);
+	object = create_sphere();
+	object->position->y = -100002;
+	object->color = WHITE;
+	object->dimensions[0] = 100000;
 	object_add(env, object);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
