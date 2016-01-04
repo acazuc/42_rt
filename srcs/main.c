@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 11:23:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 14:17:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		main(void)
 	env_init(env);
 	window_init(env);
 	env->ambient_light = 0;
-	env->fov = 90;
+	env->fov = 180;
 	/*env->rotation->x = -45;
 	env->rotation->y = 0;
 	env->position->x = 0;
@@ -542,17 +542,17 @@ env->ambient_light = .5;
 	 */
 	light = light_create();
 	light->position->x = 0;
-	light->position->z = 18;
+	light->position->z = 0;
 	light->position->y = 0;
 	light->luminosity = 1;
 	light_add(env, light);
-	object = create_cylinder();
+	object = create_cone();
 	object->color = 0xFFFFFF;
 	object->position->z = 20;
-	object->position->y = 2;
-	object->position->x = 100;
-	object->rotation->z = 90;
-	object->reflection = 1;
+	object->position->y = 0;
+	object->position->x = 0;
+	object->rotation->z = 0;
+	object->reflection = 0;
 	object->dimensions[0] = 1;
 	object_add(env, object);
 	object = create_sphere();

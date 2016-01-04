@@ -6,11 +6,17 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 08:48:52 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 14:08:26 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+/**
+ * a = xD*xD + yD*yD + zD*zD
+ * b = 2 * (xE*xD + yE*yD + zE*zD)
+ * c = xE*xE + yE*yE + zE*zE - 1
+ */
 
 static double		get_t(t_trinome *trinome)
 {
@@ -41,8 +47,9 @@ static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 	else if (trinome->d == 0)
 		t = -trinome->b / (2. * trinome->a);
 	else if (trinome->d > 0)
-		if ((t = get_t(trinome)) <= 0)
-			return (NULL);
+		t = get_t(trinome);
+	if (t <= 0)
+		return (NULL);
 	vector = vector_create();
 	vector->x = ray->origin->x + ray->direction->x * t;
 	vector->y = ray->origin->y + ray->direction->y * t;
@@ -55,14 +62,13 @@ t_vector			*collide_sphere(t_ray *ray, t_object *sphere)
 	t_trinome	trinome;
 	t_vector	p;
 
-
 	p.x = ray->origin->x - sphere->position->x;
 	p.y = ray->origin->y - sphere->position->y;
 	p.z = ray->origin->z - sphere->position->z;
 	vector_rotate(&p, sphere->rotation);
-	trinome.a = pow(ray->direction->x, 2)
-		+ pow(ray->direction->y, 2)
-		+ pow(ray->direction->z, 2);
+	trinome.a = pow(ray->direction->x, 2) +
+		pow(ray->direction->y, 2) +
+		pow(ray->direction->z, 2);
 	trinome.b = 2. * (ray->direction->x * p.x +
 			ray->direction->y * p.y +
 			ray->direction->z * p.z);

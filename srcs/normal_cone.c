@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal.c                                           :+:      :+:    :+:   */
+/*   normal_cone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 13:05:13 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 14:11:49 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/04 14:08:55 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/04 14:15:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_vector	*normal(t_object *object, t_vector *point)
+t_vector	*normal_cone(t_object *cone, t_vector *point)
 {
-	t_vector	*vector;
+	t_vector *vector;
 
-	vector = NULL;
-	if (object->type == SPHERE)
-		vector = normal_sphere(object, point);
-	if (object->type == CYLINDER)
-		vector = normal_cylinder(object, point);
-	if (object->type == CONE)
-		vector = normal_cone(object, point);
+	vector = vector_create();
+	vector->x = 0;
+	vector->y = 0;
+	vector->z = -1;
+	(void)cone;
+	(void)point;
 	return (vector);
 }

@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2015/12/29 12:56:11 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/04 14:11:03 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,7 @@ SRCS_NAME = main.c \
 	  		normal.c \
 	  		normal_sphere.c \
 	  		normal_cylinder.c \
+			normal_cone.c \
 	  		color_mask_create.c \
 	   		color_mask.c \
 	  		trinome_create.c \

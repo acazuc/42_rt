@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 13:10:35 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 14:11:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ double			vector_angle(t_vector *v1, t_vector *v2);
 t_vector		*normal(t_object *object, t_vector *point);
 t_vector		*normal_sphere(t_object *sphere, t_vector *point);
 t_vector		*normal_cylinder(t_object *cylinder, t_vector *point);
+t_vector		*normal_cone(t_object *cone, t_vector *point);
 t_color_mask	*color_mask_create();
 int				color_mask(int color, t_color_mask *mask);
 t_trinome		*trinome_create(void);
