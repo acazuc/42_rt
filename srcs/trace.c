@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 13:10:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 15:53:28 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ static double		get_dst(t_ray *ray, t_vector *vector)
 	return (sqrt(dx * dx + dy * dy + dz * dz));
 }
 
+static void			trace_init(t_collision **collision
+		, double *nearest_distance, double *distance)
+{
+	*nearest_distance = -1;
+	*distance = -1;
+	*collision = collision_create();
+}
+
+static void			trace_put(t_collision *collision, t_vector *vector
+		, t_object *object)
+{
+	free(collision->vector);
+	collision->vector = vector;
+	collision->object = object;
+}
+
 t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 {
 	t_vector		*vector;
@@ -32,10 +48,8 @@ t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 	double			nearest_distance;
 	double			distance;
 
-	nearest_distance = -1;
-	distance = -1;
+	trace_init(&collision, &nearest_distance, &distance);
 	list = env->objects;
-	collision = collision_create();
 	while (list)
 	{
 		if (!avoid || avoid != list->object)
@@ -44,9 +58,7 @@ t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 					&& (nearest_distance == -1
 						| (distance = get_dst(ray, vector)) < nearest_distance))
 			{
-				free(collision->vector);
-				collision->vector = vector;
-				collision->object = list->object;
+				trace_put(collision, vector, list->object);
 				nearest_distance = distance;
 			}
 			else

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_sphere.c                                    :+:      :+:    :+:   */
+/*   light_level.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 14:45:09 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/04 16:49:05 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/04 17:23:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#ifndef LIGHT_LEVEL_H
+# define LIGHT_LEVEL_H
 
-t_vector	*normal_sphere(t_object *sphere, t_vector *point)
+typedef struct		s_light_level
 {
-	t_vector	*vector;
+	t_ray			*ray;
+	t_ray			*origin_ray;
+	t_collision		*origin;
+	t_color_mask	*mask;
+}					t_light_level;
 
-	vector = vector_create();
-	vector->x = point->x - sphere->position->x;
-	vector->y = point->y - sphere->position->y;
-	vector->z = point->z - sphere->position->z;
-	return (vector);
-}
+#endif

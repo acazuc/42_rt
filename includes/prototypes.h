@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 14:11:08 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 17:21:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include "point.h"
 # include "trinome.h"
 # include "light.h"
+# include "color_mask.h"
+# include "light_collision.h"
 # include "collision.h"
 
 void			draw_reset(t_env *env);
@@ -62,7 +64,14 @@ int				color_create(unsigned char red, unsigned char green
 		, unsigned char blue);
 t_collision		*collision_create(void);
 int				color_factor(int color, double factor);
-t_color_mask	*light_level(t_env *env, t_collision *origin);
+t_color_mask	*light_level(t_env *env, t_ray *origin_ray
+		, t_collision *origin);
+void			add_mask_smooth(t_color_mask *mask, t_vector *normal_v
+		, t_ray *ray, t_light_collision *data);
+void			add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
+		, t_light *light);
+void			add_mask_specular(t_color_mask *mask, t_ray *ray
+		, t_collision *collision, t_ray *origin_ray);
 int				vector_equals(t_vector *v1, t_vector *v2);
 t_vector		*vector_multiply(t_vector *vector, double factor);
 double			vector_angle(t_vector *v1, t_vector *v2);

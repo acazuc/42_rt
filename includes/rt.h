@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/02 13:36:56 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 16:53:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include "window.h"
 # include "worker.h"
 # include "env.h"
+# include "light_level.h"
 # include "trinome.h"
 # include "../libft/includes/libft.h"
 # include "prototypes.h"

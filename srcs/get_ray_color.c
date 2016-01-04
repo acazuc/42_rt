@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 13:10:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 17:24:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 	if ((data.collision = trace(env, ray, avoid))->object
 			&& recur <= env->max_recur)
 	{
-		data.mask = light_level(env, data.collision);
+		data.mask = light_level(env, ray, data.collision);
 		data.color = color_factor(color_mask(data.collision->object->color
 					, data.mask), 1 - env->ambient_light);
 		free(data.mask);

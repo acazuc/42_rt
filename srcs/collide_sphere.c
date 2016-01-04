@@ -6,17 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 14:08:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 15:53:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-/**
- * a = xD*xD + yD*yD + zD*zD
- * b = 2 * (xE*xD + yE*yD + zE*zD)
- * c = xE*xE + yE*yE + zE*zE - 1
- */
 
 static double		get_t(t_trinome *trinome)
 {

@@ -6,48 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 13:10:43 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/04 17:08:23 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-static void		add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
-		, t_light *light)
-{
-	mask->red += MAX(0, cos(vector_angle(normal_v, ray->direction)))
-				* light->luminosity * light->mask->red;
-	mask->green += MAX(0, cos(vector_angle(normal_v, ray->direction)))
-				* light->luminosity * light->mask->green;
-	mask->blue += MAX(0, cos(vector_angle(normal_v, ray->direction)))
-				* light->luminosity * light->mask->blue;
-}
-
-static void		add_mask_smooth(t_color_mask *mask, t_vector *normal_v
-		, t_ray *ray, t_light_collision *data)
-{
-	t_vector		*normal_object;
-
-	if (data->collision->object->type != SPHERE
-			&& data->collision->object->type != CYLINDER
-			&& data->collision->object->type != CONE)
-		return ;
-	if (!(normal_object = normal(data->collision->object
-					, data->collision->vector)))
-		return ;
-	mask->red += MAX(0, cos(vector_angle(normal_v, ray->direction))) *
-				data->light->luminosity * data->light->mask->red *
-				MAX(0, 1 - 5 *
-						(1 - sin(vector_angle(ray->direction, normal_object))));
-	mask->green += MAX(0, cos(vector_angle(normal_v, ray->direction))) *
-				data->light->luminosity * data->light->mask->green *
-				MAX(0, 1 - 5 *
-						(1 - sin(vector_angle(ray->direction, normal_object))));
-	mask->blue += MAX(0, cos(vector_angle(normal_v, ray->direction))) *
-				data->light->luminosity * data->light->mask->blue *
-				MAX(0, 1 - 5 *
-						(1 - sin(vector_angle(ray->direction, normal_object))));
-}
 
 static int		is_behind(t_vector *c_vector, t_vector *r_vector
 		, t_vector *o_vector)
@@ -67,8 +30,21 @@ static int		is_behind(t_vector *c_vector, t_vector *r_vector
 	return (0);
 }
 
-static void		loop(t_env *env, t_ray *ray, t_collision *origin
-		, t_color_mask *mask)
+static void		loop_set_direction(t_ray *ray, t_light *light, t_vector *origin)
+{
+	ray->direction->x = light->position->x - origin->x;
+	ray->direction->y = light->position->y - origin->y;
+	ray->direction->z = light->position->z - origin->z;
+}
+
+static void		loop_set_data(t_light_collision *data, t_collision *collision
+		, t_light *light)
+{
+	data->collision = collision;
+	data->light = light;
+}
+
+static void		loop(t_env *env, t_light_level *ll)
 {
 	t_light_collision	data;
 	t_light_list		*list;
@@ -76,22 +52,23 @@ static void		loop(t_env *env, t_ray *ray, t_collision *origin
 	t_vector			*normal_v;
 
 	list = env->lights;
-	if (!(normal_v = normal(origin->object, origin->vector)))
+	if (!(normal_v = normal(ll->origin->object, ll->origin->vector)))
 		return ;
 	while (list)
 	{
-		ray->direction->x = list->light->position->x - origin->vector->x;
-		ray->direction->y = list->light->position->y - origin->vector->y;
-		ray->direction->z = list->light->position->z - origin->vector->z;
-		if (!((collision = trace(env, ray, origin->object))->object)
-				|| is_behind(collision->vector, ray->direction, ray->origin))
-			add_mask(mask, normal_v, ray, list->light);
-		else if (collision->object && is_behind(collision->vector
-					, ray->direction, ray->origin))
+		loop_set_direction(ll->ray, list->light, ll->origin->vector);
+		if (!((collision = trace(env, ll->ray, ll->origin->object))->object)
+				|| is_behind(collision->vector, ll->ray->direction, ll->ray->origin))
 		{
-			data.collision = collision;
-			data.light = list->light;
-			add_mask_smooth(mask, normal_v, ray, &data);
+			loop_set_data(&data, ll->origin, list->light);
+			add_mask_specular(ll->mask, ll->ray, ll->origin, ll->origin_ray);
+			add_mask(ll->mask, normal_v, ll->ray, list->light);
+		}
+		else if (collision->object && !is_behind(collision->vector
+					, ll->ray->direction, ll->ray->origin))
+		{
+			loop_set_data(&data, collision, list->light);
+			add_mask_smooth(ll->mask, normal_v, ll->ray, &data);
 		}
 		free(collision->vector);
 		free(collision);
@@ -100,8 +77,9 @@ static void		loop(t_env *env, t_ray *ray, t_collision *origin
 	free(normal_v);
 }
 
-t_color_mask	*light_level(t_env *env, t_collision *origin)
+t_color_mask	*light_level(t_env *env, t_ray *origin_ray, t_collision *origin)
 {
+	t_light_level	ll;
 	t_ray			*ray;
 	t_color_mask	*mask;
 
@@ -110,7 +88,11 @@ t_color_mask	*light_level(t_env *env, t_collision *origin)
 	ray->origin->x = origin->vector->x;
 	ray->origin->y = origin->vector->y;
 	ray->origin->z = origin->vector->z;
-	loop(env, ray, origin, mask);
+	ll.ray = ray;
+	ll.origin_ray = origin_ray;
+	ll.origin = origin;
+	ll.mask = mask;
+	loop(env, &ll);
 	ray_free(ray);
 	return (mask);
 }

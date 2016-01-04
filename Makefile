@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/04 14:11:03 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/04 15:56:14 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,8 @@ SRCS_NAME = main.c \
 	   		get_reflection_ray.c \
 	   		color_add.c \
 	   		worker.c \
-	  		get_transparency_ray.c
+	  		get_transparency_ray.c \
+			light_level_mask.c
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
