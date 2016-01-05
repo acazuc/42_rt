@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 17:21:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/05 07:39:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ t_point			*point_create(void);
 t_object		*create_sphere(void);
 t_object		*create_cylinder(void);
 t_object		*create_cone(void);
+t_object		*create_plane(void);
 t_vector		*collide(t_ray *ray, t_object *object);
 t_vector		*collide_sphere(t_ray *ray, t_object *sphere);
 t_vector		*collide_cylinder(t_ray *ray, t_object *cylinder);
 t_vector		*collide_cone(t_ray *ray, t_object *cone);
+t_vector		*collide_plane(t_ray *ray, t_object *plane);
 void			vector_rotate(t_vector *vector, t_vector *rotation);
 void			vector_unrotate(t_vector *vector, t_vector *rotation);
 void			vector_rotate_x(t_vector *vector, double angle);
@@ -57,6 +59,7 @@ t_light			*light_create(void);
 void			light_add(t_env *env, t_light *light);
 double			vector_size(t_vector *vector);
 void			vector_normalize(t_vector *vector);
+double			vector_dot(t_vector *v1, t_vector *v2);
 unsigned char	color_get_red(int color);
 unsigned char	color_get_green(int color);
 unsigned char	color_get_blue(int color);
@@ -79,6 +82,7 @@ t_vector		*normal(t_object *object, t_vector *point);
 t_vector		*normal_sphere(t_object *sphere, t_vector *point);
 t_vector		*normal_cylinder(t_object *cylinder, t_vector *point);
 t_vector		*normal_cone(t_object *cone, t_vector *point);
+t_vector		*normal_plane(t_object *plane, t_vector *point);
 t_color_mask	*color_mask_create();
 int				color_mask(int color, t_color_mask *mask);
 t_trinome		*trinome_create(void);

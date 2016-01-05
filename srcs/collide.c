@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 12:52:58 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 14:07:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/05 08:20:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_vector	*collide(t_ray *ray, t_object *object)
 		vector = collide_cylinder(ray, object);
 	else if (object->type == CONE)
 		vector = collide_cone(ray, object);
+	else if (object->type == PLANE)
+		vector = collide_plane(ray, object);
 	vector_unrotate(ray->direction, object->rotation);
 	if (vector)
 		vector_unrotate(vector, object->rotation);

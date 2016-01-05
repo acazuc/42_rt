@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:53:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 17:29:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/05 08:19:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		add_mask_specular(t_color_mask *mask, t_ray *ray
 	double			angle_ray;
 	double			added;
 
-	if (!(normal_object = normal(collision->object, collision->vector)))
+	/*if (!(normal_object = normal(collision->object, collision->vector)))
 		return ;
 	light_vector.x = ray->direction->x;
 	light_vector.y = ray->direction->y;
@@ -67,7 +67,8 @@ void		add_mask_specular(t_color_mask *mask, t_ray *ray
 	mask->red += added;
 	mask->green += added;
 	mask->blue += added;
-	free(normal_object);
+	free(normal_object);*/
+	(void)collision;
 	(void)normal_object;
 	(void)origin_ray;
 	(void)light_vector;

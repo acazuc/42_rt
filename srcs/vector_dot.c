@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_sphere.c                                    :+:      :+:    :+:   */
+/*   vector_dot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/05 08:35:28 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/05 07:20:37 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/05 07:26:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_vector	*normal_sphere(t_object *sphere, t_vector *point)
+double	vector_dot(t_vector *v1, t_vector *v2)
 {
-	t_vector	*vector;
-
-	vector = vector_create();
-	vector->x = point->x - sphere->position->x;
-	vector->y = point->y - sphere->position->y;
-	vector->z = point->z - sphere->position->z;
-	return (vector);
+	return (sqrt(v1->x * v2->x + v1->y * v2->y + v1->z * v2->z));
 }

@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normal_sphere.c                                    :+:      :+:    :+:   */
+/*   create_plane.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/05 08:35:28 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/05 07:15:54 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/05 07:16:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_vector	*normal_sphere(t_object *sphere, t_vector *point)
+t_object	*create_plane(void)
 {
-	t_vector	*vector;
+	t_object	*plane;
 
-	vector = vector_create();
-	vector->x = point->x - sphere->position->x;
-	vector->y = point->y - sphere->position->y;
-	vector->z = point->z - sphere->position->z;
-	return (vector);
+	plane = object_create();
+	plane->type = PLANE;
+	return (plane);
 }

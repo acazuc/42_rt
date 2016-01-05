@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 08:21:51 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/02 13:36:21 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/05 08:18:37 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct		s_object
 	t_object_type	type;
 	t_vector		*position;
 	t_vector		*rotation;
+	t_vector		*scale;
 	double			dimensions[3];
 	double			transparency;
 	double			reflection;

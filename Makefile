@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/04 15:56:14 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/05 07:40:25 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,16 +61,19 @@ SRCS_NAME = main.c \
 	 		create_sphere.c \
 	  		create_cylinder.c \
 	   		create_cone.c \
+			create_plane.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
 	  		collide_cone.c \
+			collide_plane.c \
 	  		ray_create.c \
 	  		vector_rotate.c \
 	  		vector_rotation.c \
 	 		light_create.c \
 	 		light_add.c \
 	 		vector_size.c \
+			vector_dot.c \
 	  		color_create.c \
 	  		vector_normalize.c \
 	 		color_getters.c \
@@ -85,6 +88,7 @@ SRCS_NAME = main.c \
 	  		normal_sphere.c \
 	  		normal_cylinder.c \
 			normal_cone.c \
+			normal_plane.c \
 	  		color_mask_create.c \
 	   		color_mask.c \
 	  		trinome_create.c \

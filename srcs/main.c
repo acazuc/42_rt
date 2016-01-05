@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 17:08:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/05 08:38:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -546,29 +546,33 @@ env->ambient_light = .5;
 	light->position->y = 0;
 	light->luminosity = 1;
 	light_add(env, light);
-	/*object = create_cone();
+	object = create_cone();
 	object->color = 0xFFFFFF;
 	object->position->z = 20;
 	object->position->y = 0;
-	object->position->x = 10;
+	object->position->x = 0;
+	object->rotation->x = 20;
 	object->rotation->z = 90;
+	object->rotation->y = 20;
 	object->reflection = 0;
 	object->dimensions[0] = 90;
-	object_add(env, object);*/
+	object_add(env, object);
 	object = create_sphere();
 	object->color = RED;
-	object->position->x = 0;
+	object->position->x = 2;
 	object->position->z = 10;
+	object->position->y = 0;
+	object->scale->x = 2;
 	object->dimensions[0] = 1;
 	object_add(env, object);
-	/*object = create_sphere();
+	object = create_sphere();
 	object->position->y = -100002;
 	object->color = WHITE;
 	object->dimensions[0] = 100000;
-	object_add(env, object);*/
+	object_add(env, object);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
-	env->ambient_light = 0;
+	env->ambient_light = .5;
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
