@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/03 10:39:21 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:28:56 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,21 @@ static t_vector		*collide_cylinder_result(t_ray *ray, t_trinome *trinome)
 	return (vector);
 }
 
-t_vector			*collide_cylinder(t_ray *ray, t_object *cylinder)
+t_collision			*collide_cylinder(t_ray *ray, t_object *cylinder)
 {
+	t_collision	*collision;
 	t_trinome	trinome;
 	t_vector	p;
 
 	p.x = ray->origin->x - cylinder->position->x;
 	p.y = ray->origin->y - cylinder->position->y;
 	p.z = ray->origin->z - cylinder->position->z;
-	vector_rotate(&p, cylinder->rotation);
+	vector_unrotate(&p, cylinder->rotation);
 	trinome.a = pow(ray->direction->x, 2) + pow(ray->direction->z, 2);
 	trinome.b = 2. * (ray->direction->x * p.x + ray->direction->z * p.z);
 	trinome.c = pow(p.x, 2) + pow(p.z, 2) - pow(cylinder->dimensions[0], 2);
 	trinome.d = trinome.b * trinome.b - 4. * trinome.a * trinome.c;
-	return (collide_cylinder_result(ray, &trinome));
+	collision = collision_create();
+	collision->vector = collide_cylinder_result(ray, &trinome);
+	return (collision);
 }

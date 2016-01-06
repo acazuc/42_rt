@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 15:53:13 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:28:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ static t_vector		*collide_cone_result(t_ray *ray, t_trinome *trinome)
 	return (vector);
 }
 
-t_vector			*collide_cone(t_ray *ray, t_object *cone)
+t_collision			*collide_cone(t_ray *ray, t_object *cone)
 {
+	t_collision	*collision;
 	t_trinome	trinome;
 	t_vector	p;
 
@@ -68,5 +69,7 @@ t_vector			*collide_cone(t_ray *ray, t_object *cone)
 			ray->direction->z * p.z);
 	trinome.c = pow(p.x, 2) - pow(p.y, 2) + pow(p.z, 2);
 	trinome.d = trinome.b * trinome.b - 4. * trinome.a * trinome.c;
-	return (collide_cone_result(ray, &trinome));
+	collision = collision_create();
+	collision->vector = collide_cone_result(ray, &trinome);
+	return (collision);
 }

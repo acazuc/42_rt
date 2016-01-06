@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 07:00:13 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 14:56:11 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:42:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,7 @@ t_vector	*normal_cylinder(t_object *cylinder, t_vector *point)
 
 	vector = vector_create();
 	vector->x = point->x - cylinder->position->x;
-	vector->y = point->y - cylinder->position->y;
-	vector->z = point->z - cylinder->position->z;
-	vector_unrotate(vector, cylinder->rotation);
-	vector->x = vector->x;
 	vector->y = 0;
-	vector->z = vector->z;
-	vector_rotate(vector, cylinder->rotation);
+	vector->z = point->z - cylinder->position->z;
 	return (vector);
 }

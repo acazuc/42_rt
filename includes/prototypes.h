@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/05 07:39:34 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:34:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ t_object		*create_sphere(void);
 t_object		*create_cylinder(void);
 t_object		*create_cone(void);
 t_object		*create_plane(void);
-t_vector		*collide(t_ray *ray, t_object *object);
-t_vector		*collide_sphere(t_ray *ray, t_object *sphere);
-t_vector		*collide_cylinder(t_ray *ray, t_object *cylinder);
-t_vector		*collide_cone(t_ray *ray, t_object *cone);
-t_vector		*collide_plane(t_ray *ray, t_object *plane);
+t_collision		*collide(t_ray *ray, t_object *object);
+t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
+t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
+t_collision		*collide_cone(t_ray *ray, t_object *cone);
+t_collision		*collide_plane(t_ray *ray, t_object *plane);
 void			vector_rotate(t_vector *vector, t_vector *rotation);
 void			vector_unrotate(t_vector *vector, t_vector *rotation);
 void			vector_rotate_x(t_vector *vector, double angle);
@@ -66,6 +66,7 @@ unsigned char	color_get_blue(int color);
 int				color_create(unsigned char red, unsigned char green
 		, unsigned char blue);
 t_collision		*collision_create(void);
+void			collision_free(t_collision *collision);
 int				color_factor(int color, double factor);
 t_color_mask	*light_level(t_env *env, t_ray *origin_ray
 		, t_collision *origin);

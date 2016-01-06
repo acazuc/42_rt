@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 11:20:58 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/27 14:42:28 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:33:37 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ t_collision		*collision_create(void)
 		error_quit("Failed to malloc new collision");
 	collision->object = NULL;
 	collision->vector = NULL;
+	collision->normal = NULL;
 	return (collision);
 }

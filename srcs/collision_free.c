@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   collision_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/06 16:36:34 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/06 15:32:40 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/06 16:16:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void			draw(t_env *env)
+void	collision_free(t_collision *collision)
 {
-	pthread_t	threads[8];
-	t_worker	workers[8];
-	int			i;
-
-	i = 0;
-	while (i < 8)
+	if (collision)
 	{
-		workers[i].env = env;
-		workers[i].start = env->window->width * env->window->height / 8. * i;
-		workers[i].end = env->window->width * env->window->height
-			/ 8. * (i + 1);
-		pthread_create(&(threads[i]), NULL, worker_run, &(workers[i]));
-		i++;
-	}
-	i = 0;
-	while (i < 8)
-	{
-		pthread_join(threads[i], NULL);
-		i++;
+		free(collision->vector);
+		free(collision->normal);
+		free(collision);
 	}
 }

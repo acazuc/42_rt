@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:35:38 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 15:53:28 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 16:41:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,47 +24,39 @@ static double		get_dst(t_ray *ray, t_vector *vector)
 	return (sqrt(dx * dx + dy * dy + dz * dz));
 }
 
-static void			trace_init(t_collision **collision
-		, double *nearest_distance, double *distance)
+static void			trace_init(double *nearest_distance, double *distance
+		, t_collision **nearest)
 {
+	*nearest = collision_create();
 	*nearest_distance = -1;
 	*distance = -1;
-	*collision = collision_create();
-}
-
-static void			trace_put(t_collision *collision, t_vector *vector
-		, t_object *object)
-{
-	free(collision->vector);
-	collision->vector = vector;
-	collision->object = object;
 }
 
 t_collision			*trace(t_env *env, t_ray *ray, t_object *avoid)
 {
-	t_vector		*vector;
 	t_object_list	*list;
-	t_collision		*collision;
-	double			nearest_distance;
-	double			distance;
+	t_collision		*nearest;
+	t_collision		*coll;
+	double			nrst_dst;
+	double			dst;
 
-	trace_init(&collision, &nearest_distance, &distance);
+	trace_init(&nrst_dst, &dst, &nearest);
 	list = env->objects;
 	while (list)
 	{
 		if (!avoid || avoid != list->object)
 		{
-			if ((vector = collide(ray, list->object))
-					&& (nearest_distance == -1
-						| (distance = get_dst(ray, vector)) < nearest_distance))
+			if ((coll = collide(ray, list->object))->vector && (nrst_dst == -1
+						| (dst = get_dst(ray, coll->vector)) < nrst_dst))
 			{
-				trace_put(collision, vector, list->object);
-				nearest_distance = distance;
+				collision_free(nearest);
+				nearest = coll;
+				nrst_dst = dst;
 			}
 			else
-				free(vector);
+				collision_free(coll);
 		}
 		list = list->next;
 	}
-	return (collision);
+	return (nearest);
 }

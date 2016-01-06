@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/05 07:40:25 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/06 15:34:33 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS_NAME = main.c \
 	 		light_level.c \
 	  		ray_free.c \
 	  		collision_create.c \
+			collision_free.c \
 	  		color_factor.c \
 	  		vector_equals.c \
 	  		vector_multiply.c \

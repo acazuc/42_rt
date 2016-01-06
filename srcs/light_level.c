@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/05 08:19:53 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 16:45:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void		loop(t_env *env, t_light_level *ll)
 {
 	t_light_collision	data;
 	t_light_list		*list;
-	t_collision			*collision;
+	t_collision			*coll;
 	t_vector			*normal_v;
 
 	list = env->lights;
@@ -57,21 +57,21 @@ static void		loop(t_env *env, t_light_level *ll)
 	while (list)
 	{
 		loop_set_direction(ll->ray, list->light, ll->origin->vector);
-		if (!((collision = trace(env, ll->ray, ll->origin->object))->object)
-				|| is_behind(collision->vector, ll->ray->direction, ll->ray->origin))
+		if (!((coll = trace(env, ll->ray, ll->origin->object))->vector)
+				|| is_behind(coll->vector, ll->ray->direction, ll->ray->origin))
 		{
 			loop_set_data(&data, ll->origin, list->light);
 			add_mask_specular(ll->mask, ll->ray, ll->origin, ll->origin_ray);
 			add_mask(ll->mask, normal_v, ll->ray, list->light);
 		}
-		else if (collision->object && !is_behind(collision->vector
+		else if (coll->object && !is_behind(coll->vector
 					, ll->ray->direction, ll->ray->origin))
 		{
-			loop_set_data(&data, collision, list->light);
+			loop_set_data(&data, coll, list->light);
 			add_mask_smooth(ll->mask, normal_v, ll->ray, &data);
 		}
-		free(collision->vector);
-		free(collision);
+		free(coll->vector);
+		free(coll);
 		list = list->next;
 	}
 	free(normal_v);

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/05 08:35:30 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/06 15:57:47 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ static t_vector		*collide_sphere_result(t_ray *ray, t_trinome *trinome)
 	return (vector);
 }
 
-t_vector			*collide_sphere(t_ray *ray, t_object *sphere)
+t_collision			*collide_sphere(t_ray *ray, t_object *sphere)
 {
+	t_collision	*collision;
 	t_trinome	trinome;
 	t_vector	p;
 
@@ -69,5 +70,7 @@ t_vector			*collide_sphere(t_ray *ray, t_object *sphere)
 	trinome.c = (pow(p.x, 2) + pow(p.y, 2) + pow(p.z, 2)) -
 		pow(sphere->dimensions[0], 2);
 	trinome.d = trinome.b * trinome.b - 4. * trinome.a * trinome.c;
-	return (collide_sphere_result(ray, &trinome));
+	collision = collision_create();
+	collision->vector = collide_sphere_result(ray, &trinome);
+	return (collision);
 }
