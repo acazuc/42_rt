@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/06 16:45:42 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 08:17:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,8 @@ static void		loop(t_env *env, t_light_level *ll)
 	t_light_collision	data;
 	t_light_list		*list;
 	t_collision			*coll;
-	t_vector			*normal_v;
 
 	list = env->lights;
-	if (!(normal_v = normal(ll->origin->object, ll->origin->vector)))
-		return ;
 	while (list)
 	{
 		loop_set_direction(ll->ray, list->light, ll->origin->vector);
@@ -62,19 +59,17 @@ static void		loop(t_env *env, t_light_level *ll)
 		{
 			loop_set_data(&data, ll->origin, list->light);
 			add_mask_specular(ll->mask, ll->ray, ll->origin, ll->origin_ray);
-			add_mask(ll->mask, normal_v, ll->ray, list->light);
+			add_mask(ll->mask, ll->origin->normal, ll->ray, list->light);
 		}
 		else if (coll->object && !is_behind(coll->vector
 					, ll->ray->direction, ll->ray->origin))
 		{
 			loop_set_data(&data, coll, list->light);
-			add_mask_smooth(ll->mask, normal_v, ll->ray, &data);
+			add_mask_smooth(ll->mask, ll->origin->normal, ll->ray, &data);
 		}
-		free(coll->vector);
-		free(coll);
+		collision_free(coll);
 		list = list->next;
 	}
-	free(normal_v);
 }
 
 t_color_mask	*light_level(t_env *env, t_ray *origin_ray, t_collision *origin)

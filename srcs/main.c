@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/06 15:13:07 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 09:10:55 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -540,27 +540,32 @@ env->ambient_light = .5;
 	/**
 	 * ROTATIONS
 	 */
+	env->position->z = -20;
+	env->position->y = 20;
+	env->position->x = 0;
+	env->rotation->x = -45;
+	env->rotation->y = 0;
 	light = light_create();
 	light->position->x = 0;
 	light->position->z = 0;
-	light->position->y = 0;
+	light->position->y = 3;
 	light->luminosity = 1;
 	light_add(env, light);
 	object = create_cylinder();
 	object->color = 0xFFFFFF;
-	object->position->z = 20;
+	object->position->z = 3;
 	object->position->y = 0;
 	object->position->x = -5;
 	object->rotation->x = 0;
-	object->rotation->z = 45;
+	object->rotation->z = 0;
 	object->rotation->y = 0;
-	object->reflection = 0;
+	object->reflection = 1;
 	object->dimensions[0] = 1;
 	object_add(env, object);
 	object = create_sphere();
 	object->color = RED;
 	object->position->x = 0;
-	object->position->z = 10;
+	object->position->z = 0;
 	object->position->y = 0;
 	object->scale->x = 2;
 	object->dimensions[0] = 1;

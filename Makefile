@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/06 15:34:33 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/07 08:58:27 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,11 +85,6 @@ SRCS_NAME = main.c \
 	  		vector_equals.c \
 	  		vector_multiply.c \
 	   		vector_angle.c \
-	  		normal.c \
-	  		normal_sphere.c \
-	  		normal_cylinder.c \
-			normal_cone.c \
-			normal_plane.c \
 	  		color_mask_create.c \
 	   		color_mask.c \
 	  		trinome_create.c \

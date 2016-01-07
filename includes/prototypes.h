@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/06 15:34:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 08:49:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,6 @@ void			add_mask_specular(t_color_mask *mask, t_ray *ray
 int				vector_equals(t_vector *v1, t_vector *v2);
 t_vector		*vector_multiply(t_vector *vector, double factor);
 double			vector_angle(t_vector *v1, t_vector *v2);
-t_vector		*normal(t_object *object, t_vector *point);
-t_vector		*normal_sphere(t_object *sphere, t_vector *point);
-t_vector		*normal_cylinder(t_object *cylinder, t_vector *point);
-t_vector		*normal_cone(t_object *cone, t_vector *point);
-t_vector		*normal_plane(t_object *plane, t_vector *point);
 t_color_mask	*color_mask_create();
 int				color_mask(int color, t_color_mask *mask);
 t_trinome		*trinome_create(void);

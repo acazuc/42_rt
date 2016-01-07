@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:53:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/05 08:19:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 09:02:14 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,25 @@
 void		add_mask_smooth(t_color_mask *mask, t_vector *normal_v
 		, t_ray *ray, t_light_collision *data)
 {
-	t_vector		*normal_object;
-
 	if (data->collision->object->type != SPHERE
 			&& data->collision->object->type != CYLINDER
 			&& data->collision->object->type != CONE)
 		return ;
-	if (!(normal_object = normal(data->collision->object
-					, data->collision->vector)))
-		return ;
 	mask->red += MAX(0, cos(vector_angle(normal_v, ray->direction))) *
 				data->light->luminosity * data->light->mask->red *
 				MAX(0, 1 - 20 *
-						(1 - sin(vector_angle(ray->direction, normal_object))));
+						(1 - sin(vector_angle(ray->direction
+											  , data->collision->normal))));
 	mask->green += MAX(0, cos(vector_angle(normal_v, ray->direction))) *
 				data->light->luminosity * data->light->mask->green *
 				MAX(0, 1 - 20 *
-						(1 - sin(vector_angle(ray->direction, normal_object))));
+						(1 - sin(vector_angle(ray->direction
+											  , data->collision->normal))));
 	mask->blue += MAX(0, cos(vector_angle(normal_v, ray->direction))) *
 				data->light->luminosity * data->light->mask->blue *
 				MAX(0, 1 - 20 *
-						(1 - sin(vector_angle(ray->direction, normal_object))));
-	free(normal_object);
+						(1 - sin(vector_angle(ray->direction
+											  , data->collision->normal))));
 }
 
 void		add_mask_specular(t_color_mask *mask, t_ray *ray
