@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 08:49:07 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 16:06:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,9 @@ t_ray			*get_reflection_ray(t_ray *ray, t_collision *collision);
 int				color_add(int c1, int c2);
 void			*worker_run(void *data);
 t_ray			*get_transparency_ray(t_ray *ray, t_collision *collision);
+void			scene_parse(t_env *env, char *file);
+void			parse_object(t_object *object, char **datas);
+void			parse_light(t_light *light, char **datas);
+int				parse_color(char *str);
 
 #endif

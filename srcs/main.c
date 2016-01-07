@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 12:51:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 16:06:37 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -540,6 +540,7 @@ env->ambient_light = .5;
 	/**
 	 * ROTATIONS
 	 */
+	scene_parse(env, "scenes/scene.rt");
 	env->position->z = -20;
 	env->position->y = 20;
 	env->position->x = 0;
@@ -548,15 +549,15 @@ env->ambient_light = .5;
 	light = light_create();
 	light->position->x = -5;
 	light->position->z = 0;
-	light->position->y = 1;
+	light->position->y = 10;
 	light->mask->green = 0;
 	light->mask->blue = 0;
 	light->luminosity = 3;
-	light_add(env, light);
+	/*light_add(env, light);
 	light = light_create();
 	light->position->x = 0;
 	light->position->z = 0;
-	light->position->y = 1;
+	light->position->y = 10;
 	light->mask->red = 0;
 	light->mask->blue = 0;
 	light->luminosity = 3;
@@ -564,11 +565,11 @@ env->ambient_light = .5;
 	light = light_create();
 	light->position->x = 5;
 	light->position->z = 0;
-	light->position->y = 1;
+	light->position->y = 10;
 	light->mask->red = 0;
 	light->mask->green = 0;
 	light->luminosity = 3;
-	light_add(env, light);
+	light_add(env, light);*/
 	int i = -20;
 	while (i <= 20)
 	{

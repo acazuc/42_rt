@@ -1,38 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    test.rt                                            :+:      :+:    :+:    #
+#    scene.rt                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/01/05 08:49:32 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/07 14:16:34 by acazuc           ###   ########.fr        #
+#    Created: 2016/01/07 15:01:12 by acazuc            #+#    #+#              #
+#    Updated: 2016/01/07 16:09:13 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-objects {
-	sphere {
-		position {
-			x = 1
-			y = 1
-			z = 1
-		}
-		rotation {
-			x = 1
-			y = 1
-			z = 1
-		}
-		color = FFFFFF
-		transparency = 1
-		reflection = 0
-	}
-}
-lights {
-	punctual {
-		position {
-			x = 1
-			y = 1
-			z = 1
-		}
-	}
-}
+sphere	position	2	2	-2		rotation	0	0	0		dimensions	1	color	RED
+sphere	position	0	0	0		rotation	0	0	0		dimensions	5	color	WHITE
+
+light	position	-1	5	0		luminosity	10	color	1	1	1

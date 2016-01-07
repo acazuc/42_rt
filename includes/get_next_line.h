@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/13 17:04:00 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 15:30:29 by acazuc           ###   ########.fr       */
+/*   Created: 2015/12/07 09:06:54 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/07 14:08:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# define BLACK 0x000000
-# define GREY 0x666666
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define YELLOW 0xFFFF00
-# define MAGENTA 0xFF00FF
-# define CYAN 0x00FFFF
+# define BUFFER_SIZE 1
+
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+# include "../libft/includes/libft.h"
+
+int					get_next_line(const int fd, char **line);
+
+typedef struct		s_gnl
+{
+	char			**line;
+	char			**start;
+	char			**buffer;
+	int				fd;
+}					t_gnl;
 
 #endif
