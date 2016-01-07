@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 09:10:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 12:51:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -546,38 +546,49 @@ env->ambient_light = .5;
 	env->rotation->x = -45;
 	env->rotation->y = 0;
 	light = light_create();
+	light->position->x = -5;
+	light->position->z = 0;
+	light->position->y = 1;
+	light->mask->green = 0;
+	light->mask->blue = 0;
+	light->luminosity = 3;
+	light_add(env, light);
+	light = light_create();
 	light->position->x = 0;
 	light->position->z = 0;
-	light->position->y = 3;
-	light->luminosity = 1;
+	light->position->y = 1;
+	light->mask->red = 0;
+	light->mask->blue = 0;
+	light->luminosity = 3;
 	light_add(env, light);
-	object = create_cylinder();
-	object->color = 0xFFFFFF;
-	object->position->z = 3;
-	object->position->y = 0;
-	object->position->x = -5;
-	object->rotation->x = 0;
-	object->rotation->z = 0;
-	object->rotation->y = 0;
-	object->reflection = 1;
-	object->dimensions[0] = 1;
-	object_add(env, object);
-	object = create_sphere();
-	object->color = RED;
-	object->position->x = 0;
-	object->position->z = 0;
-	object->position->y = 0;
-	object->scale->x = 2;
-	object->dimensions[0] = 1;
-	object_add(env, object);
-	object = create_sphere();
-	object->position->y = -100002;
+	light = light_create();
+	light->position->x = 5;
+	light->position->z = 0;
+	light->position->y = 1;
+	light->mask->red = 0;
+	light->mask->green = 0;
+	light->luminosity = 3;
+	light_add(env, light);
+	int i = -20;
+	while (i <= 20)
+	{
+		object = create_sphere();
+		object->color = RED;
+		object->position->z = 5;
+		object->position->x = i;
+		object->reflection = 1;
+		object->dimensions[0] = .9;
+		object_add(env, object);
+		object = create_sphere();
+		i += 5;
+	}
+	object->position->y = -10000001;
 	object->color = WHITE;
-	object->dimensions[0] = 100000;
+	object->dimensions[0] = 10000000;
 	object_add(env, object);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
-	env->ambient_light = .5;
+	env->ambient_light = 0;
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");
