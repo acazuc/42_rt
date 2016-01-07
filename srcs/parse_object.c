@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 16:03:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 17:15:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,13 @@ static int		parse_object_part(t_object *object, char **datas, int count)
 		if (!datas[count + 1])
 			error_quit("Failed to read object color");
 		object->color = parse_color(datas[count + 1]);
+		return (1);
+	}
+	else if (!ft_strcmp(datas[count], "reflection"))
+	{
+		if (!datas[count + 1])
+			error_quit("Failed to read object reflection");
+		object->reflection = parse_color(datas[count + 1]);
 		return (1);
 	}
 	error_quit("Unknown objet's param entry");

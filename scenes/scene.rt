@@ -6,11 +6,28 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/07 15:01:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/07 16:09:13 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/07 17:14:33 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-sphere	position	2	2	-2		rotation	0	0	0		dimensions	1	color	RED
-sphere	position	0	0	0		rotation	0	0	0		dimensions	5	color	WHITE
+# View from back over the scene
+camera	position	0	20	-20		rotation	-45	0	0
 
-light	position	-1	5	0		luminosity	10	color	1	1	1
+# Three lights of each color
+light	position	-5	1	0		luminosity	3	color	1	0	0
+light	position	0	1	0		luminosity	3	color	0	1	0
+light	position	5	1	0		luminosity	3 	color	0	0	1
+
+# Big sphere act as plane
+sphere	position	0	-100002	0	dimensions	100000	color	WHITE
+
+# Multiple spheres
+sphere	position	-20	0	5	dimensions	1	color	WHITE	reflection	1
+sphere	position	-15	0	5	dimensions	1	color	WHITE
+sphere	position	-10	0	5	dimensions	1	color	WHITE
+sphere	position	-5	0	5	dimensions	1	color	WHITE
+sphere	position	0	0	5	dimensions	1	color	WHITE
+sphere	position	5	0	5	dimensions	1	color	WHITE
+sphere	position	10	0	5	dimensions	1	color	WHITE
+sphere	position	15	0	5	dimensions	1	color	WHITE
+sphere	position	20	0	5	dimensions	1	color	WHITE

@@ -6,11 +6,23 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 16:06:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 16:44:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static void		do_create_object(t_object **object, char *str)
+{
+	if (!ft_strcmp(str, "sphere"))
+		*object = create_sphere();
+	else if (!ft_strcmp(str, "cylinder"))
+		*object = create_cylinder();
+	else if (!ft_strcmp(str, "cone"))
+		*object = create_cone();
+	else if (!ft_strcmp(str, "plane"))
+		*object = create_plane();
+}
 
 static void		do_parse(t_env *env, char **datas)
 {
@@ -21,14 +33,7 @@ static void		do_parse(t_env *env, char **datas)
 	light = NULL;
 	if (!ft_strcmp(datas[0], "sphere") || !ft_strcmp(datas[0], "cylinder") || !ft_strcmp(datas[0], "cone") || !ft_strcmp(datas[0], "plane"))
 	{
-		if (!ft_strcmp(datas[0], "sphere"))
-			object = create_sphere();
-		else if (!ft_strcmp(datas[0], "cylinder"))
-			object = create_cylinder();
-		else if (!ft_strcmp(datas[0], "cone"))
-			object = create_cone();
-		else if (!ft_strcmp(datas[0], "plane"))
-			object = create_plane();
+		do_create_object(&object, datas[0]);
 		parse_object(object, datas);
 		object_add(env, object);
 	}
@@ -38,6 +43,8 @@ static void		do_parse(t_env *env, char **datas)
 		parse_light(light, datas);
 		light_add(env, light);
 	}
+	else if (!ft_strcmp(datas[0], "camera"))
+		parse_camera(env, datas);
 	else
 		error_quit("Invalid line in scene");
 }
@@ -64,7 +71,7 @@ static void		parse_line(t_env *env, char *line)
 	}
 }
 
-void	scene_parse(t_env *env, char *file)
+void	parse_scene(t_env *env, char *file)
 {
 	char	*line;
 	int		fd;

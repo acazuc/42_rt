@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 16:06:37 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 17:13:16 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -540,12 +540,12 @@ env->ambient_light = .5;
 	/**
 	 * ROTATIONS
 	 */
-	scene_parse(env, "scenes/scene.rt");
-	env->position->z = -20;
+	parse_scene(env, "scenes/scene.rt");
+	/*env->position->z = -20;
 	env->position->y = 20;
 	env->position->x = 0;
 	env->rotation->x = -45;
-	env->rotation->y = 0;
+	env->rotation->y = 0;*/
 	light = light_create();
 	light->position->x = -5;
 	light->position->z = 0;
@@ -570,8 +570,8 @@ env->ambient_light = .5;
 	light->mask->green = 0;
 	light->luminosity = 3;
 	light_add(env, light);*/
-	int i = -20;
-	while (i <= 20)
+	/*int i = -20;
+	while (i <= -30)
 	{
 		object = create_sphere();
 		object->color = RED;
@@ -586,10 +586,10 @@ env->ambient_light = .5;
 	object->position->y = -10000001;
 	object->color = WHITE;
 	object->dimensions[0] = 10000000;
-	object_add(env, object);
+	object_add(env, object);*/
+	object = NULL;
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Started drawing");
-	env->ambient_light = 0;
 	draw(env);
 	ft_putstr(CONSOLE_GREEN);
 	ft_putendl("Finished drawing");

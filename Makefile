@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/07 16:03:16 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/07 16:57:14 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,10 +94,11 @@ SRCS_NAME = main.c \
 	   		worker.c \
 	  		get_transparency_ray.c \
 			light_level_mask.c \
-			scene_parse.c \
+			parse_scene.c \
 			parse_object.c \
 			parse_light.c \
 			parse_color.c \
+			parse_camera.c \
 			get_next_line.c
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))

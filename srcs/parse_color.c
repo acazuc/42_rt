@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:11:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 15:42:38 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/07 17:13:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	parse_hexa(char *str)
 
 int		parse_color(char *str)
 {
+	ft_putendl(str);
 	if (!str)
 		return (0);
 	if (!ft_strcmp(str, "RED"))
