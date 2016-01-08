@@ -6,35 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:53:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 11:21:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 16:35:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-void		add_mask_smooth(t_color_mask *mask, t_vector *normal_v
-		, t_ray *ray, t_light_collision *data)
-{
-	t_color_mask	*m;
-	t_vector		*nm;
-	t_vector		*rd;
-	double			ll;
-
-	m = data->light->mask;
-	nm = data->collision->normal;
-	rd = ray->direction;
-	ll = data->light->luminosity;
-	if (data->collision->object->type != SPHERE
-			&& data->collision->object->type != CYLINDER
-			&& data->collision->object->type != CONE)
-		return ;
-	mask->red += MAX(0, cos(vector_angle(normal_v, rd))) * ll * m->red *
-				MAX(0, 1 - 20 * (1 - sin(vector_angle(rd, nm))));
-	mask->green += MAX(0, cos(vector_angle(normal_v, rd))) * ll * m->green *
-				MAX(0, 1 - 20 * (1 - sin(vector_angle(rd, nm))));
-	mask->blue += MAX(0, cos(vector_angle(normal_v, rd))) * ll * m->blue *
-				MAX(0, 1 - 20 * (1 - sin(vector_angle(rd, nm))));
-}
 
 void		add_mask_specular(t_color_mask *mask, t_ray *ray
 		, t_collision *collision, t_ray *origin_ray)

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 16:56:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 13:27:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ void			collision_free(t_collision *collision);
 int				color_factor(int color, double factor);
 t_color_mask	*light_level(t_env *env, t_ray *origin_ray
 		, t_collision *origin);
-void			add_mask_smooth(t_color_mask *mask, t_vector *normal_v
-		, t_ray *ray, t_light_collision *data);
 void			add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
 		, t_light *light);
 void			add_mask_specular(t_color_mask *mask, t_ray *ray
@@ -93,5 +91,6 @@ void			parse_object(t_object *object, char **datas);
 void			parse_light(t_light *light, char **datas);
 void			parse_camera(t_env *env, char **datas);
 int				parse_color(char *str);
+long			epoch_millis();
 
 #endif

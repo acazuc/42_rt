@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_dot.c                                       :+:      :+:    :+:   */
+/*   epoch_millis.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/05 07:20:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 16:40:09 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/08 12:59:25 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/08 13:16:11 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-double	vector_dot(t_vector *v1, t_vector *v2)
+long	epoch_millis()
 {
-	return (v1->x * v2->x + v1->y * v2->y + v1->z * v2->z);
+	struct timeval		time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }

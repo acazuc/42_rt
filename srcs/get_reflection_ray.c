@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 10:00:51 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 09:19:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 16:40:11 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ t_ray	*get_reflection_ray(t_ray *ray, t_collision *coll)
 	new_ray->origin->x = coll->vector->x;
 	new_ray->origin->y = coll->vector->y;
 	new_ray->origin->z = coll->vector->z;
-	factor = ray->direction->x * coll->normal->x
-		+ ray->direction->y * coll->normal->y
-		+ ray->direction->z * coll->normal->z;
+	factor = vector_dot(ray->direction, coll->normal);
 	new_ray->direction->x = ray->direction->x - 2 * factor * coll->normal->x;
 	new_ray->direction->y = ray->direction->y - 2 * factor * coll->normal->y;
 	new_ray->direction->z = ray->direction->z - 2 * factor * coll->normal->z;

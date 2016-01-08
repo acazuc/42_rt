@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 11:46:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 13:16:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		main(int ac, char **av)
 {
-	struct timeval	start;
-	struct timeval	end;
+	long			start;
+	long			end;
 	t_env			*env;
 	
 	if (ac != 2)
@@ -23,20 +23,20 @@ int		main(int ac, char **av)
 	if (!(env = malloc(sizeof(*env))))
 		error_quit("Failed to malloc env");
 	env_init(env);
-	gettimeofday(&start, NULL);
+	start = epoch_millis();
 	parse_scene(env, av[1]);
-	gettimeofday(&end, NULL);
+	end = epoch_millis();
 	ft_putstr(CONSOLE_GREEN);
 	ft_putstr("Scene parsed in ");
-	ft_putnbr((end.tv_usec - start.tv_usec) / 10);
+	ft_putnbr(end - start);
 	ft_putendl("ms");
 	window_init(env);
-	gettimeofday(&end, NULL);
+	start = epoch_millis();
 	draw(env);
-	gettimeofday(&end, NULL);
+	end = epoch_millis();
 	ft_putstr(CONSOLE_GREEN);
 	ft_putstr("Finished drawing in ");
-	ft_putnbr((int)(end.tv_usec - start.tv_usec) / 10);
+	ft_putnbr(end - start);
 	ft_putendl("ms");
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);
 	mlx_key_hook(env->window->mlx_window, &key_listener, env);
