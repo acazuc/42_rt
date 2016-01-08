@@ -6,42 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 09:05:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 09:47:58 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-/*
-void	add_objects(t_env *env)
-{
-	t_object	*object;
-	double		dim;
-	double		x;
-	double		y;
-
-	dim = 10;
-	y = -dim / 2;
-	while (y <= dim / 2)
-	{
-		x = -dim / 2;
-		while (x <= dim / 2)
-		{
-			object = create_sphere();
-			int red = 0xFF0000 * ((x + dim / 2.) / dim);
-			red = red - red % 0x010000;
-			int blue = 0x0000FF * ((y + dim / 2.) / dim);
-			blue = blue % 0x000100;
-			object->color = red + blue + 0x00FF00;
-			object->dimensions[0] = 1;
-			object->position->z = dim * 2;
-			object->position->x = x;
-			object->position->y = y;
-			object_add(env, object);
-			x++;
-		}
-		y++;
-	}
-}*/
 
 void	a(int **m, int a, int v1, int v2, int c)
 {
@@ -316,7 +285,7 @@ int		main(void)
 	/**
 	 * ROTATIONS
 	 */
-	parse_scene(env, "scenes/mdloul.rt");
+	parse_scene(env, "scenes/hap.rt");
 	/*env->position->z = -20;
 	env->position->y = 20;
 	env->position->x = 0;

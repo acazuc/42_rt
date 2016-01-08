@@ -1,0 +1,208 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    hap.rt                                             :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/01/08 09:20:12 by acazuc            #+#    #+#              #
+#    Updated: 2016/01/08 09:49:29 by acazuc           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+camera	position	7	50	7	rotation	-90	180	0
+
+light	position	7	10	7	luminosity	1
+
+# Drawing Hap
+sphere	dimensions	3	position	5	0	0	color	BLACK
+sphere	dimensions	3	position	6	0	0	color	BLACK
+sphere	dimensions	3	position	7	0	0	color	BLACK
+sphere	dimensions	3	position	8	0	0	color	BLACK
+sphere	dimensions	3	position	9	0	0	color	BLACK
+
+sphere	dimensions	3	position	3	0	1	color	BLACK
+sphere	dimensions	3	position	4	0	1	color	BLACK
+sphere	dimensions	3	position	5	0	1	color	YELLOW
+sphere	dimensions	3	position	6	0	1	color	YELLOW
+sphere	dimensions	3	position	7	0	1	color	YELLOW
+sphere	dimensions	3	position	8	0	1	color	YELLOW
+sphere	dimensions	3	position	9	0	1	color	YELLOW
+sphere	dimensions	3	position	10	0	1	color	BLACK
+sphere	dimensions	3	position	11	0	1	color	BLACK
+
+sphere	dimensions	3	position	2	0	2	color	BLACK
+sphere	dimensions	3	position	3	0	2	color	YELLOW
+sphere	dimensions	3	position	4	0	2	color	YELLOW
+sphere	dimensions	3	position	5	0	2	color	YELLOW
+sphere	dimensions	3	position	6	0	2	color	YELLOW
+sphere	dimensions	3	position	7	0	2	color	YELLOW
+sphere	dimensions	3	position	8	0	2	color	YELLOW
+sphere	dimensions	3	position	9	0	2	color	YELLOW
+sphere	dimensions	3	position	10	0	2	color	YELLOW
+sphere	dimensions	3	position	11	0	2	color	YELLOW
+sphere	dimensions	3	position	12	0	2	color	BLACK
+
+sphere	dimensions	3	position	1	0	3	color	BLACK
+sphere	dimensions	3	position	2	0	3	color	YELLOW
+sphere	dimensions	3	position	3	0	3	color	YELLOW
+sphere	dimensions	3	position	4	0	3	color	BLACK
+sphere	dimensions	3	position	5	0	3	color	BLACK
+sphere	dimensions	3	position	6	0	3	color	YELLOW
+sphere	dimensions	3	position	7	0	3	color	YELLOW
+sphere	dimensions	3	position	8	0	3	color	YELLOW
+sphere	dimensions	3	position	9	0	3	color	BLACK
+sphere	dimensions	3	position	10	0	3	color	BLACK
+sphere	dimensions	3	position	11	0	3	color	YELLOW
+sphere	dimensions	3	position	12	0	3	color	YELLOW
+sphere	dimensions	3	position	13	0	3	color	BLACK
+
+sphere	dimensions	3	position	1	0	4	color	BLACK
+sphere	dimensions	3	position	2	0	4	color	YELLOW
+sphere	dimensions	3	position	3	0	4	color	BLACK
+sphere	dimensions	3	position	4	0	4	color	YELLOW
+sphere	dimensions	3	position	5	0	4	color	YELLOW
+sphere	dimensions	3	position	6	0	4	color	YELLOW
+sphere	dimensions	3	position	7	0	4	color	YELLOW
+sphere	dimensions	3	position	8	0	4	color	YELLOW
+sphere	dimensions	3	position	9	0	4	color	YELLOW
+sphere	dimensions	3	position	10	0	4	color	YELLOW
+sphere	dimensions	3	position	11	0	4	color	BLACK
+sphere	dimensions	3	position	12	0	4	color	YELLOW
+sphere	dimensions	3	position	13	0	4	color	BLACK
+
+sphere	dimensions	3	position	0	0	5	color	BLACK
+sphere	dimensions	3	position	1	0	5	color	YELLOW
+sphere	dimensions	3	position	2	0	5	color	BLACK
+sphere	dimensions	3	position	3	0	5	color	YELLOW
+sphere	dimensions	3	position	4	0	5	color	BLACK
+sphere	dimensions	3	position	5	0	5	color	BLACK
+sphere	dimensions	3	position	6	0	5	color	YELLOW
+sphere	dimensions	3	position	7	0	5	color	YELLOW
+sphere	dimensions	3	position	8	0	5	color	YELLOW
+sphere	dimensions	3	position	9	0	5	color	BLACK
+sphere	dimensions	3	position	10	0	5	color	BLACK
+sphere	dimensions	3	position	11	0	5	color	YELLOW
+sphere	dimensions	3	position	12	0	5	color	BLACK
+sphere	dimensions	3	position	13	0	5	color	YELLOW
+sphere	dimensions	3	position	14	0	5	color	BLACK
+
+sphere	dimensions	3	position	0	0	6	color	BLACK
+sphere	dimensions	3	position	1	0	6	color	YELLOW
+sphere	dimensions	3	position	2	0	6	color	BLACK
+sphere	dimensions	3	position	3	0	6	color	YELLOW
+sphere	dimensions	3	position	4	0	6	color	BLACK
+sphere	dimensions	3	position	5	0	6	color	BLACK
+sphere	dimensions	3	position	6	0	6	color	YELLOW
+sphere	dimensions	3	position	7	0	6	color	YELLOW
+sphere	dimensions	3	position	8	0	6	color	YELLOW
+sphere	dimensions	3	position	9	0	6	color	BLACK
+sphere	dimensions	3	position	10	0	6	color	BLACK
+sphere	dimensions	3	position	11	0	6	color	YELLOW
+sphere	dimensions	3	position	12	0	6	color	BLACK
+sphere	dimensions	3	position	13	0	6	color	YELLOW
+sphere	dimensions	3	position	14	0	6	color	BLACK
+
+sphere	dimensions	3	position	0	0	7	color	BLACK
+sphere	dimensions	3	position	1	0	7	color	YELLOW
+sphere	dimensions	3	position	2	0	7	color	YELLOW
+sphere	dimensions	3	position	3	0	7	color	YELLOW
+sphere	dimensions	3	position	4	0	7	color	YELLOW
+sphere	dimensions	3	position	5	0	7	color	YELLOW
+sphere	dimensions	3	position	6	0	7	color	YELLOW
+sphere	dimensions	3	position	7	0	7	color	YELLOW
+sphere	dimensions	3	position	8	0	7	color	YELLOW
+sphere	dimensions	3	position	9	0	7	color	YELLOW
+sphere	dimensions	3	position	10	0	7	color	YELLOW
+sphere	dimensions	3	position	11	0	7	color	YELLOW
+sphere	dimensions	3	position	12	0	7	color	YELLOW
+sphere	dimensions	3	position	13	0	7	color	YELLOW
+sphere	dimensions	3	position	14	0	7	color	BLACK
+
+sphere	dimensions	3	position	0	0	8	color	BLACK
+sphere	dimensions	3	position	1	0	8	color	YELLOW
+sphere	dimensions	3	position	2	0	8	color	YELLOW
+sphere	dimensions	3	position	3	0	8	color	YELLOW
+sphere	dimensions	3	position	4	0	8	color	YELLOW
+sphere	dimensions	3	position	5	0	8	color	YELLOW
+sphere	dimensions	3	position	6	0	8	color	YELLOW
+sphere	dimensions	3	position	7	0	8	color	YELLOW
+sphere	dimensions	3	position	8	0	8	color	YELLOW
+sphere	dimensions	3	position	9	0	8	color	YELLOW
+sphere	dimensions	3	position	10	0	8	color	YELLOW
+sphere	dimensions	3	position	11	0	8	color	YELLOW
+sphere	dimensions	3	position	12	0	8	color	YELLOW
+sphere	dimensions	3	position	13	0	8	color	YELLOW
+sphere	dimensions	3	position	14	0	8	color	BLACK
+
+sphere	dimensions	3	position	0	0	9	color	BLACK
+sphere	dimensions	3	position	1	0	9	color	YELLOW
+sphere	dimensions	3	position	2	0	9	color	YELLOW
+sphere	dimensions	3	position	3	0	9	color	YELLOW
+sphere	dimensions	3	position	4	0	9	color	YELLOW
+sphere	dimensions	3	position	5	0	9	color	BLACK
+sphere	dimensions	3	position	6	0	9	color	YELLOW
+sphere	dimensions	3	position	7	0	9	color	YELLOW
+sphere	dimensions	3	position	8	0	9	color	YELLOW
+sphere	dimensions	3	position	9	0	9	color	BLACK
+sphere	dimensions	3	position	10	0	9	color	YELLOW
+sphere	dimensions	3	position	11	0	9	color	YELLOW
+sphere	dimensions	3	position	12	0	9	color	YELLOW
+sphere	dimensions	3	position	13	0	9	color	YELLOW
+sphere	dimensions	3	position	14	0	9	color	BLACK
+
+sphere	dimensions	3	position	1	0	10	color	BLACK
+sphere	dimensions	3	position	2	0	10	color	YELLOW
+sphere	dimensions	3	position	3	0	10	color	YELLOW
+sphere	dimensions	3	position	4	0	10	color	YELLOW
+sphere	dimensions	3	position	5	0	10	color	YELLOW
+sphere	dimensions	3	position	6	0	10	color	BLACK
+sphere	dimensions	3	position	7	0	10	color	BLACK
+sphere	dimensions	3	position	8	0	10	color	BLACK
+sphere	dimensions	3	position	9	0	10	color	YELLOW
+sphere	dimensions	3	position	10	0	10	color	YELLOW
+sphere	dimensions	3	position	11	0	10	color	YELLOW
+sphere	dimensions	3	position	12	0	10	color	YELLOW
+sphere	dimensions	3	position	13	0	10	color	BLACK
+
+sphere	dimensions	3	position	1	0	11	color	BLACK
+sphere	dimensions	3	position	2	0	11	color	YELLOW
+sphere	dimensions	3	position	3	0	11	color	YELLOW
+sphere	dimensions	3	position	4	0	11	color	YELLOW
+sphere	dimensions	3	position	5	0	11	color	YELLOW
+sphere	dimensions	3	position	6	0	11	color	YELLOW
+sphere	dimensions	3	position	7	0	11	color	YELLOW
+sphere	dimensions	3	position	8	0	11	color	YELLOW
+sphere	dimensions	3	position	9	0	11	color	YELLOW
+sphere	dimensions	3	position	10	0	11	color	YELLOW
+sphere	dimensions	3	position	11	0	11	color	YELLOW
+sphere	dimensions	3	position	12	0	11	color	YELLOW
+sphere	dimensions	3	position	13	0	11	color	BLACK
+
+sphere	dimensions	3	position	2	0	12	color	BLACK
+sphere	dimensions	3	position	3	0	12	color	YELLOW
+sphere	dimensions	3	position	4	0	12	color	YELLOW
+sphere	dimensions	3	position	5	0	12	color	YELLOW
+sphere	dimensions	3	position	6	0	12	color	YELLOW
+sphere	dimensions	3	position	7	0	12	color	YELLOW
+sphere	dimensions	3	position	8	0	12	color	YELLOW
+sphere	dimensions	3	position	9	0	12	color	YELLOW
+sphere	dimensions	3	position	10	0	12	color	YELLOW
+sphere	dimensions	3	position	11	0	12	color	YELLOW
+sphere	dimensions	3	position	12	0	12	color	BLACK
+
+sphere	dimensions	3	position	3	0	13	color	BLACK
+sphere	dimensions	3	position	4	0	13	color	BLACK
+sphere	dimensions	3	position	5	0	13	color	YELLOW
+sphere	dimensions	3	position	6	0	13	color	YELLOW
+sphere	dimensions	3	position	7	0	13	color	YELLOW
+sphere	dimensions	3	position	8	0	13	color	YELLOW
+sphere	dimensions	3	position	9	0	13	color	YELLOW
+sphere	dimensions	3	position	10	0	13	color	BLACK
+sphere	dimensions	3	position	11	0	13	color	BLACK
+
+sphere	dimensions	3	position	5	0	14	color	BLACK
+sphere	dimensions	3	position	6	0	14	color	BLACK
+sphere	dimensions	3	position	7	0	14	color	BLACK
+sphere	dimensions	3	position	8	0	14	color	BLACK
+sphere	dimensions	3	position	9	0	14	color	BLACK
