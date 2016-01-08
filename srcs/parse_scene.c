@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 07:43:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 11:22:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,17 @@ static void		parse_line(t_env *env, char *line)
 void			parse_scene(t_env *env, char *file)
 {
 	char	*line;
+	int		rd;
 	int		fd;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error_quit("Failed to open scene file");
-	while (get_next_line(fd, &line) > 0)
+	while ((rd = get_next_line(fd, &line)) > 0)
 	{
 		parse_line(env, line);
 		free(line);
 	}
+	if (rd == -1)
+		error_quit("Invalid scene file");
 	close(fd);
 }
