@@ -6,50 +6,31 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 17:15:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 08:06:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void		parse_object_position(t_object *object, char **datas, int count)
+static void		parse_object_vector(t_vector *vector, char **datas, int count)
 {
-	if (datas[count])
-		object->position->x = ft_atoi(datas[count]);
-	else
-		error_quit("Failed to read object x position");
-	if (datas[count + 1])
-		object->position->y = ft_atoi(datas[count + 1]);
-	else
-		error_quit("Failed to read object y position");
-	if (datas[count + 2])
-		object->position->z = ft_atoi(datas[count + 2]);
-	else
-		error_quit("Failed to read object z position");
+	if (!datas[count])
+		error_quit("Failed to read object x vector");
+	vector->x = ft_atod(datas[count]);
+	if (!datas[count + 1])
+		error_quit("Failed to read object y vector");
+	vector->y = ft_atod(datas[count + 1]);
+	if (!datas[count + 2])
+		error_quit("Failed to read object z vector");
+	vector->z = ft_atod(datas[count + 2]);
 }
 
-static void		parse_object_rotation(t_object *object, char **datas, int count)
-{
-	if (datas[count])
-		object->rotation->x = ft_atoi(datas[count]);
-	else
-		error_quit("Failed to read object x position");
-	if (datas[count + 1])
-		object->rotation->y = ft_atoi(datas[count + 1]);
-	else
-		error_quit("Failed to read object y position");
-	if (datas[count + 2])
-		object->rotation->z = ft_atoi(datas[count + 2]);
-	else
-		error_quit("Failed to read object z position");
-}
-
-static int		parse_object_dimensions(t_object* obj, char **datas, int count)
+static int		parse_object_dimensions(t_object *obj, char **datas, int count)
 {
 	if (obj->type == SPHERE)
 	{
 		if (datas[count])
-			obj->dimensions[0] = ft_atoi(datas[count]);
+			obj->dimensions[0] = ft_atod(datas[count]);
 		else
 			error_quit("Failed to read sphere diametre");
 		return (1);
@@ -57,7 +38,7 @@ static int		parse_object_dimensions(t_object* obj, char **datas, int count)
 	else if (obj->type == CYLINDER)
 	{
 		if (datas[count])
-			obj->dimensions[0] = ft_atoi(datas[count]);
+			obj->dimensions[0] = ft_atod(datas[count]);
 		else
 			error_quit("Failed to read cylinder diametre");
 		return (1);
@@ -67,18 +48,38 @@ static int		parse_object_dimensions(t_object* obj, char **datas, int count)
 	return (0);
 }
 
+static int		parse_object_part2(t_object *object, char **datas, int count)
+{
+	if (!ft_strcmp(datas[count], "reflection"))
+	{
+		if (!datas[count + 1])
+			error_quit("Failed to read object reflection");
+		object->reflection = ft_atod(datas[count + 1]);
+		return (1);
+	}
+	else if (!ft_strcmp(datas[count], "transparency"))
+	{
+		if (!datas[count + 1])
+			error_quit("Failed to read object transparency");
+		object->transparency = ft_atod(datas[count + 1]);
+		return (1);
+	}
+	error_quit("Unknown objet's param entry");
+	return (0);
+}
+
 static int		parse_object_part(t_object *object, char **datas, int count)
 {
 	if (!datas[count])
 		error_quit("Failed to read object's param entry");
 	if (!ft_strcmp(datas[count], "position"))
 	{
-		parse_object_position(object, datas, count + 1);
+		parse_object_vector(object->position, datas, count + 1);
 		return (3);
 	}
 	else if (!ft_strcmp(datas[count], "rotation"))
 	{
-		parse_object_rotation(object, datas, count + 1);
+		parse_object_vector(object->rotation, datas, count + 1);
 		return (3);
 	}
 	else if (!ft_strcmp(datas[count], "dimensions"))
@@ -92,15 +93,7 @@ static int		parse_object_part(t_object *object, char **datas, int count)
 		object->color = parse_color(datas[count + 1]);
 		return (1);
 	}
-	else if (!ft_strcmp(datas[count], "reflection"))
-	{
-		if (!datas[count + 1])
-			error_quit("Failed to read object reflection");
-		object->reflection = parse_color(datas[count + 1]);
-		return (1);
-	}
-	error_quit("Unknown objet's param entry");
-	return (0);
+	return (parse_object_part2(object, datas, count));
 }
 
 void			parse_object(t_object *object, char **datas)

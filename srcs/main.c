@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 17:13:16 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 08:24:35 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -312,54 +312,6 @@ int		main(void)
 */
 	
 	
-	/**
-	 * Such Wow
-	 */
-	/*env->position->y = 10;
-	env->position->z = -10;
-	env->rotation->x = -45;
-	object = create_sphere();
-	object->color = WHITE;
-	object->position->y = -10000.4;
-	object->dimensions[0] = -10000;
-	object_add(env, object);
-	double mdr = 5;
-	double x = -mdr;
-	while (x <= mdr)
-	{
-		double z = -mdr;
-		while (z <= mdr)
-		{
-			object = create_sphere();
-			object->color = WHITE;
-			object->position->y = 0;
-			object->position->x = x;
-			object->position->z = z;
-			object->dimensions[0] = .4;
-			object_add(env, object);
-			z++;
-		}
-		x++;
-	}
-	double mdrd = 10;
-	double xd = -mdrd;
-	while (xd <= mdrd)
-	{
-		double yd = -mdrd;
-		while (yd <= mdrd)
-		{
-			light = light_create();
-			light->luminosity = .075;
-			light->position->x = xd;
-			light->position->y = 2;
-			light->position->z = yd;
-			light->mask->red = (xd + mdrd) / (mdrd * 2.);
-			light->mask->blue = (xd + mdrd) / (mdrd * 2.);
-			light_add(env, light);
-			yd += 5;
-		}
-		xd += 5;
-	}*/
 	
 	/*
 	 * START MDLOUL
@@ -540,7 +492,7 @@ env->ambient_light = .5;
 	/**
 	 * ROTATIONS
 	 */
-	parse_scene(env, "scenes/scene.rt");
+	parse_scene(env, "scenes/c_bo.rt");
 	/*env->position->z = -20;
 	env->position->y = 20;
 	env->position->x = 0;

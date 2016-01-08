@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 16:44:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 07:43:55 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ static void		do_parse(t_env *env, char **datas)
 
 	object = NULL;
 	light = NULL;
-	if (!ft_strcmp(datas[0], "sphere") || !ft_strcmp(datas[0], "cylinder") || !ft_strcmp(datas[0], "cone") || !ft_strcmp(datas[0], "plane"))
+	if (!ft_strcmp(datas[0], "sphere") || !ft_strcmp(datas[0], "cylinder")
+			|| !ft_strcmp(datas[0], "cone") || !ft_strcmp(datas[0], "plane"))
 	{
 		do_create_object(&object, datas[0]);
 		parse_object(object, datas);
@@ -71,7 +72,7 @@ static void		parse_line(t_env *env, char *line)
 	}
 }
 
-void	parse_scene(t_env *env, char *file)
+void			parse_scene(t_env *env, char *file)
 {
 	char	*line;
 	int		fd;
