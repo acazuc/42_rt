@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 13:16:08 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 17:04:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		main(int ac, char **av)
 	long			start;
 	long			end;
 	t_env			*env;
-	
+
 	if (ac != 2)
 		error_quit("You must specify the name the scene file");
 	if (!(env = malloc(sizeof(*env))))
@@ -30,6 +30,7 @@ int		main(int ac, char **av)
 	ft_putstr("Scene parsed in ");
 	ft_putnbr(end - start);
 	ft_putendl("ms");
+	ft_putstr(CONSOLE_WHITE);
 	window_init(env);
 	start = epoch_millis();
 	draw(env);
@@ -38,6 +39,7 @@ int		main(int ac, char **av)
 	ft_putstr("Finished drawing in ");
 	ft_putnbr(end - start);
 	ft_putendl("ms");
+	ft_putstr(CONSOLE_WHITE);
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);
 	mlx_key_hook(env->window->mlx_window, &key_listener, env);
 	mlx_loop(env->window->mlx);

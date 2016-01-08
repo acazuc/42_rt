@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 16:40:14 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 17:02:50 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_vector		*get_normal(t_object *plane)
 static t_vector		*collide_plane_result(t_ray *ray, double t)
 {
 	t_vector	*vector;
-	
+
 	if (t < 0)
 		return (NULL);
 	vector = vector_create();

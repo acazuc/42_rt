@@ -6,13 +6,13 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 12:59:25 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 13:16:11 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 17:02:23 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-long	epoch_millis()
+long	epoch_millis(void)
 {
 	struct timeval		time;
 
