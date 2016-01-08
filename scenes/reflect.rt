@@ -6,21 +6,21 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/08 09:00:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/08 09:06:12 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/08 11:40:36 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # View from top
-camera	position	0	100	0	rotation	-90	0	0
+camera	position	0	0	0	rotation	0	0	0
 
 # Reflected sphere
-sphere	color	RED	position	0	0	0	dimensions	0.25
+sphere	color	RED	position	0	-0.5	0	dimensions	0.25
 
 # Mirrors
 sphere	position	0		0		50001	dimensions	50000	reflection	1
 sphere	position	0		0		-50001	dimensions	50000	reflection	1
 sphere	position	50001	0		0		dimensions	50000	reflection	1
-spheer	position	-50001	0		0		dimensions	50000	reflection	1
+sphere	position	-50001	0		0		dimensions	50000	reflection	1
 sphere	position	0		50001	0		dimensions	50000	reflection	1
 sphere	position	0		-50001	0		dimensions	50000	reflection	1
 

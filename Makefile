@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/07 16:57:14 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/08 11:29:57 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,28 +17,6 @@ CFLAGS = -Wall -Wextra -Werror -Ofast
 CC = gcc
 
 INCLUDES_PATH = includes/
-
-INCLUDES_NAME = console.h \
-		  		env.h \
-				prototypes.h \
-				rtv1.h \
-				window.h \
-				includes.h \
-				object.h \
-				object_list.h \
-		 		object_type.h \
-		 		vector.h \
-		 		functions.h \
-		 		ray.h \
-		 		light.h \
-		 		point.h \
-		 		trinome.h \
-		 		light_list.h \
-		 		colors.h \
-		 		color_mask.h \
-		 		collision.h
-
-INCLUDES = $(addprefix $(INCLUDES_PATH), $(INCLUDES_NAME))
 
 SRCS_PATH = srcs/
 

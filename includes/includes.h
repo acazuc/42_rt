@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 08:18:33 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/06 13:49:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 11:42:26 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@
 # include <unistd.h>
 # include <math.h>
 # include <pthread.h>
-# include <stdio.h>
+# include <sys/time.h>
 
 #endif
