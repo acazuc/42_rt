@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 08:24:35 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/08 08:51:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -492,7 +492,7 @@ env->ambient_light = .5;
 	/**
 	 * ROTATIONS
 	 */
-	parse_scene(env, "scenes/c_bo.rt");
+	parse_scene(env, "scenes/mdloul.rt");
 	/*env->position->z = -20;
 	env->position->y = 20;
 	env->position->x = 0;
