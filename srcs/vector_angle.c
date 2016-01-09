@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/15 07:43:25 by acazuc            #+#    #+#             */
-/*   Updated: 2015/12/27 14:46:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/09 13:39:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 double	vector_angle(t_vector *v1, t_vector *v2)
 {
-	double	product;
 	double	angle;
 
-	product = v1->x * v2->x + v1->y * v2->y + v1->z * v2->z;
-	angle = acos(product / (vector_size(v1) * vector_size(v2)));
+	angle = acos(vector_dot(v1, v2) / (vector_size(v1) * vector_size(v2)));
 	return (angle);
 }

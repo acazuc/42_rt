@@ -6,21 +6,29 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 13:49:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 17:02:50 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/09 13:42:25 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static t_vector		*get_normal(t_object *plane)
+static t_vector		*get_normal(t_object *plane, t_ray *ray)
 {
 	t_vector	*vector;
+	double		angle;
 
 	vector = vector_create();
 	vector->x = 0;
 	vector->y = 1;
 	vector->z = 0;
 	vector_rotate(vector, plane->rotation);
+	angle = vector_angle(vector, ray->direction) * 180. / M_PI;
+	if (angle <= 90)
+	{
+		vector->x = -vector->x;
+		vector->y = -vector->y;
+		vector->z = -vector->z;
+	}
 	return (vector);
 }
 
@@ -59,6 +67,6 @@ t_collision			*collide_plane(t_ray *ray, t_object *plane)
 	t = vector_dot(&normal, &p) / nd;
 	collision->vector = collide_plane_result(ray, t);
 	if (collision->vector)
-		collision->normal = get_normal(plane);
+		collision->normal = get_normal(plane, ray);
 	return (collision);
 }
