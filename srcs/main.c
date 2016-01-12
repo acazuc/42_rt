@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/12 10:53:11 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/12 10:54:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		put_time(long start, long end, char *msg)
 	ft_putstr(CONSOLE_WHITE);
 }
 
-int		main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	long			start;
 	long			end;
