@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:53:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/12 08:30:16 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/12 09:11:32 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@ void		add_mask_transparency(t_env *env, t_collision *coll
 	t_color_mask	*mask;
 	t_vector		*lrd;
 	t_vector		*nm_bck;
+	double			cot;
 
+	cot = coll->object->transparency;
 	lrd = ll->ray->direction;
 	nm_bck = coll->normal;
 	mask = light_level(env, ll->origin_ray, coll);
 	coll->normal = nm_bck;
 	ll->mask->red += MAX(0, cos(vector_angle(ll->origin->normal, lrd))) *
-				light->luminosity * light->mask->red * coll->object->transparency;
+				light->luminosity * light->mask->red * cot;
 	ll->mask->green += MAX(0, cos(vector_angle(ll->origin->normal, lrd))) *
-				light->luminosity * light->mask->green * coll->object->transparency;
+				light->luminosity * light->mask->green * cot;
 	ll->mask->blue += MAX(0, cos(vector_angle(ll->origin->normal, lrd))) *
-				light->luminosity * light->mask->blue * coll->object->transparency;
+				light->luminosity * light->mask->blue * cot;
 	free(mask);
 }
 

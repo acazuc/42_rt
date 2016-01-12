@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/12 08:19:53 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/12 08:51:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void			add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
 		, t_light *light);
 void			add_mask_specular(t_color_mask *mask, t_ray *ray
 		, t_collision *collision, t_ray *origin_ray);
-void			add_mask_transparency(t_env *env, t_collision *coll, t_light_level *ll, t_light *light);
+void			add_mask_transparency(t_env *env, t_collision *coll
+		, t_light_level *ll, t_light *light);
 int				vector_equals(t_vector *v1, t_vector *v2);
 t_vector		*vector_multiply(t_vector *vector, double factor);
 double			vector_angle(t_vector *v1, t_vector *v2);
