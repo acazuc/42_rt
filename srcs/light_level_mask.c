@@ -6,11 +6,31 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:53:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 16:35:38 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/12 08:30:16 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+void		add_mask_transparency(t_env *env, t_collision *coll
+		, t_light_level *ll, t_light *light)
+{
+	t_color_mask	*mask;
+	t_vector		*lrd;
+	t_vector		*nm_bck;
+
+	lrd = ll->ray->direction;
+	nm_bck = coll->normal;
+	mask = light_level(env, ll->origin_ray, coll);
+	coll->normal = nm_bck;
+	ll->mask->red += MAX(0, cos(vector_angle(ll->origin->normal, lrd))) *
+				light->luminosity * light->mask->red * coll->object->transparency;
+	ll->mask->green += MAX(0, cos(vector_angle(ll->origin->normal, lrd))) *
+				light->luminosity * light->mask->green * coll->object->transparency;
+	ll->mask->blue += MAX(0, cos(vector_angle(ll->origin->normal, lrd))) *
+				light->luminosity * light->mask->blue * coll->object->transparency;
+	free(mask);
+}
 
 void		add_mask_specular(t_color_mask *mask, t_ray *ray
 		, t_collision *collision, t_ray *origin_ray)

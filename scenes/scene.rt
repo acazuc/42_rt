@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/07 15:01:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/08 08:07:08 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/12 08:24:30 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ sphere	position	-20	0	5	dimensions	1	color	BLUE	reflection		1
 sphere	position	-15	0	5	dimensions	1	color	WHITE	transparency	0.5
 sphere	position	-10	0	5	dimensions	1	color	WHITE
 sphere	position	-5	0	5	dimensions	1	color	WHITE
-sphere	position	0	0	5	dimensions	1	color	WHITE
-sphere	position	5	0	5	dimensions	1	color	WHITE
+sphere	position	0	0	5	dimensions	1	color	RED		reflection		1
+sphere	position	5	0	5	dimensions	1	color	WHITE	transparency	0.9
 sphere	position	10	0	5	dimensions	1	color	WHITE
 sphere	position	15	0	5	dimensions	1	color	WHITE
 sphere	position	20	0	5	dimensions	1	color	WHITE

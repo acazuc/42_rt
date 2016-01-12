@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/08 09:52:24 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/09 13:42:16 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/09 15:14:25 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ sphere		position	-5	0	0	color	RED		dimensions	1
 sphere		position	5	0	0	color	GREEN	dimensions	1
 cone		position	-2	2	7	color	MAGENTA	rotation	0	0	45
 cylinder	position	2	2	5	color	YELLOW	rotation	0	0	-45	dimensions	1
-#plane		position	0	-2	0	color	WHITE	rotation	0	0	0
+plane		position	0	-2	0	color	WHITE	rotation	0	0	0
 plane		position	0	0	10	color	BLUE	rotation	90	0	0
 
 # Lights
-light		position	-5	0	-5	luminosity	1
+light		position	-5	0	-5	luminosity	1	color	1	0	0
 light		position	5	0	-5	luminosity	1

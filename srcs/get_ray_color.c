@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 11:42:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/09 17:03:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 		data.mask = light_level(env, ray, data.collision);
 		data.color = color_factor(color_mask(data.collision->object->color
 					, data.mask), 1 - env->ambient_light);
-		free(data.mask);
 		check_reflection(env, ray, &data, recur);
 		check_transparency(env, ray, &data, recur);
+		free(data.mask);
 	}
 	collision_free(data.collision);
 	return (data.color);

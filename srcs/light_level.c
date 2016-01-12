@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 10:31:16 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 17:04:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/12 08:19:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,10 @@ static void		loop(t_env *env, t_light_level *ll)
 			loop_set_data(&data, ll->origin, list->light);
 			add_mask_specular(ll->mask, ll->ray, ll->origin, ll->origin_ray);
 			add_mask(ll->mask, ll->origin->normal, ll->ray, list->light);
+		}
+		else
+		{
+			add_mask_transparency(env, coll, ll, list->light);
 		}
 		collision_free(coll);
 		list = list->next;
