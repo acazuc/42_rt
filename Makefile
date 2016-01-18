@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/09 15:05:48 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/18 09:33:05 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,6 @@ SRCS_NAME = main.c \
 			parse_camera.c \
 			get_next_line.c \
 			epoch_millis.c \
-			reflection_color_apply.c
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
@@ -158,12 +157,12 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 .PHONY: clean fclean re
 
 clean:
-	@Make clean -C libft
+	@Make clean -C libft/
 	@echo " - Clearing objects files"
 	@rm -f $(OBJS)
 
 fclean: clean
-	@Make fclean -C libft
+	@Make fclean -C libft/
 	@echo " - Clearing executable file"
 	@rm -f $(NAME)
 

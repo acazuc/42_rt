@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 15:36:58 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/06 16:36:34 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/18 10:08:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 void			draw(t_env *env)
 {
-	pthread_t	threads[8];
-	t_worker	workers[8];
+	pthread_t	threads[THREAD_NUMBER];
+	t_worker	workers[THREAD_NUMBER];
 	int			i;
 
 	i = 0;
-	while (i < 8)
+	while (i < THREAD_NUMBER)
 	{
 		workers[i].env = env;
-		workers[i].start = env->window->width * env->window->height / 8. * i;
+		workers[i].start = env->window->width * env->window->height
+			/ (double)THREAD_NUMBER * i;
 		workers[i].end = env->window->width * env->window->height
-			/ 8. * (i + 1);
+			/ (double)THREAD_NUMBER * (i + 1);
 		pthread_create(&(threads[i]), NULL, worker_run, &(workers[i]));
 		i++;
 	}
 	i = 0;
-	while (i < 8)
+	while (i < THREAD_NUMBER)
 	{
 		pthread_join(threads[i], NULL);
 		i++;
