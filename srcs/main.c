@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/12 10:54:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/19 15:53:12 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int				main(int ac, char **av)
 	draw(env);
 	end = epoch_millis();
 	put_time(start, end, "Finished drawing");
+	free_objects(env);
+	free_lights(env);
 	mlx_expose_hook(env->window->mlx_window, &expose_listener, env);
 	mlx_key_hook(env->window->mlx_window, &key_listener, env);
 	mlx_loop(env->window->mlx);

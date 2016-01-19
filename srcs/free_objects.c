@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_listener.c                                     :+:      :+:    :+:   */
+/*   free_objets.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:17:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 16:18:11 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/19 15:45:33 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/19 15:53:37 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int		key_listener(int key, void *param)
+static void		object_free(t_object *object)
 {
-	t_env	*env;
+	free(object->position);
+	free(object->rotation);
+	free(object);
+}
 
-	env = (t_env*)param;
-	if (key == 53)
+void			free_objects(t_env *env)
+{
+	t_object_list	*lst;
+	t_object_list	*nxt;
+
+	lst = env->objects;
+	while (lst)
 	{
-		ft_putstr(CONSOLE_GREEN);
-		ft_putendl("Exit successful");
-		exit(1);
+		object_free(lst->object);
+		nxt = lst->next;
+		free(lst);
+		lst = nxt;
 	}
-	return (0);
+	env->objects = NULL;
 }

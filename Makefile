@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/19 09:27:39 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/19 15:58:28 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ SRCS_NAME = main.c \
 			parse_camera.c \
 			get_next_line.c \
 			epoch_millis.c \
+			free_objects.c \
+			free_lights.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

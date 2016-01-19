@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_listener.c                                     :+:      :+:    :+:   */
+/*   free_lights.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 08:17:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 16:18:11 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/19 15:54:00 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/19 16:06:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-int		key_listener(int key, void *param)
+static void		light_free(t_light *light)
 {
-	t_env	*env;
+	free(light->position);
+	free(light->mask);
+	free(light);
+}
 
-	env = (t_env*)param;
-	if (key == 53)
+void		free_lights(t_env *env)
+{
+	t_light_list	*lst;
+	t_light_list	*nxt;
+
+	lst = env->lights;
+	while (lst)
 	{
-		ft_putstr(CONSOLE_GREEN);
-		ft_putendl("Exit successful");
-		exit(1);
+		light_free(lst->light);
+		nxt = lst->next;
+		free(lst);
+		lst = nxt;
 	}
-	return (0);
+	env->lights = NULL;
 }

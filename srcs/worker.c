@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 10:28:07 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 10:27:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/19 16:08:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ static void		worker_loop(t_worker *worker, t_point *coord, t_ray *ray
 	int			color;
 	int			i;
 
-	i = worker->start - 1;
+	i = worker->start;
 	while (++i < worker->end)
 	{
 		coord->x = i % worker->env->window->width;
-		coord->y = i / worker->env->window->width;
+		coord->y = (int)i / (int)worker->env->window->width;
 		set_ray(worker->env, ray, coord, fov);
 		color = get_ray_color(worker->env, ray, NULL, 0);
 		pixel_put(worker->env, coord->x, coord->y, color);

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/12 08:51:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/19 15:58:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,7 @@ void			parse_light(t_light *light, char **datas);
 void			parse_camera(t_env *env, char **datas);
 int				parse_color(char *str);
 long			epoch_millis();
+void			free_objects(t_env *env);
+void			free_lights(t_env *env);
 
 #endif

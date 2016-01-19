@@ -6,11 +6,11 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/08 09:20:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/09 15:15:46 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/19 13:20:50 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-camera	position	7	50	7	rotation	-90	180	0
+camera	position	7	30	7	rotation	-90	180	0
 
 light	position	7	10	7	luminosity	1
 

@@ -6,14 +6,14 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:25:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/02 13:35:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/19 15:42:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONSOLE_H
 # define CONSOLE_H
 
-# define CONSOLE_DEFAULT "\e[39m"
+# define CONSOLE_DEFAULT "\e[0m"
 # define CONSOLE_BLACK "\e[30m"
 # define CONSOLE_RED "\e[31m"
 # define CONSOLE_GREEN "\e[32m"
