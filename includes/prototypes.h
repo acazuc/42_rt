@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 15:58:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/21 16:09:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "color_mask.h"
 # include "light_collision.h"
 # include "collision.h"
+# include "light_data.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -68,13 +69,12 @@ int				color_create(unsigned char red, unsigned char green
 t_collision		*collision_create(void);
 void			collision_free(t_collision *collision);
 int				color_factor(int color, double factor);
-t_color_mask	*light_level(t_env *env, t_ray *origin_ray
+t_light_data	*light_level(t_env *env, t_ray *origin_ray
 		, t_collision *origin);
 void			add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
 		, t_light *light);
-void			add_mask_specular(t_color_mask *mask, t_ray *ray
-		, t_collision *collision, t_ray *origin_ray);
-void			add_mask_transparency(t_env *env, t_collision *coll
+void			add_mask_specular(t_light_level *ll, t_light *light);
+void			add_mask_transparency(t_collision *coll
 		, t_light_level *ll, t_light *light);
 int				vector_equals(t_vector *v1, t_vector *v2);
 t_vector		*vector_multiply(t_vector *vector, double factor);
@@ -97,5 +97,7 @@ int				parse_color(char *str);
 long			epoch_millis();
 void			free_objects(t_env *env);
 void			free_lights(t_env *env);
+t_light_data	*light_data_create(void);
+void			light_data_free(t_light_data *data);
 
 #endif

@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_lights.c                                      :+:      :+:    :+:   */
+/*   light_data.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/19 15:54:00 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/21 14:15:14 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/21 15:17:23 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/21 15:57:15 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#ifndef LIGHT_DATA_H
+# define LIGHT_DATA_H
 
-static void		light_free(t_light *light)
+# include "color_mask.h"
+
+typedef struct	s_light_data
 {
-	free(light->position);
-	free(light->mask);
-	free(light);
-}
+	t_color_mask	*mask;
+	t_color_mask	*spec;
+}				t_light_data;
 
-void			free_lights(t_env *env)
-{
-	t_light_list	*lst;
-	t_light_list	*nxt;
-
-	lst = env->lights;
-	while (lst)
-	{
-		light_free(lst->light);
-		nxt = lst->next;
-		free(lst);
-		lst = nxt;
-	}
-	env->lights = NULL;
-}
+#endif

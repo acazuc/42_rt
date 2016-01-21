@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 16:49:05 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/04 17:23:42 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/21 15:36:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct		s_light_level
 	t_ray			*ray;
 	t_ray			*origin_ray;
 	t_collision		*origin;
+	t_color_mask	*spec;
 	t_color_mask	*mask;
 }					t_light_level;
 

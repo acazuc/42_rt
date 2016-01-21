@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/21 13:48:51 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/21 15:30:06 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,8 @@ SRCS_NAME = main.c \
 			epoch_millis.c \
 			free_objects.c \
 			free_lights.c \
+			light_data_create.c \
+			light_data_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

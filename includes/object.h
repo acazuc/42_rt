@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 08:21:51 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 15:48:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/21 16:05:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct		s_object
 	double			dimensions[3];
 	double			transparency;
 	double			reflection;
+	double			brilliance;
 	int				color;
 }					t_object;
 

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 08:50:43 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 15:48:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/21 16:11:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_object	*object_create(void)
 	object->dimensions[2] = 0;
 	object->transparency = 0;
 	object->reflection = 0;
+	object->brilliance = 1;
 	object->color = 0;
 	return (object);
 }
