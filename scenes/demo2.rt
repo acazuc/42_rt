@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/21 16:34:04 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/21 16:49:49 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,5 +20,18 @@ sphere		position	-5	-5	5	color	GREY	dimensions	2
 sphere		position	5	5	5	color	GREY	dimensions	2
 sphere		position	5	-5	5	color	GREY	dimensions	2
 
-light		position	10	5	-30		luminosity	1
-light		position	-10	5	-30		luminosity	1
+cylinder	position	-5	0	30	color	GREY	dimensions	1
+cylinder	position	5	0	30	color	GREY	dimensions	1
+sphere		position	-5	5	30	color	GREY	dimensions	2
+sphere		position	-5	-5	30	color	GREY	dimensions	2
+sphere		position	5	5	30	color	GREY	dimensions	2
+sphere		position	5	-5	30	color	GREY	dimensions	2
+
+sphere		position	0	-3	5	color	RED		dimensions	1
+
+plane		position	0	-5	0	color	WHITE	rotation	0	0	0
+plane		position	0	0	50	color	BLUE	rotation	90	0	0
+plane		position	0	5	0	color	WHITE	rotation	0	0	0
+
+light		position	14.5	4	-30		luminosity	1
+light		position	-14.5	4	-30		luminosity	1

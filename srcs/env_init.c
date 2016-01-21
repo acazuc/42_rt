@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:22:41 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 11:42:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/21 16:43:03 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	env_init(t_env *env)
 	env->rotation = vector_create();
 	env->ambient_light = 0;
 	env->max_recur = 10;
-	env->fov = 66;
+	env->fov = 60;
 }
