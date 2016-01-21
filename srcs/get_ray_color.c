@@ -6,13 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/21 16:11:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/21 16:27:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-
 
 static void	check_reflection(t_env *env, t_ray *ray, t_ray_data *data
 		, int recur)
