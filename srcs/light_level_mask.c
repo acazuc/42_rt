@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 15:53:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/21 16:25:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/22 08:28:12 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,17 @@ void		add_mask_transparency(t_collision *coll
 
 void		add_mask_specular(t_light_level *ll, t_light *light)
 {
-	double			angle_light;
-	double			angle_ray;
+	t_ray			*new_ray;
+	double			angle;
 	double			added;
 
-	angle_light = vector_angle(ll->ray->direction, ll->origin->normal);
-	angle_ray = vector_angle(ll->origin_ray->direction, ll->origin->normal);
-	added = (-cos(angle_light - angle_ray) - .8) * 5.;
+	new_ray = get_reflection_ray(ll->origin_ray, ll->origin);
+	vector_normalize(new_ray->direction);
+	vector_normalize(ll->ray->direction);
+	angle = vector_dot(new_ray->direction, ll->ray->direction);
+	if (angle < 0)
+		angle = 0;
+	added = pow(angle, 500);
 	if (added < 0)
 		added = 0;
 	ll->spec->red += added * light->mask->red;
@@ -51,6 +55,7 @@ void		add_mask_specular(t_light_level *ll, t_light *light)
 	ll->spec->blue += added * light->mask->blue;
 	if (ll->spec->blue > 1)
 		ll->spec->blue = 1;
+	ray_free(new_ray);
 }
 
 void		add_mask(t_color_mask *mask, t_vector *normal_v, t_ray *ray
