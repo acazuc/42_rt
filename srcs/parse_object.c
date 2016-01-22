@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 16:15:57 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/22 09:22:54 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ void			parse_object(t_object *object, char **datas)
 		count += parse_object_part(object, datas, count);
 		count++;
 	}
+	parse_object_check(object);
 }

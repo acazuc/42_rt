@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:49:57 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 08:32:22 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/22 09:23:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,5 @@ void			parse_light(t_light *light, char **datas)
 		count += parse_light_part(light, datas, count);
 		count++;
 	}
+	parse_light_check(light);
 }

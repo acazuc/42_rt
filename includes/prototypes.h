@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/21 16:09:57 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/22 09:25:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,7 @@ void			free_objects(t_env *env);
 void			free_lights(t_env *env);
 t_light_data	*light_data_create(void);
 void			light_data_free(t_light_data *data);
+void			parse_object_check(t_object *object);
+void			parse_light_check(t_light *light);
 
 #endif
