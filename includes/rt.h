@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 16:24:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 10:07:36 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@
 # include "../libft/includes/libft.h"
 # include "prototypes.h"
 # include "get_next_line.h"
+# include "parser.h"
 
 #endif

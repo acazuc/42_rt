@@ -6,70 +6,72 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 16:45:06 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 08:29:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 16:11:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void		parse_camera_position(t_env *env, char **datas, int count)
+static void		parse_camera_position(t_env *env, t_parser *p)
 {
-	if (datas[count])
-		env->position->x = ft_atod(datas[count]);
-	else
-		error_quit("Failed to read camera x position");
-	if (datas[count + 1])
-		env->position->y = ft_atod(datas[count + 1]);
-	else
-		error_quit("Failed to read camera y position");
-	if (datas[count + 2])
-		env->position->z = ft_atod(datas[count + 2]);
-	else
-		error_quit("Failed to read camera z position");
+	if (!p->datas[p->count]
+			|| !parse_valid_number(p->datas[p->count]))
+		parse_error(p, "Failed to read camera x position");
+	env->position->x = ft_atod(p->datas[p->count]);
+	if (!p->datas[p->count + 1]
+			|| !parse_valid_number(p->datas[p->count + 1]))
+		parse_error(p, "Failed to read camera y position");
+	env->position->y = ft_atod(p->datas[p->count + 1]);
+	if (!p->datas[p->count + 2]
+			|| !parse_valid_number(p->datas[p->count + 2]))
+		parse_error(p, "Failed to read camera z position");
+	env->position->z = ft_atod(p->datas[p->count + 2]);
 }
 
-static void		parse_camera_rotation(t_env *env, char **datas, int count)
+static void		parse_camera_rotation(t_env *env, t_parser *p)
 {
-	if (datas[count])
-		env->rotation->x = ft_atod(datas[count]);
+	if (p->datas[p->count])
+		env->rotation->x = ft_atod(p->datas[p->count]);
 	else
-		error_quit("Failed to read camera x rotation");
-	if (datas[count + 1])
-		env->rotation->y = ft_atod(datas[count + 1]);
+		parse_error(p, "Failed to read camera x rotation");
+	if (p->datas[p->count + 1])
+		env->rotation->y = ft_atod(p->datas[p->count + 1]);
 	else
-		error_quit("Failed to read camera y rotation");
-	if (datas[count + 2])
-		env->rotation->z = ft_atod(datas[count + 2]);
+		parse_error(p, "Failed to read camera y rotation");
+	if (p->datas[p->count + 2])
+		env->rotation->z = ft_atod(p->datas[p->count + 2]);
 	else
-		error_quit("Failed to read camera x rotation");
+		parse_error(p, "Failed to read camera x rotation");
 }
 
-static int		parse_camera_part(t_env *env, char **datas, int count)
+static int		parse_camera_part(t_env *env, t_parser *p)
 {
-	if (!datas[count])
-		error_quit("Failed to read camera's param entry");
-	if (!ft_strcmp(datas[count], "position"))
+	if (!p->datas[p->count])
+		parse_error(p, "Failed to read camera's param entry");
+	if (!ft_strcmp(p->datas[p->count], "position"))
 	{
-		parse_camera_position(env, datas, count + 1);
+		p->count++;
+		parse_camera_position(env, p);
+		p->count--;
 		return (3);
 	}
-	else if (!ft_strcmp(datas[count], "rotation"))
+	else if (!ft_strcmp(p->datas[p->count], "rotation"))
 	{
-		parse_camera_rotation(env, datas, count + 1);
+		p->count++;
+		parse_camera_rotation(env, p);
+		p->count--;
 		return (3);
 	}
-	error_quit("Unknown cameras's param entry");
+	parse_error(p, "Unknown cameras's param entry");
 	return (0);
 }
 
-void			parse_camera(t_env *env, char **datas)
+void			parse_camera(t_env *env, t_parser *p)
 {
-	int		count;
-
-	count = 1;
-	while (datas[count])
+	p->count = 1;
+	while (p->datas[p->count])
 	{
-		count += parse_camera_part(env, datas, count);
-		count++;
+		p->count += parse_camera_part(env, p);
+		p->count++;
 	}
 }

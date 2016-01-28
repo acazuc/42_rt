@@ -6,47 +6,42 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:49:57 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 09:50:12 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 16:38:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static int		parse_light_part(t_light *light, char **datas, int count)
+static void		parse_light_part(t_light *light, t_parser *p)
 {
-	if (!datas[count])
-		error_quit("Failed to read light's param entry");
-	if (!ft_strcmp(datas[count], "position"))
+	if (!ft_strcmp(p->datas[p->count], "position"))
 	{
-		parse_light_position(light, datas, count + 1);
-		return (3);
+		p->count++;
+		parse_light_position(light, p);
 	}
-	else if (!ft_strcmp(datas[count], "color"))
+	else if (!ft_strcmp(p->datas[p->count], "color"))
 	{
-		parse_light_mask(light, datas, count + 1);
-		return (3);
+		p->count++;
+		parse_light_mask(light, p);
 	}
-	else if (!ft_strcmp(datas[count], "luminosity"))
+	else if (!ft_strcmp(p->datas[p->count], "luminosity"))
 	{
-		if (datas[count + 1])
-			light->luminosity = ft_atod(datas[count + 1]);
-		else
-			error_quit("Failed to parse light luminosity");
-		return (1);
+		p->count++;
+		if (!p->datas[p->count] || !parse_valid_number(p->datas[p->count]))
+			parse_error(p, "Failed to parse light luminosity");
+		light->luminosity = ft_atod(p->datas[p->count]);
 	}
-	error_quit("Unknown light's param entry");
-	return (0);
+	else
+		parse_error(p, "Unknown light's param entry");
 }
 
-void			parse_light(t_light *light, char **datas)
+void			parse_light(t_light *light, t_parser *p)
 {
-	int		count;
-
-	count = 1;
-	while (datas[count])
+	p->count = 1;
+	while (p->datas[p->count])
 	{
-		count += parse_light_part(light, datas, count);
-		count++;
+		parse_light_part(light, p);
+		p->count++;
 	}
 	parse_light_check(light);
 }

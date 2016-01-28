@@ -6,69 +6,66 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 09:42:47 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 16:23:26 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static int		parse_object_part2(t_object *object, char **datas, int count)
+static void		parse_object_part2(t_object *object, t_parser *p)
 {
-	if (!ft_strcmp(datas[count], "reflection"))
+	if (!ft_strcmp(p->datas[p->count], "reflection"))
 	{
-		if (!datas[count + 1])
-			error_quit("Failed to read object reflection");
-		object->reflection = ft_atod(datas[count + 1]);
-		return (1);
+		if (!p->datas[p->count++] || !parse_valid_number(p->datas[p->count]))
+			parse_error(p, "Failed to read object reflection");
+		object->reflection = ft_atod(p->datas[p->count]);
 	}
-	else if (!ft_strcmp(datas[count], "transparency"))
+	else if (!ft_strcmp(p->datas[p->count], "transparency"))
 	{
-		if (!datas[count + 1])
-			error_quit("Failed to read object transparency");
-		object->transparency = ft_atod(datas[count + 1]);
-		return (1);
+		if (!p->datas[p->count++] || !parse_valid_number(p->datas[p->count]))
+			parse_error(p, "Failed to read object transparency");
+		object->transparency = ft_atod(p->datas[p->count]);
 	}
-	error_quit("Unknown objet's param entry");
-	return (0);
+	ft_putendl(p->datas[p->count]);
+	parse_error(p, "Unknown objet's param entry");
 }
 
-static int		parse_object_part(t_object *object, char **datas, int count)
+static void		parse_object_part(t_object *object, t_parser *p)
 {
-	if (!datas[count])
+	if (!p->datas[p->count])
 		error_quit("Failed to read object's param entry");
-	if (!ft_strcmp(datas[count], "position"))
+	if (!ft_strcmp(p->datas[p->count], "position"))
 	{
-		parse_object_position(object, datas, count + 1);
-		return (3);
+		p->count++;
+		parse_object_position(object, p);
 	}
-	else if (!ft_strcmp(datas[count], "rotation"))
+	else if (!ft_strcmp(p->datas[p->count], "rotation"))
 	{
-		parse_object_rotation(object, datas, count + 1);
-		return (3);
+		p->count++;
+		parse_object_rotation(object, p);
 	}
-	else if (!ft_strcmp(datas[count], "dimensions"))
+	else if (!ft_strcmp(p->datas[p->count], "dimensions"))
 	{
-		return (parse_object_dimensions(object, datas, count + 1));
+		p->count++;
+		parse_object_dimensions(object, p);
 	}
-	else if (!ft_strcmp(datas[count], "color"))
+	else if (!ft_strcmp(p->datas[p->count], "color"))
 	{
-		if (!datas[count + 1])
-			error_quit("Failed to read object color");
-		object->color = parse_color(datas[count + 1]);
-		return (1);
+		if (!p->datas[p->count++])
+			parse_error(p, "Failed to read object color");
+		object->color = parse_color(p->datas[p->count]);
 	}
-	return (parse_object_part2(object, datas, count));
+	else
+		parse_object_part2(object, p);
 }
 
-void			parse_object(t_object *object, char **datas)
+void			parse_object(t_object *object, t_parser *p)
 {
-	int		count;
-
-	count = 1;
-	while (datas[count])
+	p->count = 1;
+	while (p->datas[p->count])
 	{
-		count += parse_object_part(object, datas, count);
-		count++;
+		parse_object_part(object, p);
+		p->count++;
 	}
 	parse_object_check(object);
 }

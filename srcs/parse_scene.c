@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/08 16:16:29 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 15:45:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,50 +24,54 @@ static void		do_create_object(t_object **object, char *str)
 		*object = create_plane();
 }
 
-static void		do_parse(t_env *env, char **datas)
+static void		do_parse(t_env *env, t_parser *parser)
 {
 	t_object	*object;
 	t_light		*light;
 
 	object = NULL;
 	light = NULL;
-	if (!ft_strcmp(datas[0], "sphere") || !ft_strcmp(datas[0], "cylinder")
-			|| !ft_strcmp(datas[0], "cone") || !ft_strcmp(datas[0], "plane"))
+	if (!ft_strcmp(parser->datas[0], "sphere")
+			|| !ft_strcmp(parser->datas[0], "cylinder")
+			|| !ft_strcmp(parser->datas[0], "cone")
+			|| !ft_strcmp(parser->datas[0], "plane"))
 	{
-		do_create_object(&object, datas[0]);
-		parse_object(object, datas);
+		do_create_object(&object, parser->datas[0]);
+		parse_object(object, parser);
 		object_add(env, object);
 	}
-	else if (!ft_strcmp(datas[0], "light"))
+	else if (!ft_strcmp(parser->datas[0], "light"))
 	{
 		light = light_create();
-		parse_light(light, datas);
+		parse_light(light, parser);
 		light_add(env, light);
 	}
-	else if (!ft_strcmp(datas[0], "camera"))
-		parse_camera(env, datas);
+	else if (!ft_strcmp(parser->datas[0], "camera"))
+		parse_camera(env, parser);
 	else
-		error_quit("Invalid line in scene");
+		parse_error(parser, "Invalid line in scene");
 }
 
-static void		parse_line(t_env *env, char *line)
+static void		parse_line(t_env *env, char *file, char *line, int line_number)
 {
-	char	**datas;
-	int		len;
+	t_parser	parser;
+	int			len;
 
 	if (ft_strlen(line) > 0)
 	{
 		if (line[0] != '#')
 		{
-			datas = ft_strsplit(line, '\t');
+			parser.line = line_number;
+			parser.file = file;
+			parser.datas = ft_strsplit(line, '\t');
 			len = 0;
-			while (datas[len])
+			while (parser.datas[len])
 				len++;
 			if (len > 0)
-				do_parse(env, datas);
+				do_parse(env, &parser);
 			len = 0;
-			while (datas[len])
-				free(datas[len++]);
+			while (parser.datas[len])
+				free(parser.datas[len++]);
 		}
 	}
 }
@@ -77,12 +81,15 @@ void			parse_scene(t_env *env, char *file)
 	char	*line;
 	int		rd;
 	int		fd;
+	int		i;
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error_quit("Failed to open scene file");
+	i = 1;
 	while ((rd = get_next_line(fd, &line)) > 0)
 	{
-		parse_line(env, line);
+		parse_line(env, file, line, i);
+		i++;
 		free(line);
 	}
 	if (rd == -1)
