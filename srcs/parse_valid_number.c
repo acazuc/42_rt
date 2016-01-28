@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 09:24:29 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 09:35:02 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 16:40:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		parse_valid_number(char *data)
 	i = 0;
 	while (data[i])
 	{
-		if ((data[i] < '0' || data[i] > '9') && data[i] != '.' && data[i] != '-')
+		if ((data[i] < '0' || data[i] > '9') && data[i] != '.'
+				&& data[i] != '-')
 			return (0);
 		if (data[i] == '-' && i != 0)
 			return (0);

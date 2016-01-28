@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 16:22:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 16:38:59 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ t_ray			*get_transparency_ray(t_ray *ray, t_collision *collision);
 void			parse_scene(t_env *env, char *file);
 void			parse_object(t_object *object, t_parser *parser);
 void			parse_light(t_light *light, t_parser *parser);
-void			parse_camera(t_env *env, t_parser * parser);
+void			parse_camera(t_env *env, t_parser *parser);
 int				parse_color(char *str);
 long			epoch_millis();
 void			free_objects(t_env *env);
@@ -106,8 +106,8 @@ void			parse_light_position(t_light *light, t_parser *parser);
 void			parse_light_mask(t_light *light, t_parser *parser);
 int				parse_valid_number(char *data);
 void			parse_object_position(t_object *object, t_parser *parser);
-void			parse_object_rotation(t_object *object, t_parser * parser);
-void			parse_object_dimensions(t_object *object, t_parser * parser);
+void			parse_object_rotation(t_object *object, t_parser *parser);
+void			parse_object_dimensions(t_object *object, t_parser *parser);
 void			parse_error(t_parser *parser, char *message);
 
 #endif
