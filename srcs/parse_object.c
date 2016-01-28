@@ -6,47 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/22 09:22:54 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 09:42:47 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-static void		parse_object_vector(t_vector *vector, char **datas, int count)
-{
-	if (!datas[count])
-		error_quit("Failed to read object x vector");
-	vector->x = ft_atod(datas[count]);
-	if (!datas[count + 1])
-		error_quit("Failed to read object y vector");
-	vector->y = ft_atod(datas[count + 1]);
-	if (!datas[count + 2])
-		error_quit("Failed to read object z vector");
-	vector->z = ft_atod(datas[count + 2]);
-}
-
-static int		parse_object_dimensions(t_object *obj, char **datas, int count)
-{
-	if (obj->type == SPHERE)
-	{
-		if (datas[count])
-			obj->dimensions[0] = ft_atod(datas[count]);
-		else
-			error_quit("Failed to read sphere diametre");
-		return (1);
-	}
-	else if (obj->type == CYLINDER)
-	{
-		if (datas[count])
-			obj->dimensions[0] = ft_atod(datas[count]);
-		else
-			error_quit("Failed to read cylinder diametre");
-		return (1);
-	}
-	else
-		error_quit("Only sphere and cylinder have dimensions");
-	return (0);
-}
 
 static int		parse_object_part2(t_object *object, char **datas, int count)
 {
@@ -74,12 +38,12 @@ static int		parse_object_part(t_object *object, char **datas, int count)
 		error_quit("Failed to read object's param entry");
 	if (!ft_strcmp(datas[count], "position"))
 	{
-		parse_object_vector(object->position, datas, count + 1);
+		parse_object_position(object, datas, count + 1);
 		return (3);
 	}
 	else if (!ft_strcmp(datas[count], "rotation"))
 	{
-		parse_object_vector(object->rotation, datas, count + 1);
+		parse_object_rotation(object, datas, count + 1);
 		return (3);
 	}
 	else if (!ft_strcmp(datas[count], "dimensions"))

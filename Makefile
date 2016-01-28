@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/22 09:25:45 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/28 09:49:36 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,12 @@ SRCS_NAME = main.c \
 			light_data_free.c \
 			parse_object_check.c \
 			parse_light_check.c \
+			parse_light_position.c \
+			parse_light_mask.c \
+			parse_valid_number.c \
+			parse_object_position.c \
+			parse_object_rotation.c \
+			parse_object_dimensions.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

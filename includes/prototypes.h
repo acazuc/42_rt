@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/22 09:25:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/28 09:49:59 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,11 @@ t_light_data	*light_data_create(void);
 void			light_data_free(t_light_data *data);
 void			parse_object_check(t_object *object);
 void			parse_light_check(t_light *light);
+void			parse_light_position(t_light *light, char **datas, int count);
+void			parse_light_mask(t_light *light, char **datas, int count);
+int				parse_valid_number(char *data);
+void			parse_object_position(t_object *object, char **datas, int count);
+void			parse_object_rotation(t_object *object, char **datas, int count);
+int				parse_object_dimensions(t_object *object, char **datas, int count);
 
 #endif
