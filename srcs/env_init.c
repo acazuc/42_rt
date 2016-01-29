@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 16:22:41 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/21 16:43:03 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 11:18:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	env_init(t_env *env)
 {
 	if (!(env->window = malloc(sizeof(*(env->window)))))
 		error_quit("Failed to malloc window");
+	env->window->width = 1280;
+	env->window->height = 720;
 	env->objects = NULL;
 	env->lights = NULL;
 	env->position = vector_create();
