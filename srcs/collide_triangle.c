@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:22:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 16:51:46 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 17:01:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,20 @@
 static t_vector		*get_normal(t_ray *ray, t_object *triangle)
 {
 	t_vector			*vector;
+	t_vector			u;
+	t_vector			v;
 	double				angle;
 
+	u.x = triangle->rotation->x - triangle->position->x;
+	u.y = triangle->rotation->y - triangle->position->y;
+	u.z = triangle->rotation->z - triangle->position->z;
+	v.x = triangle->dimensions[0] - triangle->position->x;
+	v.y = triangle->dimensions[1] - triangle->position->y;
+	v.z = triangle->dimensions[2] - triangle->position->z;
 	vector = vector_create();
-	vector->x = (triangle->rotation->x - triangle->position->x) *
-		(triangle->dimensions[0] - triangle->position->x);
-	vector->y = (triangle->rotation->y - triangle->position->y) *
-		(triangle->dimensions[1] - triangle->position->y);
-	vector->z = (triangle->rotation->z - triangle->position->z) *
-		(triangle->dimensions[2] - triangle->position->z);
+	vector->x = u.y * v.z - u.z * v.y;
+	vector->y = u.z * v.x - u.x * v.z;
+	vector->z = u.x * v.y - u.y * v.x;
 	angle = vector_angle(vector, ray->direction) * 180. / M_PI;
 	if (angle <= 90)
 	{
