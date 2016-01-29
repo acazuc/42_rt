@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:22:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 16:27:13 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 16:51:46 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static t_vector		*get_normal(t_ray *ray, t_object *triangle)
 {
-	t_vector	*vector;
-	double		angle;
+	t_vector			*vector;
+	double				angle;
 
 	vector = vector_create();
 	vector->x = (triangle->rotation->x - triangle->position->x) *
@@ -36,7 +36,7 @@ static t_vector		*get_normal(t_ray *ray, t_object *triangle)
 
 static t_vector		*collide_triangle_result(t_ray *ray, double t)
 {
-	t_vector	*vector;
+	t_vector			*vector;
 
 	vector = vector_create();
 	vector->x = ray->origin->x + ray->direction->x * t;
@@ -45,46 +45,51 @@ static t_vector		*collide_triangle_result(t_ray *ray, double t)
 	return (vector);
 }
 
+static void			collide_triangle_init(t_triangle_collide *coll, t_ray *ray
+		, t_object *triangle)
+{
+	coll->e1.x = triangle->rotation->x - triangle->position->x;
+	coll->e1.y = triangle->rotation->y - triangle->position->y;
+	coll->e1.z = triangle->rotation->z - triangle->position->z;
+	coll->e2.x = triangle->dimensions[0] - triangle->position->x;
+	coll->e2.y = triangle->dimensions[1] - triangle->position->y;
+	coll->e2.z = triangle->dimensions[2] - triangle->position->z;
+	coll->p.x = ray->direction->y * coll->e2.z - ray->direction->z * coll->e2.y;
+	coll->p.y = ray->direction->z * coll->e2.x - ray->direction->x * coll->e2.z;
+	coll->p.z = ray->direction->x * coll->e2.y - ray->direction->y * coll->e2.x;
+	coll->det = vector_dot(&coll->e1, &coll->p);
+}
+
+static void			collide_triangle_part(t_triangle_collide *coll
+		, t_object *triangle, t_ray *ray)
+{
+	coll->det = 1. / coll->det;
+	coll->t.x = ray->origin->x - triangle->position->x;
+	coll->t.y = ray->origin->y - triangle->position->y;
+	coll->t.z = ray->origin->z - triangle->position->z;
+	coll->u = vector_dot(&coll->t, &coll->p) * coll->det;
+}
+
 t_collision			*collide_triangle(t_ray *ray, t_object *triangle)
 {
-	t_collision	*collision;
-	t_vector	e1;
-	t_vector	e2;
-	t_vector	p;
-	t_vector	q;
-	t_vector	t;
-	double		det;
-	double		u;
-	double		v;
-	double		factor;
+	t_triangle_collide	coll;
+	t_collision			*collision;
+	double				factor;
 
-	e1.x = triangle->rotation->x - triangle->position->x;
-	e1.y = triangle->rotation->y - triangle->position->y;
-	e1.z = triangle->rotation->z - triangle->position->z;
-	e2.x = triangle->dimensions[0] - triangle->position->x;
-	e2.y = triangle->dimensions[1] - triangle->position->y;
-	e2.z = triangle->dimensions[2] - triangle->position->z;
-	p.x = ray->direction->y * e2.z - ray->direction->z * e2.y;
-	p.y = ray->direction->z * e2.x - ray->direction->x * e2.z;
-	p.z = ray->direction->x * e2.y - ray->direction->y * e2.x;
-	det = vector_dot(&e1, &p);
+	collide_triangle_init(&coll, ray, triangle);
 	collision = collision_create();
-	if (det == 0)
+	if (coll.det == 0)
 		return (collision);
-	det = 1. / det;
-	t.x = ray->origin->x - triangle->position->x;
-	t.y = ray->origin->y - triangle->position->y;
-	t.z = ray->origin->z - triangle->position->z;
-	u = vector_dot(&t, &p) * det;
-	if (u < 0 || u > 1)
+	collide_triangle_part(&coll, triangle, ray);
+	if (coll.u < 0 || coll.u > 1)
 		return (collision);
-	q.x = t.y * e1.z - t.z * e1.y;
-	q.y = t.z * e1.x - t.x * e1.z;
-	q.z = t.x * e1.y - t.y * e1.x;
-	v = vector_dot(ray->direction, &q) * det;
-	if (v < 0 || u + v > 1)
+	coll.q.x = coll.t.y * coll.e1.z - coll.t.z * coll.e1.y;
+	coll.q.y = coll.t.z * coll.e1.x - coll.t.x * coll.e1.z;
+	coll.q.z = coll.t.x * coll.e1.y - coll.t.y * coll.e1.x;
+	coll.v = vector_dot(ray->direction, &coll.q) * coll.det;
+	if (coll.v < 0 || coll.u + coll.v > 1)
 		return (collision);
-	factor = vector_dot(&e2, &q) * det;
+	factor = vector_dot(&coll.e2, &coll.q) * coll.det;
 	if (factor <= 0)
 		return (collision);
 	collision->vector = collide_triangle_result(ray, factor);

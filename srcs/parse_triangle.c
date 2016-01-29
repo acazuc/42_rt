@@ -6,11 +6,23 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 14:17:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 14:42:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 16:38:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static void		parse_triangle_part3(t_object *triangle, t_parser *p)
+{
+	if (!ft_strcmp(p->datas[p->count], "color"))
+	{
+		if (!p->datas[++p->count])
+			parse_error(p, "Failed to read object color");
+		triangle->color = parse_color(p->datas[p->count]);
+	}
+	else
+		parse_error(p, "Unknown object's param entry");
+}
 
 static void		parse_triangle_part2(t_object *triangle, t_parser *p)
 {
@@ -33,7 +45,7 @@ static void		parse_triangle_part2(t_object *triangle, t_parser *p)
 		triangle->brilliance = ft_atod(p->datas[p->count]);
 	}
 	else
-		parse_error(p, "Unknown object's param entry");
+		parse_triangle_part3(triangle, p);
 }
 
 static void		parse_triangle_part(t_object *triangle, t_parser *p)
@@ -56,17 +68,11 @@ static void		parse_triangle_part(t_object *triangle, t_parser *p)
 		parse_triangle_point(&triangle->dimensions[0], &triangle->dimensions[1]
 				, &triangle->dimensions[2], p);
 	}
-	else if (!ft_strcmp(p->datas[p->count], "color"))
-	{
-		if (!p->datas[p->count])
-			parse_error(p, "Failed to read object color");
-		triangle->color = parse_color(p->datas[p->count]);
-	}
 	else
 		parse_triangle_part2(triangle, p);
 }
 
-void	parse_triangle(t_object *triangle, t_parser *p)
+void			parse_triangle(t_object *triangle, t_parser *p)
 {
 	p->count = 1;
 	while (p->datas[p->count])

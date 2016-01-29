@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:59:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 16:18:17 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 16:32:18 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,6 @@ int				main(int ac, char **av)
 	parse_scene(env, av[1]);
 	end = epoch_millis();
 	put_time(start, end, "Scene parsed");
-	t_object *triangle;
-	triangle = create_triangle();
-	triangle->position->x = -5;
-	triangle->position->y = -5;
-	triangle->position->z = 10;
-	triangle->rotation->x = 0;
-	triangle->rotation->y = 5;
-	triangle->rotation->z = 10;
-	triangle->dimensions[0] = 5;
-	triangle->dimensions[1] = -5;
-	triangle->dimensions[2] = 10;
-	triangle->color = RED;
-	object_add(env, triangle);
 	window_init(env);
 	start = epoch_millis();
 	draw(env);

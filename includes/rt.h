@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 16:15:35 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 16:40:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@
 # include "prototypes.h"
 # include "get_next_line.h"
 # include "parser.h"
+# include "triangle_collide.h"
 
 #endif
