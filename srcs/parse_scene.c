@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 11:11:52 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 11:25:49 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static void		do_parse(t_env *env, t_parser *parser)
 	t_object	*object;
 	t_light		*light;
 
-	object = NULL;
-	light = NULL;
 	if (!ft_strcmp(parser->datas[0], "sphere")
 			|| !ft_strcmp(parser->datas[0], "cylinder")
 			|| !ft_strcmp(parser->datas[0], "cone")
