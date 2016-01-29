@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/29 11:03:02 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/29 14:00:53 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,11 +40,13 @@ SRCS_NAME = main.c \
 	  		create_cylinder.c \
 	   		create_cone.c \
 			create_plane.c \
+			create_triangle.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
 	  		collide_cone.c \
 			collide_plane.c \
+			collide_triangle.c \
 	  		ray_create.c \
 	  		vector_rotate.c \
 	  		vector_rotation.c \
@@ -94,6 +96,8 @@ SRCS_NAME = main.c \
 			parse_object_rotation.c \
 			parse_object_dimensions.c \
 			parse_error.c \
+			parse_triangle.c \
+			parse_ambient_light.c \
 			parse_window.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))

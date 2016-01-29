@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 11:32:47 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 13:22:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,22 @@ static void		do_create_object(t_object **object, char *str)
 		*object = create_cone();
 	else if (!ft_strcmp(str, "plane"))
 		*object = create_plane();
+}
+
+static void		do_parse_2(t_env *env, t_parser *parser)
+{
+	t_object	*object;
+
+	if (!ft_strcmp(parser->datas[0], "ambient_light"))
+		parse_ambient_light(env, parser);
+	else if (!ft_strcmp(parser->datas[0], "triangle"))
+	{
+		object = create_triangle();
+		parse_triangle(object, parser);
+		object_add(env, object);
+	}
+	else
+		parse_error(parser, "Unknown line in scene");
 }
 
 static void		do_parse(t_env *env, t_parser *parser)
@@ -49,7 +65,7 @@ static void		do_parse(t_env *env, t_parser *parser)
 	else if (!ft_strcmp(parser->datas[0], "window"))
 		parse_window(env, parser);
 	else
-		parse_error(parser, "Invalid line in scene");
+		do_parse_2(env, parser);
 }
 
 static void		parse_line(t_env *env, char *file, char *line, int line_number)

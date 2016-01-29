@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 11:02:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 14:00:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,13 @@ t_object		*create_sphere(void);
 t_object		*create_cylinder(void);
 t_object		*create_cone(void);
 t_object		*create_plane(void);
+t_object		*create_triangle(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
 t_collision		*collide_cone(t_ray *ray, t_object *cone);
 t_collision		*collide_plane(t_ray *ray, t_object *plane);
+t_collision		*collide_triangle(t_ray *ray, t_object *object);
 void			vector_rotate(t_vector *vector, t_vector *rotation);
 void			vector_unrotate(t_vector *vector, t_vector *rotation);
 void			vector_rotate_x(t_vector *vector, double angle);
@@ -112,5 +114,7 @@ void			parse_object_rotation(t_object *object, t_parser *parser);
 void			parse_object_dimensions(t_object *object, t_parser *parser);
 void			parse_window(t_env *env, t_parser *parser);
 void			parse_error(t_parser *parser, char *message);
+void			parse_ambient_light(t_env *env, t_parser *p);
+void			parse_triangle(t_object *triangle, t_parser *parser);
 
 #endif
