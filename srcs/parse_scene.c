@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 15:45:52 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 11:02:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ static void		do_parse(t_env *env, t_parser *parser)
 	}
 	else if (!ft_strcmp(parser->datas[0], "camera"))
 		parse_camera(env, parser);
+	else if (!ft_strcmp(parser->datas[0], "window"))
+		parse_window(env, parser);
 	else
 		parse_error(parser, "Invalid line in scene");
 }

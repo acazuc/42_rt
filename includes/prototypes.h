@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 16:38:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 11:02:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ void			parse_scene(t_env *env, char *file);
 void			parse_object(t_object *object, t_parser *parser);
 void			parse_light(t_light *light, t_parser *parser);
 void			parse_camera(t_env *env, t_parser *parser);
+void			parse_camera_position(t_env *env, t_parser *p);
+void			parse_camera_rotation(t_env *env, t_parser *p);
 int				parse_color(char *str);
 long			epoch_millis();
 void			free_objects(t_env *env);
@@ -108,6 +110,7 @@ int				parse_valid_number(char *data);
 void			parse_object_position(t_object *object, t_parser *parser);
 void			parse_object_rotation(t_object *object, t_parser *parser);
 void			parse_object_dimensions(t_object *object, t_parser *parser);
+void			parse_window(t_env *env, t_parser *parser);
 void			parse_error(t_parser *parser, char *message);
 
 #endif

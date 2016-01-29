@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/28 16:10:03 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/29 11:03:02 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,8 @@ SRCS_NAME = main.c \
 			parse_light.c \
 			parse_color.c \
 			parse_camera.c \
+			parse_camera_position.c \
+			parse_camera_rotation.c \
 			get_next_line.c \
 			epoch_millis.c \
 			free_objects.c \
@@ -92,6 +94,7 @@ SRCS_NAME = main.c \
 			parse_object_rotation.c \
 			parse_object_dimensions.c \
 			parse_error.c \
+			parse_window.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

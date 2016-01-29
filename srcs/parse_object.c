@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 16:23:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 10:55:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,14 @@ static void		parse_object_part2(t_object *object, t_parser *p)
 			parse_error(p, "Failed to read object transparency");
 		object->transparency = ft_atod(p->datas[p->count]);
 	}
-	ft_putendl(p->datas[p->count]);
-	parse_error(p, "Unknown objet's param entry");
+	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
+	{
+		if (!p->datas[p->count++] || !parse_valid_number(p->datas[p->count]))
+			parse_error(p, "Failed to read object brilliance");
+		object->brilliance = ft_atod(p->datas[p->count]);
+	}
+	else
+		parse_error(p, "Unknown objet's param entry");
 }
 
 static void		parse_object_part(t_object *object, t_parser *p)
