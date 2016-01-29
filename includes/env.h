@@ -6,16 +6,16 @@
 /*   By: acazuc <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:27:19 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/19 15:47:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 11:32:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENV_H
 # define ENV_H
 
-# include "window.h"
 # include "object_list.h"
 # include "light_list.h"
+# include "window.h"
 # include "vector.h"
 
 typedef struct		s_env

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 09:36:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/21 16:27:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 11:40:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,21 @@ static int	check_specular(int color, t_ray_data *data
 	return (result);
 }
 
+static void	check_ambient(t_env *env, t_ray_data *data)
+{
+	/*data->data->mask->red += env->ambient_light;
+	if (data->data->mask->red > 1)
+		data->data->mask->red = 1;
+	data->data->mask->green += env->ambient_light;
+	if (data->data->mask->green > 1)
+		data->data->mask->green = 1;
+	data->data->mask->blue += env->ambient_light;
+	if (data->data->mask->blue > 1)
+		data->data->mask->blue = 1;*/
+	(void)env;
+	(void)data;
+}
+
 int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 {
 	t_ray_data		data;
@@ -72,6 +87,7 @@ int			get_ray_color(t_env *env, t_ray *ray, t_object *avoid, int recur)
 			&& recur <= env->max_recur)
 	{
 		data.data = light_level(env, ray, data.collision);
+		check_ambient(env, &data);
 		data.color = color_factor(color_mask(data.collision->object->color
 					, data.data->mask), 1 - env->ambient_light);
 		data.color = check_specular(data.color, &data, data.data->spec);

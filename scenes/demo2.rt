@@ -6,28 +6,28 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/29 11:22:14 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/29 11:42:37 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-window	19200	10800
+window	1280	720
 
 camera	position	0	0	-20	rotation	0	0	0	fov	66
 
 # Pilliers
-cylinder	position	-5	0	5	color	GREY	dimensions	1
-cylinder	position	5	0	5	color	GREY	dimensions	1
-sphere		position	-5	5	5	color	GREY	dimensions	2
-sphere		position	-5	-5	5	color	GREY	dimensions	2
-sphere		position	5	5	5	color	GREY	dimensions	2
-sphere		position	5	-5	5	color	GREY	dimensions	2
+cylinder	position	-5	0	5	color	GREY	dimensions	1	brilliance	1
+cylinder	position	5	0	5	color	GREY	dimensions	1	brilliance	1
+sphere		position	-5	5	5	color	GREY	dimensions	2	brilliance	1
+sphere		position	-5	-5	5	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	5	5	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
-cylinder	position	-5	0	30	color	GREY	dimensions	1	brilliance	1
-cylinder	position	5	0	30	color	GREY	dimensions	1	brilliance	1
-sphere		position	-5	5	30	color	GREY	dimensions	2	brilliance	1
-sphere		position	-5	-5	30	color	GREY	dimensions	2	brilliance	1
-sphere		position	5	5	30	color	GREY	dimensions	2	brilliance	1
-sphere		position	5	-5	30	color	GREY	dimensions	2	brilliance	1
+cylinder	position	-5	0	30	color	GREY	dimensions	1
+cylinder	position	5	0	30	color	GREY	dimensions	1
+sphere		position	-5	5	30	color	GREY	dimensions	2
+sphere		position	-5	-5	30	color	GREY	dimensions	2
+sphere		position	5	5	30	color	GREY	dimensions	2
+sphere		position	5	-5	30	color	GREY	dimensions	2
 
 sphere		position	0	-3	5	color	RED		dimensions	1
 
