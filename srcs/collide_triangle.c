@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:22:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 13:59:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/29 15:25:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,12 @@ static t_vector		*collide_triangle_result(t_ray *ray, double t)
 	t_vector	*vector;
 
 	vector = vector_create();
-	vector->x = ray->origin->x + ray->direction->x * t;
-	vector->y = ray->origin->y + ray->direction->y * t;
-	vector->z = ray->origin->z + ray->direction->z * t;
+	vector->x = 0;//ray->origin->x + ray->direction->x * 0;
+	vector->y = 0;//ray->origin->y + ray->direction->y * 0;
+	vector->z = 0;//ray->origin->z + ray->direction->z * 0;
 	return (vector);
+	(void)t;
+	(void)ray;
 }
 
 t_collision			*collide_triangle(t_ray *ray, t_object *triangle)
@@ -68,11 +70,14 @@ t_collision			*collide_triangle(t_ray *ray, t_object *triangle)
 	p.y = ray->direction->y * e2.y;
 	p.z = ray->direction->z * e2.z;
 	det = vector_dot(&e1, &p);
+	collision = collision_create();
+	if (det == 0)
+		return (collision);
+	det = 1. / det;
 	t.x = ray->origin->x - triangle->position->x;
 	t.y = ray->origin->y - triangle->position->y;
 	t.z = ray->origin->z - triangle->position->z;
-	collision = collision_create();
-	u = vector_dot(&t, &p);
+	u = vector_dot(&t, &p) * det;
 	if (u < 0 || u > 1)
 		return (collision);
 	q.x = t.x * e1.x;
@@ -82,8 +87,8 @@ t_collision			*collide_triangle(t_ray *ray, t_object *triangle)
 	if (v < 0 || u + v > 1)
 		return (collision);
 	factor = vector_dot(&e2, &q) * det;
-	if (factor <= 0)
-		return (collision);
+	//if (factor <= 0)
+	//	return (collision);
 	collision->vector = collide_triangle_result(ray, factor);
 	if (collision->vector)
 		collision->normal = get_normal(ray, triangle);

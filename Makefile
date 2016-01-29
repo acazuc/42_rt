@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/29 14:00:53 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/29 14:44:48 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,7 @@ SRCS_NAME = main.c \
 			parse_object_dimensions.c \
 			parse_error.c \
 			parse_triangle.c \
+			parse_triangle_point.c \
 			parse_ambient_light.c \
 			parse_window.c \
 
