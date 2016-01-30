@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 09:58:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:52:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:10:42 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		parse_rectangle_part(t_rectangle *rectangle, t_parser *p)
 		parse_error(p, "Unknown object's param entry");
 }
 
-void	parse_rectangle(t_rectangle *rectangle, t_parser *p)
+void			parse_rectangle(t_rectangle *rectangle, t_parser *p)
 {
 	p->count = 1;
 	while (p->datas[p->count])

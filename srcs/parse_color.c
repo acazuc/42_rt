@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:11:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 09:50:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:10:27 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ static int	parse_hexa(t_parser *p)
 
 	if (ft_strlen(p->datas[p->count]) != 7 || p->datas[p->count][0] != '#')
 		parse_error(p, "Failed to parse hexa color");
-	red = get_char_value(p->datas[p->count][1]) * 16 + get_char_value(p->datas[p->count][2]);
-	green = get_char_value(p->datas[p->count][3]) * 16 + get_char_value(p->datas[p->count][4]);
-	blue = get_char_value(p->datas[p->count][5]) * 16 + get_char_value(p->datas[p->count][6]);
+	red = get_char_value(p->datas[p->count][1]) * 16 +
+		get_char_value(p->datas[p->count][2]);
+	green = get_char_value(p->datas[p->count][3]) * 16 +
+		get_char_value(p->datas[p->count][4]);
+	blue = get_char_value(p->datas[p->count][5]) * 16 +
+		get_char_value(p->datas[p->count][6]);
 	return ((red << 16) + (green << 8) + blue);
 }
 

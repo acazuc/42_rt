@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 10:53:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:09:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:10:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		dup_values(t_object *triangle, t_vector *v1, t_vector *v2
 	triangle->dimensions[2] = v3->z;
 }
 
-void	rectangle_add(t_env *env, t_rectangle *rectangle)
+void			rectangle_add(t_env *env, t_rectangle *rectangle)
 {
 	t_object	*t1;
 	t_object	*t2;
