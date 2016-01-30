@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 10:53:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:06:54 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:09:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		set_properties(t_rectangle *rectangle, t_object *triangle)
 	triangle->color = rectangle->color;
 }
 
-static void		dup_values(t_object *triangle, t_vector *v1,. t_vector *v2
+static void		dup_values(t_object *triangle, t_vector *v1, t_vector *v2
 		, t_vector *v3)
 {
 	triangle->position->x = v1->x;
@@ -41,7 +41,7 @@ void	rectangle_add(t_env *env, t_rectangle *rectangle)
 
 	t1 = create_triangle();
 	set_properties(rectangle, t1);
-	dup_values(t1, rectangle->p1, rectangle->p2, rectangle->p3);
+	dup_values(t1, rectangle->p1, rectangle->p2, rectangle->p4);
 	t2 = create_triangle();
 	set_properties(rectangle, t2);
 	dup_values(t2, rectangle->p2, rectangle->p3, rectangle->p4);
