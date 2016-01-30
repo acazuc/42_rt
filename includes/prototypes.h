@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 14:39:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 16:43:25 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include "rectangle.h"
 # include "cube.h"
 # include "pentagon.h"
+# include "hexagon.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -54,6 +55,7 @@ t_object		*create_triangle(void);
 t_rectangle		*create_rectangle(void);
 t_cube			*create_cube(void);
 t_pentagon		*create_pentagon(void);
+t_hexagon		*create_hexagon(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
@@ -134,6 +136,9 @@ void			parse_cube_check(t_cube *cube);
 void			parse_pentagon(t_env *env, t_parser *parser);
 void			parse_pentagon_point(t_vector *point, t_parser *parser);
 void			parse_pentagon_check(t_pentagon *pentagon);
+void			parse_hexagon(t_env *env, t_parser *parser);
+void			parse_hexagon_point(t_vector *vector, t_parser *p);
+void			parse_hexagon_check(t_hexagon *hexagon);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);
@@ -144,5 +149,7 @@ t_vector		*cube_add_point_4(t_cube *cube, int face);
 void			cube_free(t_cube *cube);
 void			pentagon_add(t_env *env, t_pentagon *pentagon);
 void			pentagon_free(t_pentagon *pentagon);
+void			hexagon_add(t_env *env, t_hexagon *hexagon);
+void			hexagon_free(t_hexagon *hexagon);
 
 #endif
