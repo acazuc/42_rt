@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:49:57 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 16:38:13 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 09:39:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ static void		parse_light_part(t_light *light, t_parser *p)
 	}
 	else if (!ft_strcmp(p->datas[p->count], "luminosity"))
 	{
-		p->count++;
-		if (!p->datas[p->count] || !parse_valid_number(p->datas[p->count]))
+		if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
 			parse_error(p, "Failed to parse light luminosity");
 		light->luminosity = ft_atod(p->datas[p->count]);
 	}

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 14:26:02 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 09:37:29 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ static void		parse_object_part2(t_object *object, t_parser *p)
 {
 	if (!ft_strcmp(p->datas[p->count], "reflection"))
 	{
-		if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
+		p->count++;
+		object->reflection = parse_double(p, "Failed to read object reflection");
+		/*if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
 			parse_error(p, "Failed to read object reflection");
-		object->reflection = ft_atod(p->datas[p->count]);
+		object->reflection = ft_atod(p->datas[p->count]);*/
 	}
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
 	{
@@ -55,7 +57,7 @@ static void		parse_object_part(t_object *object, t_parser *p)
 	}
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 	{
-		if (!p->datas[p->count++])
+		if (!p->datas[++p->count])
 			parse_error(p, "Failed to read object color");
 		object->color = parse_color(p->datas[p->count]);
 	}

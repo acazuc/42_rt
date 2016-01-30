@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/07 15:01:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/22 09:29:28 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 09:39:48 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ camera	position	0	20	-20		rotation	-45	0	0
 # Three lights of each color
 light	position	-5	1	0		luminosity	3	color	1	0	0
 light	position	0	1	0		luminosity	3	color	0	1	0
-light	position	5	1	0		luminosity	3 	color	0	0	1
+light	position	5	1	0		luminosity	3	color	0	0	1
 
 # Big sphere act as plane
 sphere	position	0	-100002	0	dimensions	100000	color	WHITE
