@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 15:42:34 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 16:28:20 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 16:57:29 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void		parse_hexagon_part(t_hexagon *hexagon, t_parser *p)
 		hexagon->transparency = parse_double(p
 				, "Failed to read object transparency");
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		hexagon->transparency = parse_double(p
+		hexagon->brilliance = parse_double(p
 				, "Failed to read object brilliance");
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		hexagon->color = parse_color(p);
