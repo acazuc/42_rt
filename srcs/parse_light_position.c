@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 09:43:04 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 09:54:46 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 10:35:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 
 void	parse_light_position(t_light *light, t_parser *p)
 {
-	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-		parse_error(p, "Failed to read light x position");
-	light->position->x = ft_atod(p->datas[p->count]);
-	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-		parse_error(p, "Failed to read light y position");
-	light->position->y = ft_atod(p->datas[p->count]);
-	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-		parse_error(p, "Failed to read light z position");
-	light->position->z = ft_atod(p->datas[p->count]);
+	light->position->x = parse_double(p, "Failed to read light x position");
+	light->position->y = parse_double(p, "Failed to read light y position");
+	light->position->z = parse_double(p, "Failed to read light z position");
 }
