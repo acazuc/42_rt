@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 09:37:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:16:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@
 # include "parser.h"
 # include "triangle_collide.h"
 # include "rectangle.h"
+# include "cube.h"
 
 #endif

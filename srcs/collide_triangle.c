@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 13:22:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 17:01:49 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:21:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ t_collision			*collide_triangle(t_ray *ray, t_object *triangle)
 	if (coll.det == 0)
 		return (collision);
 	collide_triangle_part(&coll, triangle, ray);
-	if (coll.u < 0 || coll.u > 1)
+	if (coll.u < 0.00001 || coll.u > 1.00001)
 		return (collision);
 	coll.q.x = coll.t.y * coll.e1.z - coll.t.z * coll.e1.y;
 	coll.q.y = coll.t.z * coll.e1.x - coll.t.x * coll.e1.z;
 	coll.q.z = coll.t.x * coll.e1.y - coll.t.y * coll.e1.x;
 	coll.v = vector_dot(ray->direction, &coll.q) * coll.det;
-	if (coll.v < 0 || coll.u + coll.v > 1)
+	if (coll.v < 0.00001 || coll.u + coll.v > 1.0001)
 		return (collision);
 	factor = vector_dot(&coll.e2, &coll.q) * coll.det;
 	if (factor <= 0)

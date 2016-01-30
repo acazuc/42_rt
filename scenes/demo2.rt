@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 11:08:50 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 11:16:46 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
 #triangle	p1	-5	-5	10	p2	5	5	10	p3	5	-5	10	color	RED
 #triangle	p1	-5	-5	10	p2	5	5	10	p3	-5	5	10	color	RED
-rectangle	p1	-5	5	10	p2	5	5	10	p3	5	-5	10	p4	-5	-5	10	color	RED
+rectangle	p1	-5	5	10	p2	5	5	10	p3	5	-5	10	p4	-5	-5	10	color	RED	reflection	1
 
 cylinder	position	-5	0	30	color	GREY	dimensions	1
 cylinder	position	5	0	30	color	GREY	dimensions	1
