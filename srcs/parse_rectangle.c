@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 09:58:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 12:41:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:14:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void			parse_rectangle(t_env *env, t_parser *p)
 	}
 	parse_rectangle_check(rectangle);
 	rectangle_add(env, rectangle);
+	rectangle_free(rectangle);
 }

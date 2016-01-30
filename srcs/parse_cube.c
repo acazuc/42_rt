@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:36:26 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 12:41:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:15:11 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,5 @@ void			parse_cube(t_env *env, t_parser *p)
 	}
 	cube_add(env, cube);
 	parse_cube_check(cube);
+	cube_free(cube);
 }

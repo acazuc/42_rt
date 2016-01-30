@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 12:52:53 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 13:04:15 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:31:23 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
  *   /|       /|
  *  / |      / |
  * 1--------2  |
- * |  7-----|--8
+ * |  8-----|--7
  * | /      | /
  * |/       |/
- * 3--------4
+ * 4--------3
  *
  * 1 = Front
  * 2 = Back
@@ -39,7 +39,7 @@ t_vector	*cube_add_point_1(t_cube *cube, int face)
 	else if (face == 3)
 		return (cube->p5);
 	else if (face == 4)
-		return (cube->p3);
+		return (cube->p4);
 	else if (face == 5)
 		return (cube->p5);
 	else
@@ -55,7 +55,7 @@ t_vector	*cube_add_point_2(t_cube *cube, int face)
 	else if (face == 3)
 		return (cube->p6);
 	else if (face == 4)
-		return (cube->p4);
+		return (cube->p3);
 	else if (face == 5)
 		return (cube->p1);
 	else
@@ -65,31 +65,31 @@ t_vector	*cube_add_point_2(t_cube *cube, int face)
 t_vector	*cube_add_point_3(t_cube *cube, int face)
 {
 	if (face == 1)
-		return (cube->p4);
+		return (cube->p3);
 	else if (face == 2)
-		return (cube->p7);
+		return (cube->p8);
 	else if (face == 3)
 		return (cube->p2);
 	else if (face == 4)
-		return (cube->p8);
+		return (cube->p7);
 	else if (face == 5)
-		return (cube->p3);
+		return (cube->p4);
 	else
-		return (cube->p8);
+		return (cube->p7);
 }
 
 t_vector	*cube_add_point_4(t_cube *cube, int face)
 {
 	if (face == 1)
-		return (cube->p3);
+		return (cube->p4);
 	else if (face == 2)
-		return (cube->p8);
+		return (cube->p7);
 	else if (face == 3)
 		return (cube->p1);
 	else if (face == 4)
-		return (cube->p7);
+		return (cube->p8);
 	else if (face == 5)
-		return (cube->p7);
+		return (cube->p8);
 	else
-		return (cube->p4);
+		return (cube->p3);
 }

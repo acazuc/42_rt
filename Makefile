@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 12:46:23 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 13:05:31 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,6 +112,7 @@ SRCS_NAME = main.c \
 			rectangle_add.c \
 			rectangle_free.c \
 			cube_add.c \
+			cube_add_points.c \
 			cube_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))

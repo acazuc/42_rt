@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 10:53:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:10:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:15:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ void			rectangle_add(t_env *env, t_rectangle *rectangle)
 	dup_values(t2, rectangle->p2, rectangle->p3, rectangle->p4);
 	object_add(env, t1);
 	object_add(env, t2);
-	rectangle_free(rectangle);
 }
