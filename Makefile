@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 13:05:31 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 13:58:51 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRCS_NAME = main.c \
 			create_triangle.c \
 			create_rectangle.c \
 			create_cube.c \
+			create_pentagone.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
