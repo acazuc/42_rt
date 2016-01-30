@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rectangle.h                                        :+:      :+:    :+:   */
+/*   parse_rectangle_point.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 09:31:09 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:22:54 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/30 10:27:12 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/30 10:30:27 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RECTANGLE_H
-# define RECTANGLE_H
+#include "rt.h"
 
-typedef struct		s_rectangle
+void	parse_rectangle_color(t_vector *point, t_parser *p)
 {
-	t_vector		*p1;
-	t_vector		*p2;
-	t_vector		*p3;
-	t_vector		*p4;
-	double			reflection;
-	double			transparency;
-	double			brilliance;
-	int				color;
-}					t_rectangle;
-
-#endif
+	point->x = parse_double(p, "Failed to read rectangle point x");
+	point->y = parse_double(p, "Failed to read rectangle point y");
+	point->z = parse_double(p, "Failed to read rectangle point z");
+}
