@@ -6,13 +6,13 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:36:26 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:47:50 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 12:41:10 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-static void		parse_cubve_part(t_cube *cube, t_parser *p)
+static void		parse_cube_part(t_cube *cube, t_parser *p)
 {
 	if (!ft_strcmp(p->datas[p->count], "p1"))
 		parse_cube_point(cube->p1, p);
@@ -26,6 +26,10 @@ static void		parse_cubve_part(t_cube *cube, t_parser *p)
 		parse_cube_point(cube->p5, p);
 	else if (!ft_strcmp(p->datas[p->count], "p6"))
 		parse_cube_point(cube->p6, p);
+	else if (!ft_strcmp(p->datas[p->count], "p7"))
+		parse_cube_point(cube->p7, p);
+	else if (!ft_strcmp(p->datas[p->count], "p8"))
+		parse_cube_point(cube->p8, p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
 		cube->reflection = parse_double(p, "Failed to read object reflection");
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
@@ -51,4 +55,5 @@ void			parse_cube(t_env *env, t_parser *p)
 		p->count++;
 	}
 	cube_add(env, cube);
+	parse_cube_check(cube);
 }

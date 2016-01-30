@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:44:45 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:05:10 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,13 +123,19 @@ void			parse_triangle(t_object *triangle, t_parser *parser);
 void			parse_triangle_point(double *x, double *y, double *z
 		, t_parser *parser);
 double			parse_double(t_parser *parser, char *error);
-void			parse_rectangle(t_rectangle *rectangle, t_parser *parser);
+void			parse_rectangle(t_env *env, t_parser *parser);
 void			parse_rectangle_point(t_vector *point, t_parser *parser);
-void			parse_cube(t_cube *cube, t_parser *parser);
+void			parse_rectangle_check(t_rectangle *rectangle);
+void			parse_cube(t_env *env, t_parser *parser);
 void			parse_cube_point(t_vector *point, t_parser *parser);
+void			parse_cube_check(t_cube *cube);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);
+t_vector		*cube_add_point_1(t_cube *cube, int face);
+t_vector		*cube_add_point_2(t_cube *cube, int face);
+t_vector		*cube_add_point_3(t_cube *cube, int face);
+t_vector		*cube_add_point_4(t_cube *cube, int face);
 void			cube_free(t_cube *cube);
 
 #endif

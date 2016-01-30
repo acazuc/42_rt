@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:15:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:16:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 12:39:50 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct		s_cube
 	t_vector		*p4;
 	t_vector		*p5;
 	t_vector		*p6;
+	t_vector		*p7;
+	t_vector		*p8;
 	double			reflection;
 	double			transparency;
 	double			brilliance;

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube_add.c                                         :+:      :+:    :+:   */
+/*   parse_cube_point.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 11:32:48 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 12:46:14 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/30 12:32:03 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/30 12:33:16 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	cube_add(t_env *env, t_cube *cube)
+void	parse_cube_point(t_vector *point, t_parser *p)
 {
-	(void)env;
-	cube_free(cube);
+	point->x = parse_double(p, "Failed to read object point x");
+	point->y = parse_double(p, "Failed to read object point y");
+	point->z = parse_double(p, "Failed to read object point z");
 }
