@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:51:29 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:48:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void		do_create_object(t_object **object, char *str)
 
 static void		do_parse_2(t_env *env, t_parser *parser)
 {
-	t_rectangle	*rectangle;
 	t_object	*object;
 
 	if (!ft_strcmp(parser->datas[0], "ambient_light"))
@@ -38,11 +37,9 @@ static void		do_parse_2(t_env *env, t_parser *parser)
 		object_add(env, object);
 	}
 	else if (!ft_strcmp(parser->datas[0], "rectangle"))
-	{
-		rectangle = create_rectangle();
-		parse_rectangle(rectangle, parser);
-		rectangle_add(env, rectangle);
-	}
+		parse_rectangle(env, parser);
+	else if (!ft_strcmp(parser->datas[0], "cube"))
+		parse_cube(env, parser);
 	else
 		parse_error(parser, "Unknown line in scene");
 }

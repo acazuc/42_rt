@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:55:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 11:44:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "collision.h"
 # include "light_data.h"
 # include "rectangle.h"
+# include "cube.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -50,6 +51,7 @@ t_object		*create_cone(void);
 t_object		*create_plane(void);
 t_object		*create_triangle(void);
 t_rectangle		*create_rectangle(void);
+t_cube			*create_cube(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
@@ -123,7 +125,11 @@ void			parse_triangle_point(double *x, double *y, double *z
 double			parse_double(t_parser *parser, char *error);
 void			parse_rectangle(t_rectangle *rectangle, t_parser *parser);
 void			parse_rectangle_point(t_vector *point, t_parser *parser);
+void			parse_cube(t_cube *cube, t_parser *parser);
+void			parse_cube_point(t_vector *point, t_parser *parser);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
+void			cube_add(t_env *env, t_cube *cube);
+void			cube_free(t_cube *cube);
 
 #endif
