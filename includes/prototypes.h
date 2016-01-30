@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:06:39 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 17:25:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,11 @@ void			parse_pentagon(t_env *env, t_parser *parser);
 void			parse_pentagon_point(t_vector *point, t_parser *parser);
 void			parse_pentagon_check(t_pentagon *pentagon);
 void			parse_hexagon(t_env *env, t_parser *parser);
-void			parse_hexagon_point(t_vector *vector, t_parser *p);
+void			parse_hexagon_point(t_vector *vector, t_parser *parser);
 void			parse_hexagon_check(t_hexagon *hexagon);
+void			parse_pyramid(t_env *env, t_parser *parser);
+void			parse_pyramid_point(t_vector *point, t_parser *parser);
+void			parse_pyramid_check(t_pyramid *pyramid);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);

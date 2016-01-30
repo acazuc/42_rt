@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 17:09:56 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 17:21:51 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,6 +118,9 @@ SRCS_NAME = main.c \
 			parse_hexagon.c \
 			parse_hexagon_point.c \
 			parse_hexagon_check.c \
+			parse_pyramid.c \
+			parse_pyramid_point.c \
+			parse_pyramid_check.c \
 			rectangle_add.c \
 			rectangle_free.c \
 			cube_add.c \
