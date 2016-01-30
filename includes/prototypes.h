@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:25:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 17:35:32 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void			light_add(t_env *env, t_light *light);
 double			vector_size(t_vector *vector);
 void			vector_normalize(t_vector *vector);
 double			vector_dot(t_vector *v1, t_vector *v2);
+void			vector_dup(t_vector *v1, t_vector *v2);
 unsigned char	color_get_red(int color);
 unsigned char	color_get_green(int color);
 unsigned char	color_get_blue(int color);

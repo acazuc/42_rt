@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 17:21:51 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 17:35:40 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ SRCS_NAME = main.c \
 	 		light_add.c \
 	 		vector_size.c \
 			vector_dot.c \
+			vector_dup.c \
 	  		color_create.c \
 	  		vector_normalize.c \
 	 		color_getters.c \

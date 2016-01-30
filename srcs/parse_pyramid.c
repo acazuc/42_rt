@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:12:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:25:18 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 17:46:04 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void		parse_pyramid_part(t_pyramid *pyramid, t_parser *p)
 		parse_pyramid_point(pyramid->p3, p);
 	else if (!ft_strcmp(p->datas[p->count], "p4"))
 		parse_pyramid_point(pyramid->p4, p);
+	else if (!ft_strcmp(p->datas[p->count], "p5"))
+		parse_pyramid_point(pyramid->p5, p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
 		pyramid->reflection = parse_double(p
 				, "Failed to read object reflection");

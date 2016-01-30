@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 17:12:20 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 17:44:39 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ sphere		position	-5	-5	5	color	GREY	dimensions	2	brilliance	1
 sphere		position	5	5	5	color	GREY	dimensions	2	brilliance	1
 sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
-hexagon	p1	0	1	5	p2	1	0.33	5	p3	1	-0.33	5	p4	0	-1	5	p5	-1	-0.33	5	p6	-1	0.33	5	color	BLUE	brilliance	0.5
+pyramid	p1	-1	0	5	p2	1	0	5	p3	1	0	7	p4	-1	0	7	p5	0	2	6	color	RED
 
 cylinder	position	-5	0	30	color	GREY	dimensions	1
 cylinder	position	5	0	30	color	GREY	dimensions	1
