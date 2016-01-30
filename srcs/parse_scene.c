@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 11:48:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 14:51:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static void		do_parse_2(t_env *env, t_parser *parser)
 		parse_rectangle(env, parser);
 	else if (!ft_strcmp(parser->datas[0], "cube"))
 		parse_cube(env, parser);
+	else if (!ft_strcmp(parser->datas[0], "pentagon"))
+		parse_pentagon(env, parser);
 	else
 		parse_error(parser, "Unknown line in scene");
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_pentagone.c                                 :+:      :+:    :+:   */
+/*   create_pentagon.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:56:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 13:58:40 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 14:28:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-t_pentagone		*create_pentagone(void)
+t_pentagon		*create_pentagon(void)
 {
-	t_pentagone		*pentagone;
+	t_pentagon		*pentagon;
 
-	if (!(pentagone = malloc(sizeof(*pentagone))))
-		error_quit("Failed to malloc pentagone");
-	pentagone->p1 = vector_create();
-	pentagone->p2 = vector_create();
-	pentagone->p3 = vector_create();
-	pentagone->p4 = vector_create();
-	pentagone->p5 = vector_create();
-	pentagone->brilliance = 0;
-	pentagone->reflection = 0;
-	pentagone->transparency = 0;
-	pentagone->color = WHITE;
-	return (pentagone);
+	if (!(pentagon = malloc(sizeof(*pentagon))))
+		error_quit("Failed to malloc pentagon");
+	pentagon->p1 = vector_create();
+	pentagon->p2 = vector_create();
+	pentagon->p3 = vector_create();
+	pentagon->p4 = vector_create();
+	pentagon->p5 = vector_create();
+	pentagon->brilliance = 0;
+	pentagon->reflection = 0;
+	pentagon->transparency = 0;
+	pentagon->color = WHITE;
+	return (pentagon);
 }

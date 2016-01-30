@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 13:58:51 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 14:38:49 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ SRCS_NAME = main.c \
 			create_triangle.c \
 			create_rectangle.c \
 			create_cube.c \
-			create_pentagone.c \
+			create_pentagon.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
@@ -110,11 +110,16 @@ SRCS_NAME = main.c \
 			parse_cube.c \
 			parse_cube_point.c \
 			parse_cube_check.c \
+			parse_pentagon.c \
+			parse_pentagon_point.c \
+			parse_pentagon_check.c \
 			rectangle_add.c \
 			rectangle_free.c \
 			cube_add.c \
 			cube_add_points.c \
 			cube_free.c \
+			pentagon_add.c \
+			pentagon_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
