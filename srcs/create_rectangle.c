@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_rectangle_point.c                            :+:      :+:    :+:   */
+/*   create_rectangle.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 10:27:12 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:53:13 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/30 10:46:03 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/30 10:48:48 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	parse_rectangle_point(t_vector *point, t_parser *p)
+t_rectangle		*create_rectangle(void)
 {
-	point->x = parse_double(p, "Failed to read rectangle point x");
-	point->y = parse_double(p, "Failed to read rectangle point y");
-	point->z = parse_double(p, "Failed to read rectangle point z");
+	t_rectangle		*rectangle;
+
+	if (!(rectangle = malloc(sizeof(*rectangle))))
+		error_quit("Failed to malloc rectangle");
+	rectangle->p1 = vector_create();
+	rectangle->p2 = vector_create();
+	rectangle->p3 = vector_create();
+	rectangle->p4 = vector_create();
+	rectangle->reflection = 0;
+	rectangle->transparency = 0;
+	rectangle->brilliance = 0;
+	rectangle->color = WHITE;
+	return (rectangle);
 }

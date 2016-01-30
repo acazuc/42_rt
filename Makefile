@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 09:38:57 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 10:55:08 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS_NAME = main.c \
 	   		create_cone.c \
 			create_plane.c \
 			create_triangle.c \
+			create_rectangle.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
@@ -101,6 +102,10 @@ SRCS_NAME = main.c \
 			parse_ambient_light.c \
 			parse_window.c \
 			parse_double.c \
+			parse_rectangle.c \
+			parse_rectangle_point.c \
+			rectangle_add.c \
+			rectangle_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

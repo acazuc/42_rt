@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_rectangle_point.c                            :+:      :+:    :+:   */
+/*   rectangle_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 10:27:12 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:53:13 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/30 10:53:54 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/30 10:54:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	parse_rectangle_point(t_vector *point, t_parser *p)
+void	rectangle_free(t_rectangle *rectangle)
 {
-	point->x = parse_double(p, "Failed to read rectangle point x");
-	point->y = parse_double(p, "Failed to read rectangle point y");
-	point->z = parse_double(p, "Failed to read rectangle point z");
+	free(rectangle->p1);
+	free(rectangle->p2);
+	free(rectangle->p3);
+	free(rectangle->p4);
+	free(rectangle);
 }
