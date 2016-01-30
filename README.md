@@ -9,7 +9,7 @@ Features:
 * Triangles
 * Cuboids
 * Quadrilaterals
-* Pentagones
+* Pentagons
 * External scene file
 * Multi thread
 * Fov / camera / window changes
@@ -20,3 +20,4 @@ Features:
 * Light colors
 * Light transparency
 * Brilliance
+* Hexagons
