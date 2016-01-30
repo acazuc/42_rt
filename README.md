@@ -21,3 +21,4 @@ Features:
 * Light transparency
 * Brilliance
 * Hexagons
+* Pyramids
