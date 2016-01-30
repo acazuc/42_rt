@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 09:38:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 09:49:52 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void			parse_light(t_light *light, t_parser *parser);
 void			parse_camera(t_env *env, t_parser *parser);
 void			parse_camera_position(t_env *env, t_parser *p);
 void			parse_camera_rotation(t_env *env, t_parser *p);
-int				parse_color(char *str);
+int				parse_color(t_parser *parser);
 long			epoch_millis();
 void			free_objects(t_env *env);
 void			free_lights(t_env *env);

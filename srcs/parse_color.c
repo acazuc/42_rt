@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 15:11:37 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 16:33:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 09:50:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,42 @@ static int	get_char_value(char c)
 	return (0);
 }
 
-static int	parse_hexa(char *str)
+static int	parse_hexa(t_parser *p)
 {
 	int		red;
 	int		green;
 	int		blue;
 
-	if (ft_strlen(str) != 7 || str[0] != '#')
-		error_quit("Failed to parse hexa color");
-	red = get_char_value(str[1]) * 16 + get_char_value(str[2]);
-	green = get_char_value(str[3]) * 16 + get_char_value(str[4]);
-	blue = get_char_value(str[5]) * 16 + get_char_value(str[6]);
+	if (ft_strlen(p->datas[p->count]) != 7 || p->datas[p->count][0] != '#')
+		parse_error(p, "Failed to parse hexa color");
+	red = get_char_value(p->datas[p->count][1]) * 16 + get_char_value(p->datas[p->count][2]);
+	green = get_char_value(p->datas[p->count][3]) * 16 + get_char_value(p->datas[p->count][4]);
+	blue = get_char_value(p->datas[p->count][5]) * 16 + get_char_value(p->datas[p->count][6]);
 	return ((red << 16) + (green << 8) + blue);
 }
 
-int			parse_color(char *str)
+int			parse_color(t_parser *p)
 {
-	if (!str)
-		return (0);
-	if (!ft_strcmp(str, "RED"))
+	p->count++;
+	if (!p->datas[p->count])
+		parse_error(p, "Failed to read color");
+	if (!ft_strcmp(p->datas[p->count], "RED"))
 		return (RED);
-	else if (!ft_strcmp(str, "GREEN"))
+	else if (!ft_strcmp(p->datas[p->count], "GREEN"))
 		return (GREEN);
-	else if (!ft_strcmp(str, "BLUE"))
+	else if (!ft_strcmp(p->datas[p->count], "BLUE"))
 		return (BLUE);
-	else if (!ft_strcmp(str, "YELLOW"))
+	else if (!ft_strcmp(p->datas[p->count], "YELLOW"))
 		return (YELLOW);
-	else if (!ft_strcmp(str, "MAGENTA"))
+	else if (!ft_strcmp(p->datas[p->count], "MAGENTA"))
 		return (MAGENTA);
-	else if (!ft_strcmp(str, "CYAN"))
+	else if (!ft_strcmp(p->datas[p->count], "CYAN"))
 		return (CYAN);
-	else if (!ft_strcmp(str, "BLACK"))
+	else if (!ft_strcmp(p->datas[p->count], "BLACK"))
 		return (BLACK);
-	else if (!ft_strcmp(str, "GREY"))
+	else if (!ft_strcmp(p->datas[p->count], "GREY"))
 		return (GREY);
-	else if (!ft_strcmp(str, "WHITE"))
+	else if (!ft_strcmp(p->datas[p->count], "WHITE"))
 		return (WHITE);
-	return (parse_hexa(str));
+	return (parse_hexa(p));
 }

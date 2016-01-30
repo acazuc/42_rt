@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 14:17:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/29 16:38:02 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 09:52:17 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,7 @@
 static void		parse_triangle_part3(t_object *triangle, t_parser *p)
 {
 	if (!ft_strcmp(p->datas[p->count], "color"))
-	{
-		if (!p->datas[++p->count])
-			parse_error(p, "Failed to read object color");
-		triangle->color = parse_color(p->datas[p->count]);
-	}
+		triangle->color = parse_color(p);
 	else
 		parse_error(p, "Unknown object's param entry");
 }
@@ -27,23 +23,14 @@ static void		parse_triangle_part3(t_object *triangle, t_parser *p)
 static void		parse_triangle_part2(t_object *triangle, t_parser *p)
 {
 	if (!ft_strcmp(p->datas[p->count], "reflection"))
-	{
-		if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-			parse_error(p, "Failed to read object reflection");
-		triangle->reflection = ft_atod(p->datas[p->count]);
-	}
+		triangle->reflection = parse_double(p
+				, "Failed to read object reflection");
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-	{
-		if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-			parse_error(p, "Failed to read object transparency");
-		triangle->transparency = ft_atod(p->datas[p->count]);
-	}
+		triangle->transparency = parse_double(p
+				, "Failed to read object transparency");
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-	{
-		if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-			parse_error(p, "Failed to read object brilliance");
-		triangle->brilliance = ft_atod(p->datas[p->count]);
-	}
+		triangle->brilliance = parse_double(p
+				, "Failed to read object brilliance");
 	else
 		parse_triangle_part3(triangle, p);
 }

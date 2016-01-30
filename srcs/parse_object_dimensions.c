@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 09:35:39 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/28 16:40:19 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 09:43:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void		parse_object_dimensions_sphere(t_object *sphere, t_parser *p)
 {
-	if (!p->datas[p->count] || !parse_valid_number(p->datas[p->count]))
+	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
 		parse_error(p, "Failed to read sphere diametre");
 	sphere->dimensions[0] = ft_atod(p->datas[p->count]);
 }
 
 static void		parse_object_dimensions_cyl(t_object *cylinder, t_parser *p)
 {
-	if (!p->datas[p->count] || !parse_valid_number(p->datas[p->count]))
+	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
 		error_quit("Failed to read cylinder diametre");
 	cylinder->dimensions[0] = ft_atod(p->datas[p->count]);
 }
