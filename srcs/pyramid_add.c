@@ -6,19 +6,11 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:09:21 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:43:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 17:49:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
-
-/*
- * 4-------3
- * | \   / |
- * |   5   |
- * | /   \ |
- * 1-------2
- */
 
 static void		set_properties_r(t_pyramid *pyramid, t_rectangle *rectangle)
 {
@@ -69,17 +61,13 @@ void			pyramid_add(t_env *env, t_pyramid *pyramid)
 	r = create_rectangle();
 	set_properties_r(pyramid, r);
 	set_points_r(pyramid, r);
-	t1 = create_triangle();
-	set_properties(pyramid, t1);
+	set_properties(pyramid, (t1 = create_triangle()));
 	set_points(t1, pyramid->p1, pyramid->p2, pyramid->p5);
-	t2 = create_triangle();
-	set_properties(pyramid, t2);
+	set_properties(pyramid, (t2 = create_triangle()));
 	set_points(t2, pyramid->p2, pyramid->p3, pyramid->p5);
-	t3 = create_triangle();
-	set_properties(pyramid, t3);
+	set_properties(pyramid, (t3 = create_triangle()));
 	set_points(t3, pyramid->p3, pyramid->p4, pyramid->p5);
-	t4 = create_triangle();
-	set_properties(pyramid, t4);
+	set_properties(pyramid, (t4 = create_triangle()));
 	set_points(t4, pyramid->p4, pyramid->p1, pyramid->p5);
 	object_add(env, t1);
 	object_add(env, t2);
