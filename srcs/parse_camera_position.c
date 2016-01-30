@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 10:37:31 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 09:56:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 10:38:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 
 void	parse_camera_position(t_env *env, t_parser *p)
 {
-	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-		parse_error(p, "Failed to read camera x position");
-	env->position->x = ft_atod(p->datas[p->count]);
-	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-		parse_error(p, "Failed to read camera y position");
-	env->position->y = ft_atod(p->datas[p->count]);
-	if (!p->datas[++p->count] || !parse_valid_number(p->datas[p->count]))
-		parse_error(p, "Failed to read camera z position");
-	env->position->z = ft_atod(p->datas[p->count]);
+	env->position->x = parse_double(p, "Failed to read camera x position");
+	env->position->y = parse_double(p, "Failed to read camera y position");
+	env->position->z = parse_double(p, "Failed to read camera z position");
 }
