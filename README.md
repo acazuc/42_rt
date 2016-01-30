@@ -19,3 +19,4 @@ Features:
 * Transparency
 * Light colors
 * Light transparency
+* Brilliance
