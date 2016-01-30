@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 15:34:19 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 16:58:32 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@
 # include "cube.h"
 # include "pentagon.h"
 # include "hexagon.h"
+# include "pyramid.h"
 
 #endif

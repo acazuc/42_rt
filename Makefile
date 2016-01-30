@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 16:43:32 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/30 17:09:56 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS_NAME = main.c \
 			create_cube.c \
 			create_pentagon.c \
 			create_hexagon.c \
+			create_pyramid.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
@@ -126,6 +127,8 @@ SRCS_NAME = main.c \
 			pentagon_free.c \
 			hexagon_add.c \
 			hexagon_free.c \
+			pyramid_add.c \
+			pyramid_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

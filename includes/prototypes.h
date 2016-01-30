@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 16:43:25 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 17:06:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include "cube.h"
 # include "pentagon.h"
 # include "hexagon.h"
+# include "pyramid.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -56,6 +57,7 @@ t_rectangle		*create_rectangle(void);
 t_cube			*create_cube(void);
 t_pentagon		*create_pentagon(void);
 t_hexagon		*create_hexagon(void);
+t_pyramid		*create_pyramid(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
@@ -151,5 +153,7 @@ void			pentagon_add(t_env *env, t_pentagon *pentagon);
 void			pentagon_free(t_pentagon *pentagon);
 void			hexagon_add(t_env *env, t_hexagon *hexagon);
 void			hexagon_free(t_hexagon *hexagon);
+void			pyramid_add(t_env *env, t_pyramid *pyramid);
+void			pyramid_free(t_pyramid *pyramid);
 
 #endif
