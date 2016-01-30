@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 12:43:31 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 12:45:00 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:54:20 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	parse_cube_check(t_cube *cube)
 {
 	if (cube->reflection < 0)
-		cube->reflection =  0;
+		cube->reflection = 0;
 	if (cube->reflection > 1)
 		cube->reflection = 1;
 	if (cube->transparency < 0)

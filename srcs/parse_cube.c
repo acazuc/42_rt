@@ -6,11 +6,26 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:36:26 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 13:15:11 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:53:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static void		parse_cube_part2(t_cube *cube, t_parser *p)
+{
+	if (!ft_strcmp(p->datas[p->count], "reflection"))
+		cube->reflection = parse_double(p, "Failed to read object reflection");
+	else if (!ft_strcmp(p->datas[p->count], "transparency"))
+		cube->transparency = parse_double(p
+				, "Failed to read object transparency");
+	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
+		cube->brilliance = parse_double(p, "Failed to read object brilliance");
+	else if (!ft_strcmp(p->datas[p->count], "color"))
+		cube->color = parse_color(p);
+	else
+		parse_error(p, "Unknown object's param entry");
+}
 
 static void		parse_cube_part(t_cube *cube, t_parser *p)
 {
@@ -30,17 +45,8 @@ static void		parse_cube_part(t_cube *cube, t_parser *p)
 		parse_cube_point(cube->p7, p);
 	else if (!ft_strcmp(p->datas[p->count], "p8"))
 		parse_cube_point(cube->p8, p);
-	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		cube->reflection = parse_double(p, "Failed to read object reflection");
-	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		cube->transparency = parse_double(p
-				, "Failed to read object transparency");
-	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		cube->brilliance = parse_double(p, "Failed to read object brilliance");
-	else if (!ft_strcmp(p->datas[p->count], "color"))
-		cube->color = parse_color(p);
 	else
-		parse_error(p, "Unknown object's param entry");
+		parse_cube_part2(cube, p);
 }
 
 void			parse_cube(t_env *env, t_parser *p)

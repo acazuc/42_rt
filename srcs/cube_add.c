@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:32:48 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 13:31:47 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/30 13:52:20 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		set_properties(t_cube *cube, t_rectangle *rectangle)
 	rectangle->color = cube->color;
 }
 
-static void		dup_values(t_vector	*v1, t_vector *v2)
+static void		dup_values(t_vector *v1, t_vector *v2)
 {
 	v1->x = v2->x;
 	v1->y = v2->y;
@@ -35,7 +35,7 @@ static void		set_points(t_cube *cube, t_rectangle *rectangle, int face)
 	dup_values(rectangle->p4, cube_add_point_4(cube, face));
 }
 
-void	cube_add(t_env *env, t_cube *cube)
+void			cube_add(t_env *env, t_cube *cube)
 {
 	t_rectangle		*r;
 	int				i;
