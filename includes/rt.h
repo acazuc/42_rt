@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 08:54:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:55:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,9 @@
 # include "hexagon.h"
 # include "pyramid.h"
 # include "tetrahedron.h"
+# include "heptagon.h"
+# include "octagon.h"
+# include "nonagon.h"
+# include "decagon.h"
 
 #endif
