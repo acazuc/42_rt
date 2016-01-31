@@ -22,5 +22,7 @@ Features:
 * Brilliance
 * Hexagons
 * Pyramids
+* Tetrahedron
+* Regular tetrahedron
 
 Listening to [Alchemist](https://www.youtube.com/watch?v=MHZSF6JnYxI) and [Vario](https://www.youtube.com/watch?v=PcdUC99GKaU) helped alot.
