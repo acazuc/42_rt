@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 09:37:38 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 13:14:37 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 13:44:15 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		dup_values(t_object *triangle
 	triangle->dimensions[2] = v3->z;
 }
 
-static void	vector_moves(t_tetrahedron *tetrahedron)
+static void		vector_moves(t_tetrahedron *tetrahedron)
 {
 	tetrahedron->p1->x += tetrahedron->position->x;
 	tetrahedron->p1->y += tetrahedron->position->y;
@@ -50,7 +50,7 @@ static void	vector_moves(t_tetrahedron *tetrahedron)
 	tetrahedron->p4->z += tetrahedron->position->z;
 }
 
-static void	tetrahedron_add_points(t_env *env, t_tetrahedron *tetrahedron)
+static void		tetrahedron_add_points(t_env *env, t_tetrahedron *tetrahedron)
 {
 	t_object	*t1;
 	t_object	*t2;
@@ -75,24 +75,24 @@ static void	tetrahedron_add_points(t_env *env, t_tetrahedron *tetrahedron)
 	object_add(env, t4);
 }
 
-void		tetrahedron_add(t_env *env, t_tetrahedron *tetrahedron)
+void			tetrahedron_add(t_env *env, t_tetrahedron *tetrahedron)
 {
 	if (!tetrahedron->regular)
 		tetrahedron_add_points(env, tetrahedron);
 	if (!tetrahedron->regular)
 		return ;
-	tetrahedron->p1->x = 1;
-	tetrahedron->p1->y = 1;
-	tetrahedron->p1->z = 1;
-	tetrahedron->p2->x = 1;
-	tetrahedron->p2->y = -1;
-	tetrahedron->p2->z = -1;
-	tetrahedron->p3->x = -1;
-	tetrahedron->p3->y = 1;
-	tetrahedron->p3->z = -1;
-	tetrahedron->p4->x = -1;
-	tetrahedron->p4->y = -1;
-	tetrahedron->p4->z = 1;
+	tetrahedron->p1->x = 1 * tetrahedron->size / 2.;
+	tetrahedron->p1->y = 1 * tetrahedron->size / 2.;
+	tetrahedron->p1->z = 1 * tetrahedron->size / 2.;
+	tetrahedron->p2->x = 1 * tetrahedron->size / 2.;
+	tetrahedron->p2->y = -1 * tetrahedron->size / 2.;
+	tetrahedron->p2->z = -1 * tetrahedron->size / 2.;
+	tetrahedron->p3->x = -1 * tetrahedron->size / 2.;
+	tetrahedron->p3->y = 1 * tetrahedron->size / 2.;
+	tetrahedron->p3->z = -1 * tetrahedron->size / 2.;
+	tetrahedron->p4->x = -1 * tetrahedron->size / 2.;
+	tetrahedron->p4->y = -1 * tetrahedron->size / 2.;
+	tetrahedron->p4->z = 1 * tetrahedron->size / 2.;
 	vector_rotate(tetrahedron->p1, tetrahedron->rotation);
 	vector_rotate(tetrahedron->p2, tetrahedron->rotation);
 	vector_rotate(tetrahedron->p3, tetrahedron->rotation);

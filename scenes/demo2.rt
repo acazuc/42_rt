@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/31 13:25:54 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 13:40:58 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
 #tetrahedron	p1	1	1	1	p2	1	-1	-1	p3	-1	1	-1	p4	-1	-1	1	color	RED
 
-tetrahedron	regular	position	0	0	5	rotation	30	0	0	color	BLUE
+tetrahedron	regular	position	0	0	5	rotation	15	0	0	color	BLUE	size	5
 
 cylinder	position	-5	0	30	color	GREY	dimensions	1
 cylinder	position	5	0	30	color	GREY	dimensions	1

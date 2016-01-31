@@ -6,11 +6,19 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 08:55:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 11:47:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 13:43:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static void		parse_tetrahedron_part2(t_tetrahedron *tetrahedron, t_parser *p)
+{
+	if (!ft_strcmp(p->datas[p->count], "color"))
+		tetrahedron->color = parse_color(p);
+	else
+		parse_error(p, "Unknown object's param entry");
+}
 
 static void		parse_tetrahedron_part(t_tetrahedron *tetrahedron, t_parser *p)
 {
@@ -32,15 +40,15 @@ static void		parse_tetrahedron_part(t_tetrahedron *tetrahedron, t_parser *p)
 		parse_transparency(&tetrahedron->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
 		parse_brilliance(&tetrahedron->brilliance, p);
+	else if (!ft_strcmp(p->datas[p->count], "size"))
+		tetrahedron->size = parse_double(p, "Failed to read object size");
 	else if (!ft_strcmp(p->datas[p->count], "regular"))
 		tetrahedron->regular = 1;
-	else if (!ft_strcmp(p->datas[p->count], "color"))
-		tetrahedron->color = parse_color(p);
 	else
-		parse_error(p, "Unknown object's param entry");
+		parse_tetrahedron_part2(tetrahedron, p);
 }
 
-void	parse_tetrahedron(t_env *env, t_parser *p)
+void			parse_tetrahedron(t_env *env, t_parser *p)
 {
 	t_tetrahedron	*tetrahedron;
 
