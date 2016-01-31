@@ -23,4 +23,4 @@ Features:
 * Hexagons
 * Pyramids
 
-Way simpler if you listen to [Alchemist](https://www.youtube.com/watch?v=MHZSF6JnYxI) or [Vario](https://www.youtube.com/watch?v=PcdUC99GKaU) (I recommend both)
+Listening to [Alchemist](https://www.youtube.com/watch?v=MHZSF6JnYxI) and [Vario](https://www.youtube.com/watch?v=PcdUC99GKaU) helped alot.
