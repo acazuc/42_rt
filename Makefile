@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/31 15:18:27 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 15:39:21 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,6 +143,9 @@ SRCS_NAME = main.c \
 			hexagon_add_moves.c \
 			hexagon_free.c \
 			pyramid_add.c \
+			pyramid_add_regular.c \
+			pyramid_add_rotate.c \
+			pyramid_add_moves.c \
 			pyramid_free.c \
 			tetrahedron_add.c \
 			tetrahedron_add_regular.c \

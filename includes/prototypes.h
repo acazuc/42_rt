@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 15:17:38 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:38:56 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,9 @@ void			hexagon_add_rotate(t_hexagon *hexagon);
 void			hexagon_add_moves(t_hexagon *hexagon);
 void			hexagon_free(t_hexagon *hexagon);
 void			pyramid_add(t_env *env, t_pyramid *pyramid);
+void			pyramid_add_regular(t_pyramid *pyramid);
+void			pyramid_add_rotate(t_pyramid *pyramid);
+void			pyramid_add_moves(t_pyramid *pyramid);
 void			pyramid_free(t_pyramid *pyramid);
 void			tetrahedron_add(t_env *env, t_tetrahedron *tetrahedron);
 void			tetrahedron_add_regular(t_tetrahedron *tetrahedron);

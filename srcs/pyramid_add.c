@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:09:21 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:49:38 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:30:09 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void		set_points(t_object *triangle
 	triangle->dimensions[2] = v3->z;
 }
 
-void			pyramid_add(t_env *env, t_pyramid *pyramid)
+static void		pyramid_add_points(t_env *env, t_pyramid *pyramid)
 {
 	t_rectangle		*r;
 	t_object		*t1;
@@ -75,4 +75,15 @@ void			pyramid_add(t_env *env, t_pyramid *pyramid)
 	object_add(env, t4);
 	rectangle_add(env, r);
 	rectangle_free(r);
+}
+
+void			pyramid_add(t_env *env, t_pyramid *pyramid)
+{
+	if (pyramid->regular)
+	{
+		pyramid_add_regular(pyramid);
+		pyramid_add_rotate(pyramid);
+		pyramid_add_moves(pyramid);
+	}
+	pyramid_add_points(env, pyramid);
 }

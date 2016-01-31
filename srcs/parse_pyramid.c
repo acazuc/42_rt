@@ -6,11 +6,29 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:12:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:30:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:28:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+
+static void		parse_pyramid_part2(t_pyramid *pyramid, t_parser *p)
+{
+	if (!ft_strcmp(p->datas[p->count], "reflection"))
+		parse_reflection(&pyramid->reflection, p);
+	else if (!ft_strcmp(p->datas[p->count], "transparency"))
+		parse_transparency(&pyramid->transparency, p);
+	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
+		parse_brilliance(&pyramid->brilliance, p);
+	else if (!ft_strcmp(p->datas[p->count], "size"))
+		pyramid->size = parse_double(p, "Failed to read object size");
+	else if (!ft_strcmp(p->datas[p->count], "regular"))
+		pyramid->regular = 1;
+	else if (!ft_strcmp(p->datas[p->count], "color"))
+		pyramid->color = parse_color(p);
+	else
+		parse_error(p, "Unknown objet's param entry");
+}
 
 static void		parse_pyramid_part(t_pyramid *pyramid, t_parser *p)
 {
@@ -24,16 +42,12 @@ static void		parse_pyramid_part(t_pyramid *pyramid, t_parser *p)
 		parse_point(pyramid->p4, p);
 	else if (!ft_strcmp(p->datas[p->count], "p5"))
 		parse_point(pyramid->p5, p);
-	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		parse_reflection(&pyramid->reflection, p);
-	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		parse_transparency(&pyramid->transparency, p);
-	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		parse_brilliance(&pyramid->brilliance, p);
-	else if (!ft_strcmp(p->datas[p->count], "color"))
-		pyramid->color = parse_color(p);
+	else if (!ft_strcmp(p->datas[p->count], "position"))
+		parse_point(pyramid->position, p);
+	else if (!ft_strcmp(p->datas[p->count], "rotation"))
+		parse_point(pyramid->rotation, p);
 	else
-		parse_error(p, "Unknown objet's param entry");
+		parse_pyramid_part2(pyramid, p);
 }
 
 void			parse_pyramid(t_env *env, t_parser *p)

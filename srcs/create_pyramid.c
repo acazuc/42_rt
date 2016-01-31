@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:01:58 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:05:07 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:25:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_pyramid	*create_pyramid(void)
 
 	if (!(pyramid = malloc(sizeof(*pyramid))))
 		error_quit("Failed to mallco pyramid");
+	pyramid->position = vector_create();
+	pyramid->rotation = vector_create();
 	pyramid->p1 = vector_create();
 	pyramid->p2 = vector_create();
 	pyramid->p3 = vector_create();
@@ -26,6 +28,8 @@ t_pyramid	*create_pyramid(void)
 	pyramid->reflection = 0;
 	pyramid->transparency = 0;
 	pyramid->brilliance = 0;
+	pyramid->size = 1;
+	pyramid->regular = 0;
 	pyramid->color = WHITE;
 	return (pyramid);
 }
