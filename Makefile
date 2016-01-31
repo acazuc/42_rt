@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/31 09:55:19 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 14:41:03 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,6 +127,9 @@ SRCS_NAME = main.c \
 			rectangle_add.c \
 			rectangle_free.c \
 			cube_add.c \
+			cube_add_regular.c \
+			cube_add_rotate.c \
+			cube_add_moves.c \
 			cube_add_points.c \
 			cube_free.c \
 			pentagon_add.c \
@@ -136,6 +139,9 @@ SRCS_NAME = main.c \
 			pyramid_add.c \
 			pyramid_free.c \
 			tetrahedron_add.c \
+			tetrahedron_add_regular.c \
+			tetrahedron_add_rotate.c \
+			tetrahedron_add_moves.c \
 			tetrahedron_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))

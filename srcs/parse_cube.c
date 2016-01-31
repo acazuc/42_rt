@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:36:26 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:27:01 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:19:10 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 static void		parse_cube_part2(t_cube *cube, t_parser *p)
 {
-	if (!ft_strcmp(p->datas[p->count], "reflection"))
+	if (!ft_strcmp(p->datas[p->count], "position"))
+		parse_point(cube->position, p);
+	else if (!ft_strcmp(p->datas[p->count], "rotation"))
+		parse_point(cube->rotation, p);
+	else if (!ft_strcmp(p->datas[p->count], "reflection"))
 		parse_reflection(&cube->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
 		parse_transparency(&cube->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
 		parse_brilliance(&cube->brilliance, p);
+	else if (!ft_strcmp(p->datas[p->count], "size"))
+		cube->size = parse_double(p, "Failed to read object size");
+	else if (!ft_strcmp(p->datas[p->count], "regular"))
+		cube->regular = 1;
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		cube->color = parse_color(p);
 	else

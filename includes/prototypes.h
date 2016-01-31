@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:53:28 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:40:10 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,9 @@ void			parse_tetrahedron_check(t_tetrahedron *tetrahedron);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);
+void			cube_add_regular(t_cube *cube);
+void			cube_add_rotate(t_cube *cube);
+void			cube_add_moves(t_cube *cube);
 t_vector		*cube_add_point_1(t_cube *cube, int face);
 t_vector		*cube_add_point_2(t_cube *cube, int face);
 t_vector		*cube_add_point_3(t_cube *cube, int face);
@@ -163,6 +166,9 @@ void			hexagon_free(t_hexagon *hexagon);
 void			pyramid_add(t_env *env, t_pyramid *pyramid);
 void			pyramid_free(t_pyramid *pyramid);
 void			tetrahedron_add(t_env *env, t_tetrahedron *tetrahedron);
+void			tetrahedron_add_regular(t_tetrahedron *tetrahedron);
+void			tetrahedron_add_rotate(t_tetrahedron *tetrahedron);
+void			tetrahedron_add_moves(t_tetrahedron *tetrahedron);
 void			tetrahedron_free(t_tetrahedron *tetrahedron);
 
 #endif

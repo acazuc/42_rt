@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.h                                             :+:      :+:    :+:   */
+/*   tetrahedron_add_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 11:15:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 14:16:24 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 14:35:42 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 14:36:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#include "rt.h"
 
-typedef struct		s_cube
+void	tetrahedron_add_rotate(t_tetrahedron *tetrahedron)
 {
-	t_vector		*position;
-	t_vector		*rotation;
-	t_vector		*p1;
-	t_vector		*p2;
-	t_vector		*p3;
-	t_vector		*p4;
-	t_vector		*p5;
-	t_vector		*p6;
-	t_vector		*p7;
-	t_vector		*p8;
-	double			reflection;
-	double			transparency;
-	double			brilliance;
-	double			size;
-	int				regular;
-	int				color;
-}					t_cube;
-
-#endif
+	vector_rotate(tetrahedron->p1, tetrahedron->rotation);
+	vector_rotate(tetrahedron->p2, tetrahedron->rotation);
+	vector_rotate(tetrahedron->p3, tetrahedron->rotation);
+	vector_rotate(tetrahedron->p4, tetrahedron->rotation);
+}

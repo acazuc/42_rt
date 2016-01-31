@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube.h                                             :+:      :+:    :+:   */
+/*   cube_add_rotate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 11:15:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 14:16:24 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 14:32:31 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 14:32:54 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE_H
-# define CUBE_H
+#include "rt.h"
 
-typedef struct		s_cube
+void	cube_add_rotate(t_cube *cube)
 {
-	t_vector		*position;
-	t_vector		*rotation;
-	t_vector		*p1;
-	t_vector		*p2;
-	t_vector		*p3;
-	t_vector		*p4;
-	t_vector		*p5;
-	t_vector		*p6;
-	t_vector		*p7;
-	t_vector		*p8;
-	double			reflection;
-	double			transparency;
-	double			brilliance;
-	double			size;
-	int				regular;
-	int				color;
-}					t_cube;
-
-#endif
+	vector_rotate(cube->p1, cube->rotation);
+	vector_rotate(cube->p2, cube->rotation);
+	vector_rotate(cube->p3, cube->rotation);
+	vector_rotate(cube->p4, cube->rotation);
+	vector_rotate(cube->p5, cube->rotation);
+	vector_rotate(cube->p6, cube->rotation);
+	vector_rotate(cube->p7, cube->rotation);
+	vector_rotate(cube->p8, cube->rotation);
+}

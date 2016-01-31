@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 12:34:00 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 12:40:11 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:16:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_cube	*create_cube(void)
 
 	if (!(cube = malloc(sizeof(*cube))))
 		error_quit("Failed to malloc cube");
+	cube->position = vector_create();
+	cube->rotation = vector_create();
 	cube->p1 = vector_create();
 	cube->p2 = vector_create();
 	cube->p3 = vector_create();
@@ -29,6 +31,8 @@ t_cube	*create_cube(void)
 	cube->reflection = 0;
 	cube->transparency = 0;
 	cube->brilliance = 0;
+	cube->size = 1;
+	cube->regular = 0;
 	cube->color = WHITE;
 	return (cube);
 }

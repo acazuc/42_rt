@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:32:48 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:36:09 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:35:23 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		set_points(t_cube *cube, t_rectangle *rectangle, int face)
 	vector_dup(rectangle->p4, cube_add_point_4(cube, face));
 }
 
-void			cube_add(t_env *env, t_cube *cube)
+static void		cube_add_points(t_env *env, t_cube *cube)
 {
 	t_rectangle		*r;
 	int				i;
@@ -43,4 +43,15 @@ void			cube_add(t_env *env, t_cube *cube)
 		rectangle_free(r);
 		i++;
 	}
+}
+
+void			cube_add(t_env *env, t_cube *cube)
+{
+	if (cube->regular)
+	{
+		cube_add_regular(cube);
+		cube_add_rotate(cube);
+		cube_add_moves(cube);
+	}
+	cube_add_points(env, cube);
 }
