@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 14:37:08 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 09:49:31 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:27:46 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,11 @@ static void		parse_object_part(t_object *object, t_parser *p)
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		object->color = parse_color(p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		object->reflection = parse_double(p
-				, "Failed to read object reflection");
+		parse_reflection(&object->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		object->transparency = parse_double(p
-				, "Failed to read object transparency");
+		parse_transparency(&object->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		object->brilliance = parse_double(p
-				, "Failed to read object transparency");
+		parse_brilliance(&object->brilliance, p);
 	else
 		parse_error(p, "Unknown objet's param entry");
 }

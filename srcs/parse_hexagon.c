@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 15:42:34 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:14:41 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:32:39 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ static void		parse_hexagon_part(t_hexagon *hexagon, t_parser *p)
 	else if (!ft_strcmp(p->datas[p->count], "p6"))
 		parse_point(hexagon->p6, p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		hexagon->reflection = parse_double(p
-				, "Failed to read object reflection");
+		parse_reflection(&hexagon->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		hexagon->transparency = parse_double(p
-				, "Failed to read object transparency");
+		parse_transparency(&hexagon->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		hexagon->brilliance = parse_double(p
-				, "Failed to read object brilliance");
+		parse_brilliance(&hexagon->brilliance, p);
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		hexagon->color = parse_color(p);
 	else

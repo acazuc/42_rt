@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:12:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:15:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:30:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,11 @@ static void		parse_pyramid_part(t_pyramid *pyramid, t_parser *p)
 	else if (!ft_strcmp(p->datas[p->count], "p5"))
 		parse_point(pyramid->p5, p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		pyramid->reflection = parse_double(p
-				, "Failed to read object reflection");
+		parse_reflection(&pyramid->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		pyramid->transparency = parse_double(p
-				, "Failed to read object transparency");
+		parse_transparency(&pyramid->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		pyramid->brilliance = parse_double(p
-				, "Failed to read object brilliance");
+		parse_brilliance(&pyramid->brilliance, p);
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		pyramid->color = parse_color(p);
 	else

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:36:26 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:13:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:27:01 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 static void		parse_cube_part2(t_cube *cube, t_parser *p)
 {
 	if (!ft_strcmp(p->datas[p->count], "reflection"))
-		cube->reflection = parse_double(p, "Failed to read object reflection");
+		parse_reflection(&cube->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		cube->transparency = parse_double(p
-				, "Failed to read object transparency");
+		parse_transparency(&cube->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		cube->brilliance = parse_double(p, "Failed to read object brilliance");
+		parse_brilliance(&cube->brilliance, p);
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		cube->color = parse_color(p);
 	else

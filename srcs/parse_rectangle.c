@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 09:58:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:13:14 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:29:55 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,11 @@ static void		parse_rectangle_part(t_rectangle *rectangle, t_parser *p)
 	else if (!ft_strcmp(p->datas[p->count], "p4"))
 		parse_point(rectangle->p4, p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		rectangle->reflection = parse_double(p
-				, "Failed to read object reflection");
+		parse_reflection(&rectangle->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		rectangle->transparency = parse_double(p
-				, "Failed to read object transparency");
+		parse_transparency(&rectangle->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		rectangle->brilliance = parse_double(p
-				, "Failed to read object brilliance");
+		parse_brilliance(&rectangle->brilliance, p);
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		rectangle->color = parse_color(p);
 	else

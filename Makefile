@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/31 09:15:43 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 09:26:02 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,6 +109,9 @@ SRCS_NAME = main.c \
 			parse_window.c \
 			parse_double.c \
 			parse_point.c \
+			parse_reflection.c \
+			parse_transparency.c \
+			parse_brilliance.c \
 			parse_rectangle.c \
 			parse_rectangle_check.c \
 			parse_cube.c \
@@ -119,6 +122,8 @@ SRCS_NAME = main.c \
 			parse_hexagon_check.c \
 			parse_pyramid.c \
 			parse_pyramid_check.c \
+			parse_tetrahedron.c \
+			parse_tetrahedron_check.c \
 			rectangle_add.c \
 			rectangle_free.c \
 			cube_add.c \

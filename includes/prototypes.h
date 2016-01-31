@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:12:45 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:37:25 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,9 @@ void			parse_triangle_point(double *x, double *y, double *z
 		, t_parser *parser);
 double			parse_double(t_parser *parser, char *error);
 void			parse_point(t_vector *point, t_parser *parser);
+void			parse_reflection(double *reflection, t_parser *parser);
+void			parse_transparency(double *transparency, t_parser *parser);
+void			parse_brilliance(double *brilliance, t_parser *parser);
 void			parse_rectangle(t_env *env, t_parser *parser);
 void			parse_rectangle_check(t_rectangle *rectangle);
 void			parse_cube(t_env *env, t_parser *parser);
@@ -144,7 +147,7 @@ void			parse_hexagon_check(t_hexagon *hexagon);
 void			parse_pyramid(t_env *env, t_parser *parser);
 void			parse_pyramid_check(t_pyramid *pyramid);
 void			parse_tetrahedron(t_env *env, t_parser *parser);
-void			parse_tetrahedorn_check(t_tetrahedron *tetrahedron);
+void			parse_tetrahedron_check(t_tetrahedron *tetrahedron);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);

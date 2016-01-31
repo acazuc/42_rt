@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 14:17:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 10:01:27 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:29:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ static void		parse_triangle_part(t_object *triangle, t_parser *p)
 		parse_triangle_point(&triangle->dimensions[0], &triangle->dimensions[1]
 				, &triangle->dimensions[2], p);
 	else if (!ft_strcmp(p->datas[p->count], "reflection"))
-		triangle->reflection = parse_double(p
-				, "Failed to read object reflection");
+		parse_reflection(&triangle->reflection, p);
 	else if (!ft_strcmp(p->datas[p->count], "transparency"))
-		triangle->transparency = parse_double(p
-				, "Failed to read object transparency");
+		parse_transparency(&triangle->transparency, p);
 	else if (!ft_strcmp(p->datas[p->count], "brilliance"))
-		triangle->brilliance = parse_double(p
-				, "Failed to read object brilliance");
+		parse_brilliance(&triangle->brilliance, p);
 	else if (!ft_strcmp(p->datas[p->count], "color"))
 		triangle->color = parse_color(p);
 	else
