@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tetrahedron_free.c                                 :+:      :+:    :+:   */
+/*   octahedron.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/31 08:58:40 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 11:47:21 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 11:37:42 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 11:38:30 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#ifndef OCTAHEDRON_H
+# define OCTAHEDRON_H
 
-void	tetrahedron_free(t_tetrahedron *tetrahedron)
+typedef struct		s_octahedron
 {
-	free(tetrahedron->position);
-	free(tetrahedron->rotation);
-	free(tetrahedron->p1);
-	free(tetrahedron->p2);
-	free(tetrahedron->p3);
-	free(tetrahedron->p4);
-	free(tetrahedron);
-}
+	t_vector		*p1;
+	t_vector		*p2;
+	t_vector		*p3;
+	t_vector		*p4;
+	t_vector		*p5;
+	t_Vector		*p6;
+}					t_octahedron;
+
+#endif

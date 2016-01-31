@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 08:52:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 08:53:58 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 11:46:35 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 typedef struct		s_tetrahedron
 {
+	t_vector		*position;
+	t_vector		*rotation;
 	t_vector		*p1;
 	t_vector		*p2;
 	t_vector		*p3;
@@ -22,6 +24,8 @@ typedef struct		s_tetrahedron
 	double			reflection;
 	double			transparency;
 	double			brilliance;
+	double			size;
+	int				regular;
 	int				color;
 }					t_tetrahedron;
 
