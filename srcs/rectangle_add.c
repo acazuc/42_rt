@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 10:53:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 14:48:07 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 16:02:06 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,14 @@ static void		dup_values(t_object *triangle, t_vector *v1, t_vector *v2
 
 void			rectangle_add(t_env *env, t_rectangle *rectangle)
 {
-	t_object	*t1;
-	t_object	*t2;
+	t_object	*t;
 
-	t1 = create_triangle();
-	set_properties(rectangle, t1);
-	dup_values(t1, rectangle->p1, rectangle->p2, rectangle->p4);
-	t2 = create_triangle();
-	set_properties(rectangle, t2);
-	dup_values(t2, rectangle->p2, rectangle->p3, rectangle->p4);
-	object_add(env, t1);
-	object_add(env, t2);
+	t = create_triangle();
+	set_properties(rectangle, t);
+	dup_values(t, rectangle->p1, rectangle->p2, rectangle->p4);
+	object_add(env, t);
+	t = create_triangle();
+	set_properties(rectangle, t);
+	dup_values(t, rectangle->p2, rectangle->p3, rectangle->p4);
+	object_add(env, t);
 }

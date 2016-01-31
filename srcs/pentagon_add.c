@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 14:39:59 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 15:02:24 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 16:03:00 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,20 @@ static void		dup_values(t_object *triangle
 
 static void		pentagon_add_points(t_env *env, t_pentagon *pentagon)
 {
-	t_object	*t1;
-	t_object	*t2;
-	t_object	*t3;
+	t_object	*t;
 
-	t1 = create_triangle();
-	set_properties(pentagon, t1);
-	dup_values(t1, pentagon->p2, pentagon->p1, pentagon->p5);
-	t2 = create_triangle();
-	set_properties(pentagon, t2);
-	dup_values(t2, pentagon->p2, pentagon->p3, pentagon->p4);
-	t3 = create_triangle();
-	set_properties(pentagon, t3);
-	dup_values(t3, pentagon->p2, pentagon->p5, pentagon->p4);
-	object_add(env, t1);
-	object_add(env, t2);
-	object_add(env, t3);
+	t = create_triangle();
+	set_properties(pentagon, t);
+	dup_values(t, pentagon->p2, pentagon->p1, pentagon->p5);
+	object_add(env, t);
+	t = create_triangle();
+	set_properties(pentagon, t);
+	dup_values(t, pentagon->p2, pentagon->p3, pentagon->p4);
+	object_add(env, t);
+	t = create_triangle();
+	set_properties(pentagon, t);
+	dup_values(t, pentagon->p2, pentagon->p5, pentagon->p4);
+	object_add(env, t);
 }
 
 void			pentagon_add(t_env *env, t_pentagon *pentagon)

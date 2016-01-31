@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 17:09:21 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 15:30:09 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 16:00:05 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,25 @@ static void		set_points(t_object *triangle
 static void		pyramid_add_points(t_env *env, t_pyramid *pyramid)
 {
 	t_rectangle		*r;
-	t_object		*t1;
-	t_object		*t2;
-	t_object		*t3;
-	t_object		*t4;
+	t_object		*t;
 
 	r = create_rectangle();
 	set_properties_r(pyramid, r);
 	set_points_r(pyramid, r);
-	set_properties(pyramid, (t1 = create_triangle()));
-	set_points(t1, pyramid->p1, pyramid->p2, pyramid->p5);
-	set_properties(pyramid, (t2 = create_triangle()));
-	set_points(t2, pyramid->p2, pyramid->p3, pyramid->p5);
-	set_properties(pyramid, (t3 = create_triangle()));
-	set_points(t3, pyramid->p3, pyramid->p4, pyramid->p5);
-	set_properties(pyramid, (t4 = create_triangle()));
-	set_points(t4, pyramid->p4, pyramid->p1, pyramid->p5);
-	object_add(env, t1);
-	object_add(env, t2);
-	object_add(env, t3);
-	object_add(env, t4);
 	rectangle_add(env, r);
 	rectangle_free(r);
+	set_properties(pyramid, (t = create_triangle()));
+	set_points(t, pyramid->p1, pyramid->p2, pyramid->p5);
+	object_add(env, t);
+	set_properties(pyramid, (t = create_triangle()));
+	set_points(t, pyramid->p2, pyramid->p3, pyramid->p5);
+	object_add(env, t);
+	set_properties(pyramid, (t = create_triangle()));
+	set_points(t, pyramid->p3, pyramid->p4, pyramid->p5);
+	object_add(env, t);
+	set_properties(pyramid, (t = create_triangle()));
+	set_points(t, pyramid->p4, pyramid->p1, pyramid->p5);
+	object_add(env, t);
 }
 
 void			pyramid_add(t_env *env, t_pyramid *pyramid)

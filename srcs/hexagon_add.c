@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 16:35:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 15:03:20 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 16:03:47 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,24 @@ static void		dup_values(t_object *triangle
 
 static void		hexagon_add_points(t_env *env, t_hexagon *hexagon)
 {
-	t_object	*t1;
-	t_object	*t2;
-	t_object	*t3;
-	t_object	*t4;
+	t_object	*t;
 
-	t1 = create_triangle();
-	set_properties(hexagon, t1);
-	dup_values(t1, hexagon->p1, hexagon->p2, hexagon->p3);
-	t2 = create_triangle();
-	set_properties(hexagon, t2);
-	dup_values(t2, hexagon->p1, hexagon->p3, hexagon->p6);
-	t3 = create_triangle();
-	set_properties(hexagon, t3);
-	dup_values(t3, hexagon->p3, hexagon->p4, hexagon->p6);
-	t4 = create_triangle();
-	set_properties(hexagon, t4);
-	dup_values(t4, hexagon->p6, hexagon->p4, hexagon->p5);
-	object_add(env, t1);
-	object_add(env, t2);
-	object_add(env, t3);
-	object_add(env, t4);
+	t = create_triangle();
+	set_properties(hexagon, t);
+	dup_values(t, hexagon->p1, hexagon->p2, hexagon->p3);
+	object_add(env, t);
+	t = create_triangle();
+	set_properties(hexagon, t);
+	dup_values(t, hexagon->p1, hexagon->p3, hexagon->p6);
+	object_add(env, t);
+	t = create_triangle();
+	set_properties(hexagon, t);
+	dup_values(t, hexagon->p3, hexagon->p4, hexagon->p6);
+	object_add(env, t);
+	t = create_triangle();
+	set_properties(hexagon, t);
+	dup_values(t, hexagon->p6, hexagon->p4, hexagon->p5);
+	object_add(env, t);
 }
 
 void			hexagon_add(t_env *env, t_hexagon *hexagon)
