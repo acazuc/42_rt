@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 17:44:39 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 10:16:11 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ sphere		position	-5	-5	5	color	GREY	dimensions	2	brilliance	1
 sphere		position	5	5	5	color	GREY	dimensions	2	brilliance	1
 sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
-pyramid	p1	-1	0	5	p2	1	0	5	p3	1	0	7	p4	-1	0	7	p5	0	2	6	color	RED
+tetrahedron	p1	0	-1	4	p2	1	-1	5	p3	-1	-1	5	p4	0	1	5	color	BLUE
 
 cylinder	position	-5	0	30	color	GREY	dimensions	1
 cylinder	position	5	0	30	color	GREY	dimensions	1
@@ -37,5 +37,5 @@ plane		position	0	-5	0	color	WHITE	rotation	0	0	0
 plane		position	0	0	50	color	BLUE	rotation	90	0	0
 plane		position	0	5	0	color	WHITE	rotation	0	0	0
 
-light		position	14.5	4	-30		luminosity	1
-light		position	-14.5	4	-30		luminosity	1
+light		position	14.5	4	-30		luminosity	0.5
+light		position	-14.5	4	-30		luminosity	0.5
