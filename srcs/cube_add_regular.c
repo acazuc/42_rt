@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 14:19:27 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 14:33:20 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:44:43 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	cube_add_regular(t_cube *cube)
 	cube->p7->z = 1 * cube->size / 2.;
 	cube->p8->x = -1 * cube->size / 2.;
 	cube->p8->y = -1 * cube->size / 2.;
-	cube->p8->z = -1 * cube->size / 2.;
+	cube->p8->z = 1 * cube->size / 2.;
 }
