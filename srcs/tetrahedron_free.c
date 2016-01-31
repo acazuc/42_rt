@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_pyramid_point.c                              :+:      :+:    :+:   */
+/*   tetrahedron_free.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 17:20:02 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:21:07 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 08:58:40 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 09:02:44 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	parse_pyramid_point(t_vector *point, t_parser *p)
+void	tetrahedron_free(t_tetrahedron *tetrahedron)
 {
-	point->x = parse_double(p, "Failed to read pyramid point x");
-	point->y = parse_double(p, "Failed to read pyramid point y");
-	point->z = parse_double(p, "Failed to read pyramid point z");
+	free(tetrahedron->p1);
+	free(tetrahedron->p2);
+	free(tetrahedron->p3);
+	free(tetrahedron->p4);
+	free(tetrahedron);
 }

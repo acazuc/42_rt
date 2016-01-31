@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 11:36:26 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 13:53:13 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:13:59 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ static void		parse_cube_part2(t_cube *cube, t_parser *p)
 static void		parse_cube_part(t_cube *cube, t_parser *p)
 {
 	if (!ft_strcmp(p->datas[p->count], "p1"))
-		parse_cube_point(cube->p1, p);
+		parse_point(cube->p1, p);
 	else if (!ft_strcmp(p->datas[p->count], "p2"))
-		parse_cube_point(cube->p2, p);
+		parse_point(cube->p2, p);
 	else if (!ft_strcmp(p->datas[p->count], "p3"))
-		parse_cube_point(cube->p3, p);
+		parse_point(cube->p3, p);
 	else if (!ft_strcmp(p->datas[p->count], "p4"))
-		parse_cube_point(cube->p4, p);
+		parse_point(cube->p4, p);
 	else if (!ft_strcmp(p->datas[p->count], "p5"))
-		parse_cube_point(cube->p5, p);
+		parse_point(cube->p5, p);
 	else if (!ft_strcmp(p->datas[p->count], "p6"))
-		parse_cube_point(cube->p6, p);
+		parse_point(cube->p6, p);
 	else if (!ft_strcmp(p->datas[p->count], "p7"))
-		parse_cube_point(cube->p7, p);
+		parse_point(cube->p7, p);
 	else if (!ft_strcmp(p->datas[p->count], "p8"))
-		parse_cube_point(cube->p8, p);
+		parse_point(cube->p8, p);
 	else
 		parse_cube_part2(cube, p);
 }
@@ -60,7 +60,7 @@ void			parse_cube(t_env *env, t_parser *p)
 		parse_cube_part(cube, p);
 		p->count++;
 	}
-	cube_add(env, cube);
 	parse_cube_check(cube);
+	cube_add(env, cube);
 	cube_free(cube);
 }

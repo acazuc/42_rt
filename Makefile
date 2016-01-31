@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/30 17:35:40 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 09:15:43 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS_NAME = main.c \
 			create_pentagon.c \
 			create_hexagon.c \
 			create_pyramid.c \
+			create_tetrahedron.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
@@ -107,20 +108,16 @@ SRCS_NAME = main.c \
 			parse_ambient_light.c \
 			parse_window.c \
 			parse_double.c \
+			parse_point.c \
 			parse_rectangle.c \
-			parse_rectangle_point.c \
 			parse_rectangle_check.c \
 			parse_cube.c \
-			parse_cube_point.c \
 			parse_cube_check.c \
 			parse_pentagon.c \
-			parse_pentagon_point.c \
 			parse_pentagon_check.c \
 			parse_hexagon.c \
-			parse_hexagon_point.c \
 			parse_hexagon_check.c \
 			parse_pyramid.c \
-			parse_pyramid_point.c \
 			parse_pyramid_check.c \
 			rectangle_add.c \
 			rectangle_free.c \
@@ -133,6 +130,7 @@ SRCS_NAME = main.c \
 			hexagon_free.c \
 			pyramid_add.c \
 			pyramid_free.c \
+			tetrahedron_free.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
 

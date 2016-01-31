@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_hexagon_point.c                              :+:      :+:    :+:   */
+/*   tetrahedron.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 16:31:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 16:32:27 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 08:52:35 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 08:53:58 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "rt.h"
+#ifndef TETRAHEDRON_H
+# define TETRAHEDRON_H
 
-void	parse_hexagon_point(t_vector *vector, t_parser *p)
+typedef struct		s_tetrahedron
 {
-	vector->x = parse_double(p, "Failed to read hexagon point x");
-	vector->y = parse_double(p, "Failed to read hexagon point y");
-	vector->z = parse_double(p, "Failed to read hexagon point z");
-}
+	t_vector		*p1;
+	t_vector		*p2;
+	t_vector		*p3;
+	t_vector		*p4;
+	double			reflection;
+	double			transparency;
+	double			brilliance;
+	int				color;
+}					t_tetrahedron;
+
+#endif

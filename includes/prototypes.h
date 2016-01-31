@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 17:35:32 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 09:12:45 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include "pentagon.h"
 # include "hexagon.h"
 # include "pyramid.h"
+# include "tetrahedron.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -58,6 +59,7 @@ t_cube			*create_cube(void);
 t_pentagon		*create_pentagon(void);
 t_hexagon		*create_hexagon(void);
 t_pyramid		*create_pyramid(void);
+t_tetrahedron	*create_tetrahedron(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
@@ -130,21 +132,19 @@ void			parse_triangle(t_object *triangle, t_parser *parser);
 void			parse_triangle_point(double *x, double *y, double *z
 		, t_parser *parser);
 double			parse_double(t_parser *parser, char *error);
+void			parse_point(t_vector *point, t_parser *parser);
 void			parse_rectangle(t_env *env, t_parser *parser);
-void			parse_rectangle_point(t_vector *point, t_parser *parser);
 void			parse_rectangle_check(t_rectangle *rectangle);
 void			parse_cube(t_env *env, t_parser *parser);
-void			parse_cube_point(t_vector *point, t_parser *parser);
 void			parse_cube_check(t_cube *cube);
 void			parse_pentagon(t_env *env, t_parser *parser);
-void			parse_pentagon_point(t_vector *point, t_parser *parser);
 void			parse_pentagon_check(t_pentagon *pentagon);
 void			parse_hexagon(t_env *env, t_parser *parser);
-void			parse_hexagon_point(t_vector *vector, t_parser *parser);
 void			parse_hexagon_check(t_hexagon *hexagon);
 void			parse_pyramid(t_env *env, t_parser *parser);
-void			parse_pyramid_point(t_vector *point, t_parser *parser);
 void			parse_pyramid_check(t_pyramid *pyramid);
+void			parse_tetrahedron(t_env *env, t_parser *parser);
+void			parse_tetrahedorn_check(t_tetrahedron *tetrahedron);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);
@@ -159,5 +159,6 @@ void			hexagon_add(t_env *env, t_hexagon *hexagon);
 void			hexagon_free(t_hexagon *hexagon);
 void			pyramid_add(t_env *env, t_pyramid *pyramid);
 void			pyramid_free(t_pyramid *pyramid);
+void			tetrahedron_free(t_tetrahedron *tetrahedron);
 
 #endif

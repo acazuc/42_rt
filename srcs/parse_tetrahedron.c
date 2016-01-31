@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_pentagon_point.c                             :+:      :+:    :+:   */
+/*   parse_tetrahedron.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 14:33:57 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 14:35:37 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 08:55:08 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 08:58:29 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	parse_pentagon_point(t_vector *point, t_parser *p)
+void	parse_tetrahedron(t_env *env, t_parser *p)
 {
-	point->x = parse_double(p, "Failed to read pentagone point x");
-	point->y = parse_double(p, "Failed to read pentagone point y");
-	point->z = parse_double(p, "Failed to read pentagone point z");
+	t_tetrahedron	*tetrahedron;
+
+	tetrahedron = create_tetrahedron();
+	p->count = 1;
+	while (p->datas[p->count])
+	{
+		parse_tetrahedron_part(tetrahedron, p);
+		p->count++;
+	}
+	parse_tetrahedron_check(tetrahedron);
+	tetrahedron_add(env, tetrahedron);
+	tetrahedron_free(tetrahedron);
 }
