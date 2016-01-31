@@ -25,6 +25,7 @@ Features:
 * Hexagons
 * Regular hexagons
 * Pyramids
+* Regular pyramid
 * Tetrahedron
 * Regular tetrahedron
 
