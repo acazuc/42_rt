@@ -22,3 +22,5 @@ Features:
 * Brilliance
 * Hexagons
 * Pyramids
+
+Way simpler if you listen to [Alchemist](https://www.youtube.com/watch?v=MHZSF6JnYxI) or [Vario](https://www.youtube.com/watch?v=PcdUC99GKaU) (I recommend both)
