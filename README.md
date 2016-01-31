@@ -11,6 +11,7 @@ Features:
 * Regular cuboids
 * Quadrilaterals
 * Pentagons
+* Regular pentagons
 * External scene file
 * Multi thread
 * Fov / camera / window changes
@@ -22,6 +23,7 @@ Features:
 * Light transparency
 * Brilliance
 * Hexagons
+* Regular hexagons
 * Pyramids
 * Tetrahedron
 * Regular tetrahedron
