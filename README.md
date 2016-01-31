@@ -8,6 +8,7 @@ Features:
 * Planes
 * Triangles
 * Cuboids
+* Regular cuboids
 * Quadrilaterals
 * Pentagons
 * External scene file
