@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 14:40:10 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:17:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,8 +160,14 @@ t_vector		*cube_add_point_3(t_cube *cube, int face);
 t_vector		*cube_add_point_4(t_cube *cube, int face);
 void			cube_free(t_cube *cube);
 void			pentagon_add(t_env *env, t_pentagon *pentagon);
+void			pentagon_add_regular(t_pentagon *pentagon);
+void			pentagon_add_rotate(t_pentagon *pentagon);
+void			pentagon_add_moves(t_pentagon *petagon);
 void			pentagon_free(t_pentagon *pentagon);
 void			hexagon_add(t_env *env, t_hexagon *hexagon);
+void			hexagon_add_regular(t_hexagon *hexagon);
+void			hexagon_add_rotate(t_hexagon *hexagon);
+void			hexagon_add_moves(t_hexagon *hexagon);
 void			hexagon_free(t_hexagon *hexagon);
 void			pyramid_add(t_env *env, t_pyramid *pyramid);
 void			pyramid_free(t_pyramid *pyramid);

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 13:56:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 14:28:22 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:51:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_pentagon		*create_pentagon(void)
 
 	if (!(pentagon = malloc(sizeof(*pentagon))))
 		error_quit("Failed to malloc pentagon");
+	pentagon->position = vector_create();
+	pentagon->rotation = vector_create();
 	pentagon->p1 = vector_create();
 	pentagon->p2 = vector_create();
 	pentagon->p3 = vector_create();
@@ -26,6 +28,8 @@ t_pentagon		*create_pentagon(void)
 	pentagon->brilliance = 0;
 	pentagon->reflection = 0;
 	pentagon->transparency = 0;
+	pentagon->size = 1;
+	pentagon->regular = 0;
 	pentagon->color = WHITE;
 	return (pentagon);
 }

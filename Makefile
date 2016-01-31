@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/31 14:41:03 by acazuc           ###   ########.fr        #
+#    Updated: 2016/01/31 15:18:27 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -133,8 +133,14 @@ SRCS_NAME = main.c \
 			cube_add_points.c \
 			cube_free.c \
 			pentagon_add.c \
+			pentagon_add_regular.c \
+			pentagon_add_rotate.c \
+			pentagon_add_moves.c \
 			pentagon_free.c \
 			hexagon_add.c \
+			hexagon_add_regular.c \
+			hexagon_add_rotate.c \
+			hexagon_add_moves.c \
 			hexagon_free.c \
 			pyramid_add.c \
 			pyramid_free.c \

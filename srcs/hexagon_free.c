@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 16:29:15 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 16:30:42 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:58:41 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	hexagon_free(t_hexagon *hexagon)
 {
+	free(hexagon->position);
+	free(hexagon->rotation);
 	free(hexagon->p1);
 	free(hexagon->p2);
 	free(hexagon->p3);

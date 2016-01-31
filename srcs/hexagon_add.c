@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 16:35:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 16:47:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:03:20 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		dup_values(t_object *triangle
 	triangle->dimensions[2] = v3->z;
 }
 
-void			hexagon_add(t_env *env, t_hexagon *hexagon)
+static void		hexagon_add_points(t_env *env, t_hexagon *hexagon)
 {
 	t_object	*t1;
 	t_object	*t2;
@@ -57,4 +57,15 @@ void			hexagon_add(t_env *env, t_hexagon *hexagon)
 	object_add(env, t2);
 	object_add(env, t3);
 	object_add(env, t4);
+}
+
+void			hexagon_add(t_env *env, t_hexagon *hexagon)
+{
+	if (hexagon->regular)
+	{
+		hexagon_add_regular(hexagon);
+		hexagon_add_rotate(hexagon);
+		hexagon_add_moves(hexagon);
+	}
+	hexagon_add_points(env, hexagon);
 }

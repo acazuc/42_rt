@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 14:39:59 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 15:06:05 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 15:02:24 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		dup_values(t_object *triangle
 	triangle->dimensions[2] = v3->z;
 }
 
-void			pentagon_add(t_env *env, t_pentagon *pentagon)
+static void		pentagon_add_points(t_env *env, t_pentagon *pentagon)
 {
 	t_object	*t1;
 	t_object	*t2;
@@ -52,4 +52,15 @@ void			pentagon_add(t_env *env, t_pentagon *pentagon)
 	object_add(env, t1);
 	object_add(env, t2);
 	object_add(env, t3);
+}
+
+void			pentagon_add(t_env *env, t_pentagon *pentagon)
+{
+	if (pentagon->regular)
+	{
+		pentagon_add_regular(pentagon);
+		pentagon_add_rotate(pentagon);
+		pentagon_add_moves(pentagon);
+	}
+	pentagon_add_points(env, pentagon);
 }

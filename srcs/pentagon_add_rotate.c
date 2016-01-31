@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube_free.c                                        :+:      :+:    :+:   */
+/*   pentagon_add_rotate.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 11:31:51 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 14:57:16 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 15:06:46 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 15:07:34 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	cube_free(t_cube *cube)
+void	pentagon_add_rotate(t_pentagon *pentagon)
 {
-	free(cube->position);
-	free(cube->rotation);
-	free(cube->p1);
-	free(cube->p2);
-	free(cube->p3);
-	free(cube->p4);
-	free(cube->p5);
-	free(cube->p6);
-	free(cube);
+	vector_rotate(pentagon->p1, pentagon->rotation);
+	vector_rotate(pentagon->p2, pentagon->rotation);
+	vector_rotate(pentagon->p3, pentagon->rotation);
+	vector_rotate(pentagon->p4, pentagon->rotation);
+	vector_rotate(pentagon->p5, pentagon->rotation);
 }

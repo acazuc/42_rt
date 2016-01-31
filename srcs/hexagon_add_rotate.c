@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube_free.c                                        :+:      :+:    :+:   */
+/*   hexagon_add_rotate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/30 11:31:51 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 14:57:16 by acazuc           ###   ########.fr       */
+/*   Created: 2016/01/31 15:07:39 by acazuc            #+#    #+#             */
+/*   Updated: 2016/01/31 15:08:20 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	cube_free(t_cube *cube)
+void	hexagon_add_rotate(t_hexagon *hexagon)
 {
-	free(cube->position);
-	free(cube->rotation);
-	free(cube->p1);
-	free(cube->p2);
-	free(cube->p3);
-	free(cube->p4);
-	free(cube->p5);
-	free(cube->p6);
-	free(cube);
+	vector_rotate(hexagon->p1, hexagon->rotation);
+	vector_rotate(hexagon->p2, hexagon->rotation);
+	vector_rotate(hexagon->p3, hexagon->rotation);
+	vector_rotate(hexagon->p4, hexagon->rotation);
+	vector_rotate(hexagon->p5, hexagon->rotation);
+	vector_rotate(hexagon->p6, hexagon->rotation);
 }

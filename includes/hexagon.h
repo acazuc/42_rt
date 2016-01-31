@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 15:31:44 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 15:34:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:56:54 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 typedef struct		s_hexagon
 {
+	t_vector		*position;
+	t_vector		*rotation;
 	t_vector		*p1;
 	t_vector		*p2;
 	t_vector		*p3;
@@ -24,6 +26,8 @@ typedef struct		s_hexagon
 	double			reflection;
 	double			transparency;
 	double			brilliance;
+	double			size;
+	int				regular;
 	int				color;
 }					t_hexagon;
 

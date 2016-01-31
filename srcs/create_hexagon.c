@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 15:37:59 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/30 15:41:36 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 14:58:04 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_hexagon	*create_hexagon(void)
 
 	if (!(hexagon = malloc(sizeof(*hexagon))))
 		error_quit("Failed to malloc hexagon");
+	hexagon->position = vector_create();
+	hexagon->rotation = vector_create();
 	hexagon->p1 = vector_create();
 	hexagon->p2 = vector_create();
 	hexagon->p3 = vector_create();
@@ -27,6 +29,8 @@ t_hexagon	*create_hexagon(void)
 	hexagon->reflection = 0;
 	hexagon->transparency = 0;
 	hexagon->brilliance = 0;
+	hexagon->size = 1;
+	hexagon->regular = 0;
 	hexagon->color = WHITE;
 	return (hexagon);
 }
