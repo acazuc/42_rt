@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 09:03:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 11:46:50 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/01/31 13:11:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_tetrahedron	*create_tetrahedron(void)
 	tetrahedron->reflection = 0;
 	tetrahedron->transparency = 0;
 	tetrahedron->brilliance = 0;
-	tetrahedron->size = 0;
+	tetrahedron->size = 1;
 	tetrahedron->regular = 0;
 	tetrahedron->color = WHITE;
 	return (tetrahedron);
