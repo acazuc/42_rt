@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/30 10:53:24 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 16:02:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 10:14:08 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,16 @@ static void		set_properties(t_rectangle *rectangle, t_object *triangle)
 	triangle->color = rectangle->color;
 }
 
-static void		dup_values(t_object *triangle, t_vector *v1, t_vector *v2
-		, t_vector *v3)
-{
-	triangle->position->x = v1->x;
-	triangle->position->y = v1->y;
-	triangle->position->z = v1->z;
-	triangle->rotation->x = v2->x;
-	triangle->rotation->y = v2->y;
-	triangle->rotation->z = v2->z;
-	triangle->dimensions[0] = v3->x;
-	triangle->dimensions[1] = v3->y;
-	triangle->dimensions[2] = v3->z;
-}
-
 void			rectangle_add(t_env *env, t_rectangle *rectangle)
 {
 	t_object	*t;
 
 	t = create_triangle();
 	set_properties(rectangle, t);
-	dup_values(t, rectangle->p1, rectangle->p2, rectangle->p4);
+	set_triangle_vectors(t, rectangle->p1, rectangle->p2, rectangle->p4);
 	object_add(env, t);
 	t = create_triangle();
 	set_properties(rectangle, t);
-	dup_values(t, rectangle->p2, rectangle->p3, rectangle->p4);
+	set_triangle_vectors(t, rectangle->p2, rectangle->p3, rectangle->p4);
 	object_add(env, t);
 }

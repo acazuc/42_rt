@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   octahedron.h                                       :+:      :+:    :+:   */
+/*   set_triangle_vectors.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/31 11:37:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 09:47:17 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/01 10:10:35 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/01 10:12:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OCTAHEDRON_H
-# define OCTAHEDRON_H
+#include "rt.h"
 
-typedef struct		s_octahedron
+void	set_triangle_vectors(t_object *triangle, t_vector *v1, t_vector *v2
+		, t_vector *v2)
 {
-	t_vector		*position;
-	t_vector		*rotation;
-	t_vector		*p1;
-	t_vector		*p2;
-	t_vector		*p3;
-	t_vector		*p4;
-	t_vector		*p5;
-	t_vector		*p6;
-	double			reflection;
-	double			transparency;
-	double			brilliance;
-	double			size;
-	int				regular;
-	int				color;
-}					t_octahedron;
-
-#endif
+	triangle->position->x = v1->x;
+	triangle->position->y = v1->y;
+	triangle->position->z = v1->z;
+	triangle->rotation->x = v2->x;
+	triangle->rotation->y = v2->y;
+	triangle->rotation->z = v2->z;
+	triangle->dimensions[0] = v3->x;
+	triangle->dimensions[1] = v3->y;
+	triangle->dimensions[2] = v3->z;
+}

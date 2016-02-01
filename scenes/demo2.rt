@@ -6,13 +6,13 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/01/31 16:06:02 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/01 09:58:45 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 window	1280	720
 
-camera	position	0	0	-20	rotation	0	0	0	fov	66
+camera	position	0	0	-20	rotation	0	0	0	fov	90
 
 # Pilliers
 cylinder	position	-5	0	5	color	GREY	dimensions	1	brilliance	1
@@ -24,14 +24,14 @@ sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
 #tetrahedron	p1	1	1	1	p2	1	-1	-1	p3	-1	1	-1	p4	-1	-1	1	color	RED
 
-pentagon	regular	position	0	0	5	rotation	0	0	0	color	BLUE	size	5
+pyramid	regular	position	0	0	5	rotation	45	45	45	color	BLUE	size	5
 
-cylinder	position	-5	0	30	color	GREY	dimensions	1
-cylinder	position	5	0	30	color	GREY	dimensions	1
-sphere		position	-5	5	30	color	GREY	dimensions	2
-sphere		position	-5	-5	30	color	GREY	dimensions	2
-sphere		position	5	5	30	color	GREY	dimensions	2
-sphere		position	5	-5	30	color	GREY	dimensions	2
+cylinder	position	-5	0	30	color	GREY	dimensions	1	brilliance	1
+cylinder	position	5	0	30	color	GREY	dimensions	1	brilliance	1
+sphere		position	-5	5	30	color	GREY	dimensions	2	brilliance	1
+sphere		position	-5	-5	30	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	5	30	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	-5	30	color	GREY	dimensions	2	brilliance	1
 
 sphere		position	0	-3	5	color	RED		dimensions	1
 

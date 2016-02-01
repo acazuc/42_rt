@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   octahedron.h                                       :+:      :+:    :+:   */
+/*   octahedron_add.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/31 11:37:42 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 09:47:17 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/01 10:07:47 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/01 10:08:53 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OCTAHEDRON_H
-# define OCTAHEDRON_H
+#include "rt.h"
 
-typedef struct		s_octahedron
+void			octahedron_add(t_env *env, t_octahedron *octahedron)
 {
-	t_vector		*position;
-	t_vector		*rotation;
-	t_vector		*p1;
-	t_vector		*p2;
-	t_vector		*p3;
-	t_vector		*p4;
-	t_vector		*p5;
-	t_vector		*p6;
-	double			reflection;
-	double			transparency;
-	double			brilliance;
-	double			size;
-	int				regular;
-	int				color;
-}					t_octahedron;
-
-#endif
+	if (octahedron->regular)
+	{
+		octahedron_add_regular(octahedron);
+		octahedron_add_rotate(octahedron);
+		octahedron_add_moves(octahedron);
+	}
+	octahedron_add_points(env, octahedron);
+}

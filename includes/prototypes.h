@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 15:38:56 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 10:15:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include "hexagon.h"
 # include "pyramid.h"
 # include "tetrahedron.h"
+# include "octahedron.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -60,6 +61,7 @@ t_pentagon		*create_pentagon(void);
 t_hexagon		*create_hexagon(void);
 t_pyramid		*create_pyramid(void);
 t_tetrahedron	*create_tetrahedron(void);
+t_octahedron	*create_octahedron(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
@@ -148,6 +150,8 @@ void			parse_pyramid(t_env *env, t_parser *parser);
 void			parse_pyramid_check(t_pyramid *pyramid);
 void			parse_tetrahedron(t_env *env, t_parser *parser);
 void			parse_tetrahedron_check(t_tetrahedron *tetrahedron);
+void			parse_octahedron(t_env *env, t_parser *parser);
+void			parse_octahedron_check(t_octahedron *octahedron);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);
@@ -179,5 +183,9 @@ void			tetrahedron_add_regular(t_tetrahedron *tetrahedron);
 void			tetrahedron_add_rotate(t_tetrahedron *tetrahedron);
 void			tetrahedron_add_moves(t_tetrahedron *tetrahedron);
 void			tetrahedron_free(t_tetrahedron *tetrahedron);
+void			octahedron_add(t_env *env, t_octahedron *octahedron);
+void			octahedron_free(t_octahedron *octahedron);
+void			set_triangle_vectors(t_object *t, t_vector *v1
+		, t_vector *v2, t_vector *v3);
 
 #endif
