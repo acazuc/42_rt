@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 15:24:38 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 15:33:06 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:40:47 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	obj_add_rotate(t_obj *obj, t_obj_file *file)
 {
 	t_obj_vertex_list	*lst;
-	
+
 	lst = file->vertex;
 	while (lst)
 	{

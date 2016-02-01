@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 13:26:01 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 15:38:09 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:40:31 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static t_vector		*get_vertex(t_obj_file *file, int i)
 	return (lst->vertex);
 }
 
-static void		set_triangle_properties(t_object *triangle, t_obj *obj)
+static void			set_triangle_properties(t_object *triangle, t_obj *obj)
 {
 	triangle->reflection = obj->reflection;
 	triangle->transparency = obj->transparency;
@@ -37,7 +37,7 @@ static void		set_triangle_properties(t_object *triangle, t_obj *obj)
 	triangle->color = obj->color;
 }
 
-static void		set_triangle(t_object *triangle
+static void			set_triangle(t_object *triangle
 		, t_vector *v1, t_vector *v2, t_vector *v3)
 {
 	if (!v1 || !v2 || !v3)
@@ -45,7 +45,7 @@ static void		set_triangle(t_object *triangle
 	set_triangle_vectors(triangle, v1, v2, v3);
 }
 
-void	obj_add(t_env *env, t_obj *obj)
+void				obj_add(t_env *env, t_obj *obj)
 {
 	t_obj_file			*file;
 	t_obj_face_list		*lst;

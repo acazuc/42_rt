@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 13:39:18 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 15:15:57 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:41:04 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ t_obj_file		*obj_parse_file(char *name)
 	{
 		if (line[0] == 'v' && line[1] == ' ')
 			parse_vertex(file, line);
-		else if (line[0] == 'f' && line[1]== ' ')
+		else if (line[0] == 'f' && line[1] == ' ')
 			parse_face(file, line);
 	}
 	if (rd == -1)
