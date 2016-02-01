@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 13:53:11 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 09:19:19 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 12:38:40 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@
 # include "pyramid.h"
 # include "tetrahedron.h"
 # include "octahedron.h"
+# include "obj.h"
+# include "obj_vertex_list.h"
 
 #endif

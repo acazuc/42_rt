@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 11:05:16 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:24:51 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # include "pyramid.h"
 # include "tetrahedron.h"
 # include "octahedron.h"
+# include "obj.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -62,6 +63,7 @@ t_hexagon		*create_hexagon(void);
 t_pyramid		*create_pyramid(void);
 t_tetrahedron	*create_tetrahedron(void);
 t_octahedron	*create_octahedron(void);
+t_obj			*create_obj(void);
 t_collision		*collide(t_ray *ray, t_object *object);
 t_collision		*collide_sphere(t_ray *ray, t_object *sphere);
 t_collision		*collide_cylinder(t_ray *ray, t_object *cylinder);
@@ -152,6 +154,8 @@ void			parse_tetrahedron(t_env *env, t_parser *parser);
 void			parse_tetrahedron_check(t_tetrahedron *tetrahedron);
 void			parse_octahedron(t_env *env, t_parser *parser);
 void			parse_octahedron_check(t_octahedron *octahedron);
+void			parse_obj(t_env *env, t_parser *parser);
+void			parse_obj_check(t_obj *obj);
 void			rectangle_add(t_env *env, t_rectangle *rectangle);
 void			rectangle_free(t_rectangle *rectangle);
 void			cube_add(t_env *env, t_cube *cube);
@@ -188,6 +192,8 @@ void			octahedron_add_regular(t_octahedron *octahedron);
 void			octahedron_add_rotate(t_octahedron *octahedron);
 void			octahedron_add_moves(t_octahedron *octahedron);
 void			octahedron_free(t_octahedron *octahedron);
+void			obj_add(t_env *env, t_obj *obj);
+void			obj_free(t_obj *obj);
 void			set_triangle_vectors(t_object *t, t_vector *v1
 		, t_vector *v2, t_vector *v3);
 

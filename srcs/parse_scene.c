@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 10:05:59 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 12:39:55 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static void		do_parse_2(t_env *env, t_parser *parser)
 		parse_tetrahedron(env, parser);
 	else if (!ft_strcmp(parser->datas[0], "octahedron"))
 		parse_octahedron(env, parser);
+	else if (!ft_strcmp(parser->datas[0], "obj"))
+		parse_obj(env, parser);
 	else
 		parse_error(parser, "Unknown line in scene");
 }

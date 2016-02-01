@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/01 11:13:48 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/01 13:25:54 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRCS_NAME = main.c \
 			create_pyramid.c \
 			create_tetrahedron.c \
 			create_octahedron.c \
+			create_obj.c \
 	  		collide.c \
 	  		collide_sphere.c \
 	  		collide_cylinder.c \
@@ -129,6 +130,8 @@ SRCS_NAME = main.c \
 			parse_octahedron_check.c \
 			parse_octahedron.c \
 			parse_octahedron_check.c \
+			parse_obj.c \
+			parse_obj_check.c \
 			rectangle_add.c \
 			rectangle_free.c \
 			cube_add.c \
@@ -162,6 +165,8 @@ SRCS_NAME = main.c \
 			octahedron_add_rotate.c \
 			octahedron_add_moves.c \
 			octahedron_free.c \
+			obj_add.c \
+			obj_free.c \
 			set_triangle_vectors.c \
 
 SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
