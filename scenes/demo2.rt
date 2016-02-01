@@ -6,7 +6,7 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/01 11:14:30 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/01 14:16:59 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
 #tetrahedron	p1	1	1	1	p2	1	-1	-1	p3	-1	1	-1	p4	-1	-1	1	color	RED
 
-octahedron	regular	position	0	0	5	rotation	45	45	45	color	BLUE	size	5
+#octahedron	regular	position	0	0	5	rotation	45	45	45	color	BLUE	size	5
+
+obj	file	scenes/objs/cube.obj	position	0	0	5	rotation	45	45	45	color	BLUE
 
 cylinder	position	-5	0	30	color	GREY	dimensions	1	brilliance	1
 cylinder	position	5	0	30	color	GREY	dimensions	1	brilliance	1

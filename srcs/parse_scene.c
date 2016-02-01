@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 13:36:23 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:48:16 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ static void		parse_line(t_env *env, char *file, char *line, int line_number)
 		{
 			parser.line = line_number;
 			parser.file = file;
-			parser.datas = ft_strsplit(line, '\t');
+			if (!(parser.datas = ft_strsplit(line, '\t')))
+				error_quit("Failed to split file line");
 			len = 0;
 			while (parser.datas[len])
 				len++;

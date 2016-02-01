@@ -6,19 +6,19 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 09:06:54 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/07 14:08:44 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 14:27:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFFER_SIZE 1
+# define BUFF_SIZE 800
 
 # include <stdlib.h>
 # include <string.h>
-# include <unistd.h>
 # include "../libft/includes/libft.h"
+# include <unistd.h>
 
 int					get_next_line(const int fd, char **line);
 

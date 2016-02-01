@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 13:36:13 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 14:07:22 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include "tetrahedron.h"
 # include "octahedron.h"
 # include "obj.h"
+# include "obj_file.h"
 
 void			draw_reset(t_env *env);
 void			pixel_put(t_env *env, int x, int y, unsigned int color);
@@ -193,6 +194,7 @@ void			octahedron_add_rotate(t_octahedron *octahedron);
 void			octahedron_add_moves(t_octahedron *octahedron);
 void			octahedron_free(t_octahedron *octahedron);
 void			obj_add(t_env *env, t_obj *obj);
+t_obj_file		*obj_parse_file(char *file);
 void			obj_free(t_obj *obj);
 void			set_triangle_vectors(t_object *t, t_vector *v1
 		, t_vector *v2, t_vector *v3);
