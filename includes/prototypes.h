@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 14:07:22 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:30:38 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,8 @@ void			octahedron_add_rotate(t_octahedron *octahedron);
 void			octahedron_add_moves(t_octahedron *octahedron);
 void			octahedron_free(t_octahedron *octahedron);
 void			obj_add(t_env *env, t_obj *obj);
+void			obj_add_rotate(t_obj *obj, t_obj_file *file);
+void			obj_add_moves(t_obj *obj, t_obj_file *file);
 t_obj_file		*obj_parse_file(char *file);
 void			obj_free(t_obj *obj);
 void			set_triangle_vectors(t_object *t, t_vector *v1

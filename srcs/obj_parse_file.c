@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 13:39:18 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 14:27:48 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:15:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static void		parse_face(t_obj_file *file, char *line)
 	{
 		if (!(pdatas = ft_strsplit(datas[i + 1], '/')))
 			error_quit("Invalid obj file (face arg split size)");
-		if (!pdatas[0] || !pdatas[1] || !pdatas[2] || pdatas[3])
+		if (!pdatas[0])
 			error_quit("Invalid obj file (face arg split size 2)");
 		if (!ft_strisdigit(pdatas[0]))
 			error_quit("Invalid obj file (face vertex id)");
@@ -106,24 +106,19 @@ t_obj_file		*obj_parse_file(char *name)
 	int			rd;
 	int			fd;
 
-	ft_putendl("lol");
 	if (!(file = malloc(sizeof(*file))))
 		error_quit("Failed to malloc obj file struct");
 	file->vertex = NULL;
 	file->faces = NULL;
-	if ((fd = open(name, O_RDONLY) == -1))
+	if ((fd = open(name, O_RDONLY)) == -1)
 		error_quit("Failed to open obj file");
-	ft_putendl("reading");
 	while ((rd = get_next_line(fd, &line)) == 1)
 	{
-		ft_putendl("read");
 		if (line[0] == 'v' && line[1] == ' ')
 			parse_vertex(file, line);
 		else if (line[0] == 'f' && line[1]== ' ')
 			parse_face(file, line);
-		ft_putendl("ended");
 	}
-	ft_putendl("ended reading");
 	if (rd == -1)
 		error_quit("Error while getting next line of obj file");
 	close(fd);

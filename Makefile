@@ -6,7 +6,7 @@
 #    By: acazuc <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 06:50:12 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/01 14:07:40 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/01 15:31:32 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,6 +166,8 @@ SRCS_NAME = main.c \
 			octahedron_add_moves.c \
 			octahedron_free.c \
 			obj_add.c \
+			obj_add_moves.c \
+			obj_add_rotate.c \
 			obj_parse_file.c \
 			obj_free.c \
 			set_triangle_vectors.c \
