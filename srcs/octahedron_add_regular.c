@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 11:08:29 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 11:12:26 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 11:24:20 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	octahedron_add_regular(t_octahedron *octahedron)
 	octahedron->p2->x = 0;
 	octahedron->p2->y = 0;
 	octahedron->p2->z = 1 * octahedron->size / 2.;
-	octahedron->p3->x = -1 * octahedron->size / 2.;
+	octahedron->p3->x = 1 * octahedron->size / 2.;
 	octahedron->p3->y = 0;
 	octahedron->p3->z = 0;
 	octahedron->p4->x = 0;
