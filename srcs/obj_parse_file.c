@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 13:39:18 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 15:55:33 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 17:34:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ t_obj_file		*obj_parse_file(char *name)
 	char		*line;
 	int			rd;
 	int			fd;
-	int			line_n;
 
 	if (!(file = malloc(sizeof(*file))))
 		error_quit("Failed to malloc obj file struct");
@@ -113,16 +112,12 @@ t_obj_file		*obj_parse_file(char *name)
 	file->faces = NULL;
 	if ((fd = open(name, O_RDONLY)) == -1)
 		error_quit("Failed to open obj file");
-	line_n = 1;
 	while ((rd = get_next_line(fd, &line)) == 1)
 	{
-		ft_putnbr(line_n);
-		ft_putchar('\n');
 		if (line[0] == 'v' && line[1] == ' ')
 			parse_vertex(file, line);
 		else if (line[0] == 'f' && line[1] == ' ')
 			parse_face(file, line);
-		line_n++;
 	}
 	if (rd == -1)
 		error_quit("Error while getting next line of obj file");
