@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 13:26:01 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 15:31:16 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:38:09 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,21 @@ static t_vector		*get_vertex(t_obj_file *file, int i)
 	lst = file->vertex;
 	j = 1;
 	while (j < i)
-		if (!(lst = lst->next))
-			return (NULL);
+	{
+		lst = lst->next;
+		j++;
+	}
+	if (!lst)
+		return (NULL);
 	return (lst->vertex);
+}
+
+static void		set_triangle_properties(t_object *triangle, t_obj *obj)
+{
+	triangle->reflection = obj->reflection;
+	triangle->transparency = obj->transparency;
+	triangle->brilliance = obj->brilliance;
+	triangle->color = obj->color;
 }
 
 static void		set_triangle(t_object *triangle
@@ -48,6 +60,7 @@ void	obj_add(t_env *env, t_obj *obj)
 	while (lst)
 	{
 		t = create_triangle();
+		set_triangle_properties(t, obj);
 		set_triangle(t, get_vertex(file, lst->v1), get_vertex(file, lst->v2)
 				, get_vertex(file, lst->v3));
 		object_add(env, t);
