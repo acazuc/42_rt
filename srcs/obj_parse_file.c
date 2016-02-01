@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 13:39:18 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 15:41:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 15:55:33 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void		parse_vertex(t_obj_file *file, char *line)
 
 	if (!(datas = ft_strsplit(line, ' ')))
 		error_quit("Failed to split obj line");
-	if (!datas[0] || !datas[1] || !datas[2] || !datas[3] || datas[4])
+	if (!datas[0] || !datas[1] || !datas[2] || !datas[3])
 		error_quit("Invalid obj file (vertex split size)");
 	if (!parse_valid_number(datas[1]) || !parse_valid_number(datas[2])
 			|| !parse_valid_number(datas[3]))
@@ -82,7 +82,7 @@ static void		parse_face(t_obj_file *file, char *line)
 
 	if (!(datas = ft_strsplit(line, ' ')))
 		error_quit("Failed to split obj line");
-	if (!datas[0] || !datas[1] || !datas[2] || !datas[3] || datas[4])
+	if (!datas[0] || !datas[1] || !datas[2] || !datas[3])
 		error_quit("Invalid obj file (face line size)");
 	i = 0;
 	while (i < 3)
@@ -91,9 +91,9 @@ static void		parse_face(t_obj_file *file, char *line)
 			error_quit("Invalid obj file (face arg split size)");
 		if (!pdatas[0])
 			error_quit("Invalid obj file (face arg split size 2)");
-		if (!ft_strisdigit(pdatas[0]))
+		if (!parse_valid_number(pdatas[0]))
 			error_quit("Invalid obj file (face vertex id)");
-		v[i] = ft_atoi(pdatas[0]);
+		v[i] = ft_atod(pdatas[0]);
 		i++;
 	}
 	push_face(file, v[0], v[1], v[2]);
@@ -105,6 +105,7 @@ t_obj_file		*obj_parse_file(char *name)
 	char		*line;
 	int			rd;
 	int			fd;
+	int			line_n;
 
 	if (!(file = malloc(sizeof(*file))))
 		error_quit("Failed to malloc obj file struct");
@@ -112,12 +113,16 @@ t_obj_file		*obj_parse_file(char *name)
 	file->faces = NULL;
 	if ((fd = open(name, O_RDONLY)) == -1)
 		error_quit("Failed to open obj file");
+	line_n = 1;
 	while ((rd = get_next_line(fd, &line)) == 1)
 	{
+		ft_putnbr(line_n);
+		ft_putchar('\n');
 		if (line[0] == 'v' && line[1] == ' ')
 			parse_vertex(file, line);
 		else if (line[0] == 'f' && line[1] == ' ')
 			parse_face(file, line);
+		line_n++;
 	}
 	if (rd == -1)
 		error_quit("Error while getting next line of obj file");

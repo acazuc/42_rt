@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 12:41:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 14:18:04 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 16:04:27 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static void		parse_obj_part(t_obj *obj, t_parser *p)
 		obj->color = parse_color(p);
 	else if (!ft_strcmp(p->datas[p->count], "file"))
 		obj->file = p->datas[++p->count];
+	else if (!ft_strcmp(p->datas[p->count], "size"))
+		obj->size = parse_double(p, "Failed to read obj size");
 	else
 		parse_error(p, "Unknown object's param entry");
 }
