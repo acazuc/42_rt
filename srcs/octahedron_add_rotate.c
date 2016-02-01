@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_triangle_vectors.c                             :+:      :+:    :+:   */
+/*   octahedron_add_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/01 10:10:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 11:13:08 by acazuc           ###   ########.fr       */
+/*   Created: 2016/02/01 11:07:41 by acazuc            #+#    #+#             */
+/*   Updated: 2016/02/01 11:08:21 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
 
-void	set_triangle_vectors(t_object *triangle, t_vector *v1, t_vector *v2
-		, t_vector *v3)
+void	octahedron_add_rotate(t_octahedron *octahedron)
 {
-	triangle->position->x = v1->x;
-	triangle->position->y = v1->y;
-	triangle->position->z = v1->z;
-	triangle->rotation->x = v2->x;
-	triangle->rotation->y = v2->y;
-	triangle->rotation->z = v2->z;
-	triangle->dimensions[0] = v3->x;
-	triangle->dimensions[1] = v3->y;
-	triangle->dimensions[2] = v3->z;
+	vector_rotate(octahedron->p1, octahedron->rotation);
+	vector_rotate(octahedron->p2, octahedron->rotation);
+	vector_rotate(octahedron->p3, octahedron->rotation);
+	vector_rotate(octahedron->p4, octahedron->rotation);
+	vector_rotate(octahedron->p5, octahedron->rotation);
+	vector_rotate(octahedron->p6, octahedron->rotation);
 }

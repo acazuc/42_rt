@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 09:19:29 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 09:23:56 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 11:14:07 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_octahedron	*create_octahedron(void)
 	t_octahedron	*octahedron;
 
 	if (!(octahedron = malloc(sizeof(*octahedron))))
-		erorr_quit("Failed to malloc octahedron");
+		error_quit("Failed to malloc octahedron");
 	octahedron->position = vector_create();
 	octahedron->rotation = vector_create();
 	octahedron->p1 = vector_create();
@@ -32,4 +32,5 @@ t_octahedron	*create_octahedron(void)
 	octahedron->size = 1;
 	octahedron->regular = 0;
 	octahedron->color = WHITE;
+	return (octahedron);
 }
