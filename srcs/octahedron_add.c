@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 10:07:47 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 11:06:07 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:34:02 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void		octahedron_add_points(t_env *env, t_octahedron *octahedron)
 	set_properties(octahedron, t);
 	set_triangle_vectors(t, octahedron->p4, octahedron->p1, octahedron->p5);
 	object_add(env, t);
-	octahedron_add_points_2(env,octahedron);
+	octahedron_add_points_2(env, octahedron);
 }
 
 void			octahedron_add(t_env *env, t_octahedron *octahedron)

@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 14:07:45 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 13:24:51 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:36:13 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void			parse_object_dimensions(t_object *object, t_parser *parser);
 void			parse_window(t_env *env, t_parser *parser);
 void			parse_error(t_parser *parser, char *message);
 void			parse_ambient_light(t_env *env, t_parser *p);
-void			parse_triangle(t_object *triangle, t_parser *parser);
+void			parse_triangle(t_env *env, t_parser *parser);
 void			parse_triangle_point(double *x, double *y, double *z
 		, t_parser *parser);
 double			parse_double(t_parser *parser, char *error);

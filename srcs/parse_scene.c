@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 08:58:35 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 12:39:55 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:36:23 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@ static void		do_create_object(t_object **object, char *str)
 
 static void		do_parse_2(t_env *env, t_parser *parser)
 {
-	t_object	*object;
-
 	if (!ft_strcmp(parser->datas[0], "ambient_light"))
 		parse_ambient_light(env, parser);
 	else if (!ft_strcmp(parser->datas[0], "triangle"))
-	{
-		object = create_triangle();
-		parse_triangle(object, parser);
-		object_add(env, object);
-	}
+		parse_triangle(env, parser);
 	else if (!ft_strcmp(parser->datas[0], "rectangle"))
 		parse_rectangle(env, parser);
 	else if (!ft_strcmp(parser->datas[0], "cube"))

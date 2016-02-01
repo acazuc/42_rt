@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 14:17:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/01/31 09:29:07 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:35:57 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,11 @@ static void		parse_triangle_part(t_object *triangle, t_parser *p)
 		parse_error(p, "Unknown object's param entry");
 }
 
-void			parse_triangle(t_object *triangle, t_parser *p)
+void			parse_triangle(t_env *env, t_parser *p)
 {
+	t_object	*triangle;
+
+	triangle = create_triangle();
 	p->count = 1;
 	while (p->datas[p->count])
 	{
@@ -44,4 +47,5 @@ void			parse_triangle(t_object *triangle, t_parser *p)
 		p->count++;
 	}
 	parse_object_check(triangle);
+	object_add(env, triangle);
 }

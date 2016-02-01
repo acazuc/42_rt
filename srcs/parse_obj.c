@@ -6,7 +6,7 @@
 /*   By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/01 12:41:20 by acazuc            #+#    #+#             */
-/*   Updated: 2016/02/01 13:23:52 by acazuc           ###   ########.fr       */
+/*   Updated: 2016/02/01 13:34:11 by acazuc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void		parse_obj_part(t_obj *obj, t_parser *p)
 		parse_error(p, "Unknown object's param entry");
 }
 
-void	parse_obj(t_env *env, t_parser *p)
+void			parse_obj(t_env *env, t_parser *p)
 {
 	t_obj	*obj;
 
