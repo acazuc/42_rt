@@ -6,41 +6,34 @@
 #    By: acazuc <acazuc@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:27:58 by acazuc            #+#    #+#              #
-#    Updated: 2016/02/01 17:45:02 by acazuc           ###   ########.fr        #
+#    Updated: 2016/02/02 09:12:05 by acazuc           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-window	1000	1300
+window	1280	720
 
-camera	position	-2	10	-12	rotation	-25	0	0	fov	90
+camera	position	0	0	-20	rotation	0	0	0	fov	90
 
 # Pilliers
-#cylinder	position	-5	0	5	color	GREY	dimensions	1	brilliance	1
-#cylinder	position	5	0	5	color	GREY	dimensions	1	brilliance	1
-#sphere		position	-5	5	5	color	GREY	dimensions	2	brilliance	1
-#sphere		position	-5	-5	5	color	GREY	dimensions	2	brilliance	1
-#sphere		position	5	5	5	color	GREY	dimensions	2	brilliance	1
-#sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
+cylinder	position	-5	0	5	color	GREY	dimensions	1	brilliance	1
+cylinder	position	5	0	5	color	GREY	dimensions	1	brilliance	1
+sphere		position	-5	5	5	color	GREY	dimensions	2	brilliance	1
+sphere		position	-5	-5	5	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	5	5	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	-5	5	color	GREY	dimensions	2	brilliance	1
 
-#tetrahedron	p1	1	1	1	p2	1	-1	-1	p3	-1	1	-1	p4	-1	-1	1	color	RED
+cylinder	position	-5	0	30	color	GREY	dimensions	1	brilliance	1
+cylinder	position	5	0	30	color	GREY	dimensions	1	brilliance	1
+sphere		position	-5	5	30	color	GREY	dimensions	2	brilliance	1
+sphere		position	-5	-5	30	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	5	30	color	GREY	dimensions	2	brilliance	1
+sphere		position	5	-5	30	color	GREY	dimensions	2	brilliance	1
 
-#octahedron	regular	position	0	0	5	rotation	45	45	45	color	BLUE	size	5
+sphere		position	0	-3	5	color	RED		dimensions	1
 
-obj	file	scenes/objs/darkportal01.obj	position	0	0	0	rotation	0	-180	0	color	#AAAAAA	size	0.2
+plane		position	0	-5	0	color	WHITE	rotation	0	0	0
+plane		position	0	0	50	color	BLUE	rotation	90	0	0
+plane		position	0	5	0	color	WHITE	rotation	0	0	0
 
-#cylinder	position	-5	0	30	color	GREY	dimensions	1	brilliance	1
-#cylinder	position	5	0	30	color	GREY	dimensions	1	brilliance	1
-#sphere		position	-5	5	30	color	GREY	dimensions	2	brilliance	1
-#sphere		position	-5	-5	30	color	GREY	dimensions	2	brilliance	1
-#sphere		position	5	5	30	color	GREY	dimensions	2	brilliance	1
-#sphere		position	5	-5	30	color	GREY	dimensions	2	brilliance	1
-
-#sphere		position	0	-3	5	color	RED		dimensions	1
-
-#plane		position	0	-5	0	color	WHITE	rotation	0	0	0
-#plane		position	0	0	50	color	BLUE	rotation	90	0	0
-#plane		position	0	5	0	color	WHITE	rotation	0	0	0
-
-#light		position	14.5	4	-30		luminosity	0.5
-#light		position	-14.5	4	-30		luminosity	0.5
-light		position	-2	20	-24	luminosity	1
+light		position	14.5	4	-30		luminosity	0.5
+light		position	-14.5	4	-30		luminosity	0.5
