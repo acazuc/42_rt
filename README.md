@@ -28,6 +28,8 @@ Features:
 * Regular pyramid
 * Tetrahedron
 * Regular tetrahedron
+* Octahedron
+* Regular octahedron
 * Obj files
 
 Listening to [Alchemist](https://www.youtube.com/watch?v=MHZSF6JnYxI) and [Vario](https://www.youtube.com/watch?v=PcdUC99GKaU) helped alot.
